@@ -40,8 +40,6 @@ public class LoadScreen extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_screen);
 
-
-
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -96,6 +94,7 @@ public class LoadScreen extends ActionBarActivity {
         public int getCount() {
             // Show 3 total pages.
             return 3;
+            //verhoog dit getal voor meer pagina's.
         }
 
         @Override
