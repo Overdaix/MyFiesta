@@ -6,29 +6,20 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.cincosolutions.myfiesta.LoadScreen$PlaceholderFragment" >
-
+    tools:context="com.cincosolutions.myfiesta.LoadScreen$PlaceholderFragment" 
+	android:background="#0099cc" >
     <TextView
         android:id="@+id/section_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/button2"
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="86dp"
-        android:text="@+string/bt_Events" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button2"
         android:layout_below="@+id/section_label"
-        android:layout_marginTop="94dp"
-        android:text="@+string/bt_Drinks" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="98dp"
+        android:src="@drawable/ic_launcher" />
 
 </RelativeLayout>

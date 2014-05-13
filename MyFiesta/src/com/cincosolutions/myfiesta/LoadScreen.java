@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
@@ -40,6 +41,8 @@ public class LoadScreen extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_screen);
 
+
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -48,6 +51,21 @@ public class LoadScreen extends ActionBarActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        Thread timer  = new Thread(){
+      	  public void run(){
+      		  try{
+      			  //Create loading code stuff here.
+      			 sleep(3000); 
+      		  } catch(InterruptedException e){
+      			  e.printStackTrace();
+      		  }finally{
+      			  Intent OpenMainMenu = new Intent("com.cincosolutions.myfiesta.MAINMENU");
+      			  startActivity(OpenMainMenu);
+      		  }
+      	  }
+        };
+        timer.start();
+        
     }
 
 
@@ -94,7 +112,6 @@ public class LoadScreen extends ActionBarActivity {
         public int getCount() {
             // Show 3 total pages.
             return 3;
-            //verhoog dit getal voor meer pagina's.
         }
 
         @Override

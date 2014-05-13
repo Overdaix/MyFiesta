@@ -7,8 +7,11 @@
     <string name="title_section3">Section 3</string>
     <string name="action_settings">Settings</string>
 
-    
-    <!-- Start menu   -->
+    <!-- Start menu -->
     <string name="bt_Drinks">Drinks</string>
     <string name="bt_Events">Events</string>
+    <string name="title_activity_main_menu">Main menu</string>
+   
+
+
 </resources>
