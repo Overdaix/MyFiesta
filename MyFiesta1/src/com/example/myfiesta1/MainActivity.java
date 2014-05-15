@@ -3,8 +3,6 @@ package com.example.myfiesta1;
 import android.app.Activity;
 import android.os.Bundle;
 
-
-
 public class MainActivity extends Activity {
 
     @Override
