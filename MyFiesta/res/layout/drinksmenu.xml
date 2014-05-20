@@ -8,79 +8,44 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp" >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Drinks"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:gravity="center|right"
         android:orientation="vertical"
         android:padding="10dp" >
 
-        <RadioButton
-            android:id="@+id/radDrinks1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Laat alles zien"
-            android:textSize="10sp" />
-
-        <RadioButton
-            android:id="@+id/radDrinks2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gebruik ingrediënten"
-            android:textSize="10sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Voeg ingrediënten toe" />
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:layout_width="172dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-            <EditText
-                android:id="@+id/etIngredient"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.42"
-                android:ems="10" >
-
-                <requestFocus />
-            </EditText>
-
-            <Button
-                android:id="@+id/btnAddIngredient"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+" />
+                android:gravity="center"
+                android:text="Drinks"
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Ingrediënten"
-            android:textStyle="bold" />
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <ToggleButton
+            android:id="@+id/btnPrefs"
+            android:layout_width="31dp"
+            android:layout_height="27dp"
+            android:layout_gravity="left"
+            android:gravity="left" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnWis"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/llPrefContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Wis alles" />
+        android:orientation="vertical" >
+    </LinearLayout>
 
     <ListView
         android:id="@+id/drinksList"
