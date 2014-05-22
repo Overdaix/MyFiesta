@@ -3,6 +3,7 @@ package com.cincosolutions.myfiesta;
 import android.R.anim;
 import android.app.Activity;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.LinearGradient;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,16 +19,19 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DrinksMenu extends Activity {
 
 	Button btnAddIngredient, btnDelete, btnPrefs;
 	ListView lv;
 	LinearLayout llIngredient, llPrefContainer;
-	String drinks[] = { "Bacardi", "Malibu", "Safari" };
+	String drinks[] = { "Bacardi", "Malibu", "Safari", "SneeuwWitje",
+			"Black Russian", "Drankje2", "Drankje3" };
 	AutoCompleteTextView etSearch;
 	boolean booPrefClicked = false;
-	
+	int tvCounter = 0;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,8 +39,8 @@ public class DrinksMenu extends Activity {
 		setContentView(R.layout.drinksmenu);
 		final View viewToLoad = LayoutInflater.from(getApplicationContext())
 				.inflate(R.layout.drinksprefs, null);
-	
-		llPrefContainer = (LinearLayout) findViewById(R.id.llPrefContainer);		
+
+		llPrefContainer = (LinearLayout) findViewById(R.id.llPrefContainer);
 		llPrefContainer.addView(viewToLoad);
 		btnPrefs = (Button) findViewById(R.id.btnPrefs);
 		viewToLoad.setVisibility(View.GONE);
@@ -50,35 +54,50 @@ public class DrinksMenu extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(booPrefClicked == false)
-				{
-				
+				if (booPrefClicked == false) {
+
 					viewToLoad.setVisibility(View.VISIBLE);
 					etSearch = (AutoCompleteTextView) findViewById(R.id.etIngredient);
 					ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-							DrinksMenu.this, android.R.layout.simple_list_item_1,
-							drinks);
+							DrinksMenu.this,
+							android.R.layout.simple_list_item_1, drinks);
 					etSearch.setAdapter(adapter);
 					btnAddIngredient = (Button) findViewById(R.id.btnAddIngredient);
-					btnAddIngredient.setOnClickListener(new View.OnClickListener() {
-	
-						public void onClick(View v) {
-							TextView tv = new TextView(DrinksMenu.this);
-							tv.setText(etSearch.getText().toString());
-							llIngredient = (LinearLayout) findViewById(R.id.lvIngredient);
-							llIngredient.addView(tv);
-						}
-					});
+					btnAddIngredient
+							.setOnClickListener(new View.OnClickListener() {
+
+								public void onClick(View v) {
+									final View viewToLoad = LayoutInflater.from(getApplicationContext())
+											.inflate(R.layout.ingredientrowview, null);
+									llIngredient = (LinearLayout) findViewById(R.id.lvIngredient);
+									llIngredient.addView(viewToLoad);
+									LinearLayout ingredientRow = (LinearLayout) findViewById(R.id.ingredientNameContainer);
+									TextView tv = new TextView(DrinksMenu.this);
+									tvCounter++;
+									tv.setText(etSearch.getText().toString()
+											+ tvCounter);
+									Context context = getApplicationContext();
+							          CharSequence text = etSearch.getText().toString()
+												+ tvCounter;
+							          int duration = Toast.LENGTH_SHORT;
+
+							          Toast toast = Toast.makeText(context, text, duration);
+							          toast.show();
+									tv.setId(tvCounter);
+									ingredientRow.addView(tv);
+									
+								}
+							});
 					booPrefClicked = true;
-				}
-				else{
-					//ViewGroup parent = (ViewGroup) findViewById(R.id.llPrefContainer);
-					//parent.removeView(viewToLoad);
+				} else {
+					// ViewGroup parent = (ViewGroup)
+					// findViewById(R.id.llPrefContainer);
+					// parent.removeView(viewToLoad);
 					viewToLoad.setVisibility(View.GONE);
 					booPrefClicked = false;
 				}
 			}
-			
+
 		});
 
 		lv = (ListView) findViewById(R.id.drinksList);
