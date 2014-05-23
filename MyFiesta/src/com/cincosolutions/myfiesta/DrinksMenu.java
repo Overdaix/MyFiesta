@@ -1,9 +1,13 @@
 package com.cincosolutions.myfiesta;
 
+import com.cincosolutions.myfiesta.SimpleGestureFilter.SimpleGestureListener;
+
+import android.view.MotionEvent;
 import android.R.anim;
 import android.app.Activity;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.LinearGradient;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,8 +25,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class DrinksMenu extends Activity {
-
+public class DrinksMenu extends Activity implements SimpleGestureListener{
+	
+    SimpleGestureFilter detector;
 	Button btnAddIngredient, btnDelete, btnPrefs;
 	ListView lv;
 	LinearLayout llIngredient, llPrefContainer;
@@ -45,10 +50,12 @@ public class DrinksMenu extends Activity {
 		btnPrefs = (Button) findViewById(R.id.btnPrefs);
 		viewToLoad.setVisibility(View.GONE);
 		// etSearch.getText().toString();
-
+		
+	
+		
 		// if(etSearch.getText().toString().contentEquals(drinks))
 		// Create the adapter and set it to the AutoCompleteTextView
-
+		  
 		btnPrefs.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -115,6 +122,49 @@ public class DrinksMenu extends Activity {
 
 		});
 		getApplicationContext().setTheme(R.style.AppTheme);
+		
+		detector = new SimpleGestureFilter(this,this);
+	}
+
+	
+	 @Override
+	 public boolean dispatchTouchEvent(MotionEvent me){
+        // Call onTouchEvent of SimpleGestureFilter class
+         this.detector.onTouchEvent(me);
+         return super.dispatchTouchEvent(me);
+	 }
+	
+	
+	// Menu swipe function.
+	@Override
+	public void onSwipe(int direction) {
+		String str = "";
+	     switch (direction) {
+			 case SimpleGestureFilter.SWIPE_RIGHT : str = "Swipe Right";
+			  // Do nothing cause drinks are the most right.
+			 	
+			 break;
+			 case SimpleGestureFilter.SWIPE_LEFT :  str = "Swipe Left";
+			  // Go to Events. * Currently Menu (whatever that may be)*
+			 	Intent openMainActivity = new Intent("com.cincosolutions.myfiesta.MAINACTIVITY");
+		      	startActivity(openMainActivity);
+			  break;
+			 case SimpleGestureFilter.SWIPE_DOWN :  str = "Swipe Down";
+			  // Do nothing.
+			  break;
+			 case SimpleGestureFilter.SWIPE_UP :    str = "Swipe Up";
+			  // Do nothing.
+			 break;
+		  
+		 }
+	     Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+	}
+
+	//Required function, does nothing.
+	@Override
+	public void onDoubleTap() {
+		// TODO Auto-generated method stub
+		Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
 	}
 
 }
