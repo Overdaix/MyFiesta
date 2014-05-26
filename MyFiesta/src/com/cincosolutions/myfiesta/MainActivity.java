@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
 				} finally {
 					
 					Intent start = new Intent(
-							"com.cincosolutions.myfiesta.MENUACTIVITY");
+							"com.cincosolutions.myfiesta.DRINKSMENU");
 					startActivity(start);
 					
 				}
