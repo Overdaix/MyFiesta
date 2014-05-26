@@ -12,20 +12,20 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme" android:permission="android.permission.ACCESS_CHECKIN_PROPERTIES">
+		<activity
+            android:name="com.cincosolutions.myfiesta.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.cincosolutions.myfiesta.MAINACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.cincosolutions.myfiesta.DrinksMenu"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.cincosolutions.myfiesta.DRINKSMENU" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.cincosolutions.myfiesta.MainActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="com.cincosolutions.myfiesta.MAINACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
