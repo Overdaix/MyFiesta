@@ -11,9 +11,10 @@
             android:layout_weight="50"
             android:orientation="horizontal" >
             <TextView 
-                android:text="asdaksdaskd"
+                android:text="asd"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/tvIngredient"/>
         </LinearLayout>
 
         <LinearLayout
