@@ -26,8 +26,8 @@ public class SimpleGestureFilter extends SimpleOnGestureListener{
 	
 	private final static int ACTION_FAKE = -13; //just an unlikely number
 	private int swipe_Min_Distance = 40;
-	private int swipe_Max_Distance = 350;
-	private int swipe_Min_Velocity = 500;
+	private int swipe_Max_Distance = 10000;
+	private int swipe_Min_Velocity = 1000;
 	
 	private int viewWidth=400;
 	
