@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -44,7 +45,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener{
 		setContentView(R.layout.drinksmenu);
 		final View viewToLoad = LayoutInflater.from(getApplicationContext())
 				.inflate(R.layout.drinksprefs, null);
-
+	
 		llPrefContainer = (LinearLayout) findViewById(R.id.llPrefContainer);
 		llPrefContainer.addView(viewToLoad);
 		btnPrefs = (Button) findViewById(R.id.btnPrefs);
@@ -83,6 +84,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener{
 									tvCounter++;
 									tv.setText(etSearch.getText().toString()
 											+ tvCounter);
+									tv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
 									Context context = getApplicationContext();
 							          CharSequence text = etSearch.getText().toString()
 												+ tvCounter;
@@ -92,6 +94,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener{
 							          toast.show();
 									tv.setId(tvCounter);
 									ingredientRow.addView(tv);
+									
 									
 								}
 							});
@@ -106,6 +109,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener{
 			}
 
 		});
+		
 
 		lv = (ListView) findViewById(R.id.drinksList);
 		lv.setAdapter(new ArrayAdapter<String>(DrinksMenu.this,
@@ -121,12 +125,10 @@ public class DrinksMenu extends Activity implements SimpleGestureListener{
 			}
 
 		});
-		getApplicationContext().setTheme(R.style.AppTheme);
 		
 		detector = new SimpleGestureFilter(this,this);
 	}
 
-	
 	 @Override
 	 public boolean dispatchTouchEvent(MotionEvent me){
         // Call onTouchEvent of SimpleGestureFilter class
