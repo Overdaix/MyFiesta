@@ -39,12 +39,10 @@ public class Events extends Activity  implements SimpleGestureListener{
 		String str = "";
 	     switch (direction) {
 			 case SimpleGestureFilter.SWIPE_RIGHT : str = "Swipe Right";
-			  // Do nothing cause drinks are the most right.
-			
-			 	
+			 
 			 break;
 			 case SimpleGestureFilter.SWIPE_LEFT :  str = "Swipe Left";
-			  // Go to events settings pagina
+			 	// Do nothing cause drinks are the most right.
 			 	Intent openDrinksActivity = new Intent("com.cincosolutions.myfiesta.DRINKSMENU");
 			 	startActivity(openDrinksActivity);
 			  break;
@@ -55,7 +53,7 @@ public class Events extends Activity  implements SimpleGestureListener{
 			  // Do nothing.
 			 break;
 		 }
-	     Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+	     //Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
