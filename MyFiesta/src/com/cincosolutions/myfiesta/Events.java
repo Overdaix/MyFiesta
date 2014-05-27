@@ -2,7 +2,6 @@ package com.cincosolutions.myfiesta;
 
 import com.cincosolutions.myfiesta.SimpleGestureFilter.SimpleGestureListener;
 
-import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
