@@ -4,7 +4,12 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:baselineAligned="false" >
-        <LinearLayout
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/ingredientRowContainer">
+          <LinearLayout
             android:id="@+id/ingredientNameContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,8 +25,7 @@
         <LinearLayout
             android:id="@+id/ingredientRemoveButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
+            android:layout_height="match_parent"
             android:gravity="right"
             android:orientation="horizontal" >
 
@@ -31,5 +35,5 @@
                 android:gravity="right" />
 
         </LinearLayout>
-
+	</LinearLayout>
 </LinearLayout>
