@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyFiesta</string>
+    <string name="hello_world">Events overview</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_events">Events</string>
+
+</resources>
