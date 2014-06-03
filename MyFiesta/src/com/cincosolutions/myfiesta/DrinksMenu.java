@@ -52,10 +52,9 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	int tvCounter = 0;
 	private WebService1 webService;
 	private ArrayList<Drink> Items = new ArrayList<Drink>();
-
 	public void callWebService() {
 		WebService1 webService = new WebService1(this);
-		
+
 	}
 
 	@Override
@@ -63,25 +62,25 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.drinksmenu);
-		final View viewToLoad = LayoutInflater.from(getApplicationContext())
-				.inflate(R.layout.drinksprefs, null);
 
 		llPrefContainer = (LinearLayout) findViewById(R.id.llPrefContainer);
-		llPrefContainer.addView(viewToLoad);
+		final ViewGroup parent = (ViewGroup) llPrefContainer.getParent();
+		final View view = getLayoutInflater().inflate(R.layout.drinksprefs,
+				parent, false);
+		parent.addView(view);
+
 		btnPrefs = (Button) findViewById(R.id.btnPrefs);
-		viewToLoad.setVisibility(View.GONE);
-		
-		String url = "myfiesta.jeroendboer.nl/webservice1.asmx";
+		view.setVisibility(View.GONE);
+
+		String url = "http://myfiesta.jeroendboer.nl/webservice1.asmx";
 		webService = new WebService1(this, url);
-		
+
 		LoadDrink();
-		
-		
+
 		// etSearch.getText().toString();
 
 		// if(etSearch.getText().toString().contentEquals(drinks))
 		// Create the adapter and set it to the AutoCompleteTextView
-		
 
 		btnPrefs.setOnClickListener(new View.OnClickListener() {
 
@@ -90,8 +89,11 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 				// TODO Auto-generated method stub
 				if (booPrefClicked == false) {
 
-					viewToLoad.setVisibility(View.VISIBLE);
+					view.setVisibility(View.VISIBLE);
 					etSearch = (AutoCompleteTextView) findViewById(R.id.etIngredient);
+
+
+					
 					ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 							DrinksMenu.this,
 							android.R.layout.simple_list_item_1, drinks);
@@ -101,13 +103,16 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 							.setOnClickListener(new View.OnClickListener() {
 
 								public void onClick(View v) {
-									final View viewToLoad = LayoutInflater
-											.from(getApplicationContext())
-											.inflate(
-													R.layout.ingredientrowview,
-													null);
+
 									llIngredient = (LinearLayout) findViewById(R.id.lvIngredient);
-									llIngredient.addView(viewToLoad);
+
+									final ViewGroup parent = (ViewGroup) llIngredient
+											.getParent();
+									View view = getLayoutInflater().inflate(
+											R.layout.ingredientrowview, parent);
+
+									parent.addView(view);
+
 									LinearLayout ingredientRow = (LinearLayout) findViewById(R.id.ingredientNameContainer);
 									TextView tv = new TextView(DrinksMenu.this);
 									tvCounter++;
@@ -134,32 +139,30 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					// ViewGroup parent = (ViewGroup)
 					// findViewById(R.id.llPrefContainer);
 					// parent.removeView(viewToLoad);
-					viewToLoad.setVisibility(View.GONE);
+					view.setVisibility(View.GONE);
 					booPrefClicked = false;
 				}
 			}
 
 		});
-		
 
-	/*	lv = (ListView) findViewById(R.id.drinksList);
-		lv.setAdapter(new ArrayAdapter<String>(DrinksMenu.this,
-				android.R.layout.simple_list_item_1, drinks));
-
-		lv.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				// TODO Auto-generated method stub
-
-			}
-
-		});*/
+		/*
+		 * lv = (ListView) findViewById(R.id.drinksList); lv.setAdapter(new
+		 * ArrayAdapter<String>(DrinksMenu.this,
+		 * android.R.layout.simple_list_item_1, drinks));
+		 * 
+		 * lv.setOnItemClickListener(new OnItemClickListener() {
+		 * 
+		 * @Override public void onItemClick(AdapterView<?> arg0, View arg1, int
+		 * arg2, long arg3) { // TODO Auto-generated method stub
+		 * 
+		 * }
+		 * 
+		 * });
+		 */
 
 		detector = new SimpleGestureFilter(this, this);
-		
-		
+
 	}
 
 	@Override
@@ -167,34 +170,34 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		Log.e("Wsdl2Code", "Wsdl2CodeStartedRequest");
 
 	}
-	
+
 	public void Wsdl2CodeFinished(String methodName, Object Data) {
 		Log.e("Wsdl2Code", "Wsdl2CodeFinished");
 		Log.i("Wsdl2Code", methodName);
-
-		if (methodName == "GetLastReportTime") {
-
-		}
-		else if(methodName == "GetDrinks"){
+		
+		if (methodName == "GetDrinks") {
 			lv = (ListView) findViewById(R.id.drinksList);
 			ArrayList<Drink> drinkslijst = new ArrayList<Drink>();
-			
-			
-			for(Drink drink : (VectorDrink) Data) {
+
+			for (Drink drink : (VectorDrink) Data) {
 				Items.add(drink);
 			}
-			
-			for(Drink drink : Items){
-				drinkslijst.add(drink);			
-			}
-			 lv.setAdapter(new DrinkAdapter(this,
-				        R.layout.drinkslistrow, drinkslijst));
-				    
-			    }
 
+			for (Drink drink : Items) {
+				drinkslijst.add(drink);
+			}
+			com.Wsdl2Code.WebServices.WebService1.Drink drink1 = null;
+			
+			final DrinkAdapter adapter = new DrinkAdapter(this, R.layout.drinkslistrow, drinkslijst);
+			
+			lv.setAdapter(adapter);
+			
 		}
+
+	}
+
 	private void LoadDrink() {
-				
+
 		try {
 			// webService.GetLastReportTimeAsync();
 			webService.GetDrinksAsync();
@@ -202,11 +205,9 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
 
 		// listview.addFooterView(footerlinear);
-	}	
-	
+	}
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent me) {
@@ -255,27 +256,26 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	@Override
 	public void Wsdl2CodeFinishedWithException(Exception ex) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void Wsdl2CodeEndedRequest() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	 private class StableArrayAdapter extends ArrayAdapter<String> {
 
-		    HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
+	private class StableArrayAdapter extends ArrayAdapter<String> {
 
-		    public StableArrayAdapter(Context context, int textViewResourceId,
-		        List<String> objects) {
-		      super(context, textViewResourceId, objects);
-		      for (int i = 0; i < objects.size(); ++i) {
-		        mIdMap.put(objects.get(i), i);
-		      }
-		    }
+		HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
 
-	 }
+		public StableArrayAdapter(Context context, int textViewResourceId,
+				List<String> objects) {
+			super(context, textViewResourceId, objects);
+			for (int i = 0; i < objects.size(); ++i) {
+				mIdMap.put(objects.get(i), i);
+			}
+		}
+
+	}
 }
-
