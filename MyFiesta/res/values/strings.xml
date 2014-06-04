@@ -5,5 +5,8 @@
     <string name="hello_world">Events overview</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_events">Events</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="drinks_head">Drinks</string>
+    <string name="events_head">Events</string>
 
 </resources>

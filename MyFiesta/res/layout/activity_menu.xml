@@ -1,43 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/bg" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:baselineAligned="false" >
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/menuschaduw" >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:orientation="vertical" />
 
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical|center_horizontal"
-            android:paddingTop="110dp" >
+            android:onClick="EventsAct"
+            android:orientation="vertical" >
 
             <ImageView
                 android:id="@+id/rowEvents"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:contentDescription="@null"
                 android:src="@drawable/events" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical|center_horizontal" >
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="25dp"
                 android:background="#262626" >
 
                 <ImageView
-                    android:id="@+id/_arrowr1"
+                    android:id="@+id/_arrowr"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
@@ -52,43 +52,40 @@
                     android:layout_marginLeft="3dp"
                     android:layout_marginTop="2dp"
                     android:fontFamily="Calibri"
-                    android:text="Events"
+                    android:text="@string/events_head"
                     android:textColor="#FFFFFF"
                     android:textSize="13sp"
                     android:textStyle="bold"
                     android:typeface="serif" />
             </LinearLayout>
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow
-            android:id="@+id/tableRow3"
+        <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:background="@null" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical|center_horizontal"
-            android:paddingTop="20dp" >
+            android:onClick="DrinksAct"
+            android:orientation="vertical" >
 
             <ImageView
                 android:id="@+id/rowDrinks"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:contentDescription="@null"
                 android:src="@drawable/drinks" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical|center_horizontal" >
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="25dp"
                 android:background="#262626" >
 
                 <ImageView
-                    android:id="@+id/_arrowr2"
+                    android:id="@+id/_arrowl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="6dp"
@@ -103,13 +100,20 @@
                     android:layout_marginLeft="3dp"
                     android:layout_marginTop="2dp"
                     android:fontFamily="Calibri"
-                    android:text="Drinks"
+                    android:text="@string/drinks_head"
                     android:textColor="#FFFFFF"
                     android:textSize="13sp"
                     android:textStyle="bold"
                     android:typeface="serif" />
             </LinearLayout>
-        </TableRow>
-    </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@null"
+        android:orientation="vertical" />
 
 </LinearLayout>

@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.R.anim;
 import android.app.Activity;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.LinearGradient;
@@ -52,6 +51,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	int tvCounter = 0;
 	private WebService1 webService;
 	private ArrayList<Drink> Items = new ArrayList<Drink>();
+
 	public void callWebService() {
 		WebService1 webService = new WebService1(this);
 
@@ -92,8 +92,6 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					view.setVisibility(View.VISIBLE);
 					etSearch = (AutoCompleteTextView) findViewById(R.id.etIngredient);
 
-
-					
 					ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 							DrinksMenu.this,
 							android.R.layout.simple_list_item_1, drinks);
@@ -174,7 +172,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	public void Wsdl2CodeFinished(String methodName, Object Data) {
 		Log.e("Wsdl2Code", "Wsdl2CodeFinished");
 		Log.i("Wsdl2Code", methodName);
-		
+
 		if (methodName == "GetDrinks") {
 			lv = (ListView) findViewById(R.id.drinksList);
 			ArrayList<Drink> drinkslijst = new ArrayList<Drink>();
@@ -187,11 +185,12 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 				drinkslijst.add(drink);
 			}
 			com.Wsdl2Code.WebServices.WebService1.Drink drink1 = null;
-			
-			final DrinkAdapter adapter = new DrinkAdapter(this, R.layout.drinkslistrow, drinkslijst);
-			
+
+			final DrinkAdapter adapter = new DrinkAdapter(this,
+					R.layout.drinkslistrow, drinkslijst);
+
 			lv.setAdapter(adapter);
-			
+
 		}
 
 	}
@@ -216,41 +215,36 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		return super.dispatchTouchEvent(me);
 	}
 
-	// Menu swipe function.
 	@Override
 	public void onSwipe(int direction) {
 		String str = "";
+
 		switch (direction) {
+
 		case SimpleGestureFilter.SWIPE_RIGHT:
 			str = "Swipe Right";
-			// Do nothing cause drinks are the most right.
+
+			Intent openEvents = new Intent("com.cincosolutions.myfiesta.EVENTS");
+			startActivity(openEvents);
 
 			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
 			str = "Swipe Left";
-			// Go to Events. * Currently Menu (whatever that may be)*
-			Intent openMainActivity = new Intent(
-					"com.cincosolutions.myfiesta.MAINACTIVITY");
-			startActivity(openMainActivity);
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
 			str = "Swipe Down";
-			// Do nothing.
 			break;
 		case SimpleGestureFilter.SWIPE_UP:
 			str = "Swipe Up";
-			// Do nothing.
 			break;
 
 		}
 		Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
 	}
 
-	// Required function, does nothing.
 	@Override
 	public void onDoubleTap() {
-		// TODO Auto-generated method stub
-		Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
@@ -277,5 +271,16 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			}
 		}
 
+	}
+
+	public void EventsAct(View v) {
+		Intent openEvents = new Intent("com.cincosolutions.myfiesta.EVENTS");
+		startActivity(openEvents);
+	}
+
+	public void SettingsAct(View v) {
+		Intent openSettingsActivity = new Intent(
+				"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
+		startActivity(openSettingsActivity);
 	}
 }
