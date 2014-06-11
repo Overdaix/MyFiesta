@@ -120,14 +120,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" 
                 android:background="@null">
-            </LinearLayout>
 
-            <ToggleButton
-                android:id="@+id/btnPrefs"
-                android:layout_width="31dp"
-                android:layout_height="27dp"
-                android:layout_gravity="left"
-                android:gravity="left" />
+                <ImageView
+                    android:id="@+id/btnPrefs"
+                    android:layout_width="31dp"
+                    android:layout_height="27dp"
+                    android:gravity="left"
+                    android:src="@drawable/settings1"
+                    android:onClick="true" />
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
