@@ -25,6 +25,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -41,7 +42,8 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		IWsdl2CodeEvents {
 
 	SimpleGestureFilter detector;
-	Button btnAddIngredient, btnDelete, btnPrefs;
+	Button btnAddIngredient, btnDelete;
+	ImageView btnPrefs;
 	ListView lv;
 	LinearLayout llIngredient, llPrefContainer;
 	String drinks[] = { "Bacardi", "Malibu", "Safari", "SneeuwWitje",
@@ -67,9 +69,9 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		final ViewGroup parent = (ViewGroup) llPrefContainer.getParent();
 		final View view = getLayoutInflater().inflate(R.layout.drinksprefs,
 				parent, false);
-		parent.addView(view);
+		llPrefContainer.addView(view);
 
-		btnPrefs = (Button) findViewById(R.id.btnPrefs);
+	
 		view.setVisibility(View.GONE);
 
 		String url = "http://myfiesta.jeroendboer.nl/webservice1.asmx";
@@ -77,18 +79,16 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 		LoadDrink();
 
-		// etSearch.getText().toString();
 
-		// if(etSearch.getText().toString().contentEquals(drinks))
-		// Create the adapter and set it to the AutoCompleteTextView
-
+		btnPrefs = (ImageView) findViewById(R.id.btnPrefs);
 		btnPrefs.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if (booPrefClicked == false) {
-
+					
+					btnPrefs.setImageResource(R.drawable.settings2);
 					view.setVisibility(View.VISIBLE);
 					etSearch = (AutoCompleteTextView) findViewById(R.id.etIngredient);
 
@@ -96,29 +96,34 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 							DrinksMenu.this,
 							android.R.layout.simple_list_item_1, drinks);
 					etSearch.setAdapter(adapter);
+					
 					btnAddIngredient = (Button) findViewById(R.id.btnAddIngredient);
 					btnAddIngredient
 							.setOnClickListener(new View.OnClickListener() {
-
 								public void onClick(View v) {
 
 									llIngredient = (LinearLayout) findViewById(R.id.lvIngredient);
-
+								
 									final ViewGroup parent = (ViewGroup) llIngredient
 											.getParent();
-									View view = getLayoutInflater().inflate(
-											R.layout.ingredientrowview, parent);
+									final View view = getLayoutInflater().inflate(
+											R.layout.ingredientrowview, parent, false);
 
-									parent.addView(view);
-
-									LinearLayout ingredientRow = (LinearLayout) findViewById(R.id.ingredientNameContainer);
+									llIngredient.addView(view);
+					
+									LinearLayout ingredientRow = (LinearLayout) findViewById(R.id.firstLine);
 									TextView tv = new TextView(DrinksMenu.this);
+									ImageView remove = new ImageView(DrinksMenu.this);
 									tvCounter++;
 									tv.setText(etSearch.getText().toString()
 											+ tvCounter);
 									tv.setLayoutParams(new LayoutParams(
 											LayoutParams.WRAP_CONTENT,
-											LayoutParams.WRAP_CONTENT));
+											LayoutParams.MATCH_PARENT));
+									remove.setId(tvCounter);
+									
+									LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+									ingredientRow.setOrientation(LinearLayout.VERTICAL);
 									Context context = getApplicationContext();
 									CharSequence text = etSearch.getText()
 											.toString() + tvCounter;
@@ -128,36 +133,21 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 											duration);
 									toast.show();
 									tv.setId(tvCounter);
+								
 									ingredientRow.addView(tv);
 
 								}
 							});
 					booPrefClicked = true;
 				} else {
-					// ViewGroup parent = (ViewGroup)
-					// findViewById(R.id.llPrefContainer);
-					// parent.removeView(viewToLoad);
+
 					view.setVisibility(View.GONE);
+					btnPrefs.setImageResource(R.drawable.settings1);
 					booPrefClicked = false;
 				}
 			}
 
 		});
-
-		/*
-		 * lv = (ListView) findViewById(R.id.drinksList); lv.setAdapter(new
-		 * ArrayAdapter<String>(DrinksMenu.this,
-		 * android.R.layout.simple_list_item_1, drinks));
-		 * 
-		 * lv.setOnItemClickListener(new OnItemClickListener() {
-		 * 
-		 * @Override public void onItemClick(AdapterView<?> arg0, View arg1, int
-		 * arg2, long arg3) { // TODO Auto-generated method stub
-		 * 
-		 * }
-		 * 
-		 * });
-		 */
 
 		detector = new SimpleGestureFilter(this, this);
 
@@ -250,6 +240,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	@Override
 	public void Wsdl2CodeFinishedWithException(Exception ex) {
 		// TODO Auto-generated method stub
+		Log.e("asdasd", ex.toString());
 
 	}
 
