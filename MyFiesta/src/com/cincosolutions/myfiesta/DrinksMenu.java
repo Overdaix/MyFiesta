@@ -3,6 +3,7 @@ package com.cincosolutions.myfiesta;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Vector;
 
 import com.cincosolutions.myfiesta.SimpleGestureFilter.SimpleGestureListener;
 
@@ -14,8 +15,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.LinearGradient;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
@@ -32,8 +35,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Wsdl2Code.WebServices.WebService1.Drink;
+import com.Wsdl2Code.WebServices.WebService1.Ingredient;
 import com.Wsdl2Code.WebServices.WebService1.VectorDrink;
 import com.Wsdl2Code.WebServices.WebService1.IWsdl2CodeEvents;
+import com.Wsdl2Code.WebServices.WebService1.VectorIngredient;
 import com.Wsdl2Code.WebServices.WebService1.WebService1;
 
 import android.os.AsyncTask;
@@ -48,11 +53,13 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	LinearLayout llIngredient, llPrefContainer;
 	String drinks[] = { "Bacardi", "Malibu", "Safari", "SneeuwWitje",
 			"Black Russian", "Drankje2", "Drankje3" };
+	List<String> ingredienten = new ArrayList<String>();
 	AutoCompleteTextView etSearch;
 	boolean booPrefClicked = false;
 	int tvCounter = 0;
 	private WebService1 webService;
-	private ArrayList<Drink> Items = new ArrayList<Drink>();
+	private ArrayList<Drink> drinkItems = new ArrayList<Drink>();
+	private ArrayList<Ingredient> ingredientItems = new ArrayList<Ingredient>();
 
 	public void callWebService() {
 		WebService1 webService = new WebService1(this);
@@ -71,14 +78,12 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 				parent, false);
 		llPrefContainer.addView(view);
 
-	
 		view.setVisibility(View.GONE);
 
 		String url = "http://myfiesta.jeroendboer.nl/webservice1.asmx";
 		webService = new WebService1(this, url);
 
 		LoadDrink();
-
 
 		btnPrefs = (ImageView) findViewById(R.id.btnPrefs);
 		btnPrefs.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +92,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if (booPrefClicked == false) {
-					
+
 					btnPrefs.setImageResource(R.drawable.settings2);
 					view.setVisibility(View.VISIBLE);
 					etSearch = (AutoCompleteTextView) findViewById(R.id.etIngredient);
@@ -96,46 +101,58 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 							DrinksMenu.this,
 							android.R.layout.simple_list_item_1, drinks);
 					etSearch.setAdapter(adapter);
-					
+
 					btnAddIngredient = (Button) findViewById(R.id.btnAddIngredient);
 					btnAddIngredient
 							.setOnClickListener(new View.OnClickListener() {
 								public void onClick(View v) {
 
 									llIngredient = (LinearLayout) findViewById(R.id.lvIngredient);
-								
+
 									final ViewGroup parent = (ViewGroup) llIngredient
 											.getParent();
-									final View view = getLayoutInflater().inflate(
-											R.layout.ingredientrowview, parent, false);
+									final View view = getLayoutInflater()
+											.inflate(
+													R.layout.ingredientrowview,
+													parent, false);
 
 									llIngredient.addView(view);
-					
-									LinearLayout ingredientRow = (LinearLayout) findViewById(R.id.firstLine);
-									TextView tv = new TextView(DrinksMenu.this);
-									ImageView remove = new ImageView(DrinksMenu.this);
+
+									final LinearLayout ingredientRow = (LinearLayout) findViewById(R.id.firstLine);
+									final TextView tv = new TextView(DrinksMenu.this);
+									ImageView remove = new ImageView(
+											DrinksMenu.this);
+
+									remove.setLayoutParams(new ViewGroup.LayoutParams(
+											ViewGroup.LayoutParams.WRAP_CONTENT,
+											ViewGroup.LayoutParams.WRAP_CONTENT));
+
 									tvCounter++;
-									tv.setText(etSearch.getText().toString()
-											+ tvCounter);
+									tv.setText(etSearch.getText().toString());
 									tv.setLayoutParams(new LayoutParams(
 											LayoutParams.WRAP_CONTENT,
-											LayoutParams.MATCH_PARENT));
+											LayoutParams.WRAP_CONTENT));
 									remove.setId(tvCounter);
+
+							
+									ingredientRow
+											.setOrientation(LinearLayout.VERTICAL);
 									
-									LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-									ingredientRow.setOrientation(LinearLayout.VERTICAL);
-									Context context = getApplicationContext();
-									CharSequence text = etSearch.getText()
-											.toString() + tvCounter;
-									int duration = Toast.LENGTH_SHORT;
-
-									Toast toast = Toast.makeText(context, text,
-											duration);
-									toast.show();
 									tv.setId(tvCounter);
-								
+									tv.setClickable(true);
+									tv.setOnClickListener(new View.OnClickListener(){
+										
+										@Override
+										public void onClick(View v) {
+											// TODO Auto-generated method stub
+										
+											ingredientRow.removeView(tv);
+										}
+									});
 									ingredientRow.addView(tv);
-
+									
+									ingredienten.add(etSearch.getText().toString());
+		
 								}
 							});
 					booPrefClicked = true;
@@ -148,10 +165,11 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			}
 
 		});
-
+		
 		detector = new SimpleGestureFilter(this, this);
 
 	}
+
 
 	@Override
 	public void Wsdl2CodeStartedRequest() {
@@ -168,10 +186,10 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			ArrayList<Drink> drinkslijst = new ArrayList<Drink>();
 
 			for (Drink drink : (VectorDrink) Data) {
-				Items.add(drink);
+				drinkItems.add(drink);
 			}
 
-			for (Drink drink : Items) {
+			for (Drink drink : drinkItems) {
 				drinkslijst.add(drink);
 			}
 			com.Wsdl2Code.WebServices.WebService1.Drink drink1 = null;
@@ -180,6 +198,18 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					R.layout.drinkslistrow, drinkslijst);
 
 			lv.setAdapter(adapter);
+
+		}
+		if(methodName == "GetIngredients"){
+			ArrayList<Ingredient> ingredientslist = new ArrayList<Ingredient>();
+			for (Ingredient ingredient : (VectorIngredient) Data) {
+				ingredientItems.add(ingredient);
+			}
+		
+			for(Ingredient ingredient : ingredientItems){
+				ingredientslist.add(ingredient);
+			}
+			
 
 		}
 
