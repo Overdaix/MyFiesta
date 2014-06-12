@@ -198,6 +198,15 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					R.layout.drinkslistrow, drinkslijst);
 
 			lv.setAdapter(adapter);
+			lv.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent("com.cincosolutions.myfiesta.DRINKINFO");
+					startActivity(intent);
+					
+				}
+			});
 
 		}
 		if(methodName == "GetIngredients"){
