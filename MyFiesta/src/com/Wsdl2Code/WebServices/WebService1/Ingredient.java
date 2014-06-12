@@ -18,16 +18,15 @@ import java.util.Hashtable;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapPrimitive;
 
-public class Drink implements KvmSerializable {
+public class Ingredient implements KvmSerializable {
     
     public int id;
-    public String naam;
-    public String image;
-    public String description;
+    public String name;
+    public int alcohol;
     
-    public Drink(){}
+    public Ingredient(){}
     
-    public Drink(SoapObject soapObject)
+    public Ingredient(SoapObject soapObject)
     {
         if (soapObject == null)
             return;
@@ -41,34 +40,24 @@ public class Drink implements KvmSerializable {
                 id = (Integer) obj;
             }
         }
-        if (soapObject.hasProperty("naam"))
+        if (soapObject.hasProperty("name"))
         {
-            Object obj = soapObject.getProperty("naam");
+            Object obj = soapObject.getProperty("name");
             if (obj != null && obj.getClass().equals(SoapPrimitive.class)){
                 SoapPrimitive j =(SoapPrimitive) obj;
-                naam = j.toString();
+                name = j.toString();
             }else if (obj!= null && obj instanceof String){
-                naam = (String) obj;
+                name = (String) obj;
             }
         }
-        if (soapObject.hasProperty("image"))
+        if (soapObject.hasProperty("alcohol"))
         {
-            Object obj = soapObject.getProperty("image");
+            Object obj = soapObject.getProperty("alcohol");
             if (obj != null && obj.getClass().equals(SoapPrimitive.class)){
                 SoapPrimitive j =(SoapPrimitive) obj;
-                image = j.toString();
-            }else if (obj!= null && obj instanceof String){
-                image = (String) obj;
-            }
-        }
-        if (soapObject.hasProperty("description"))
-        {
-            Object obj = soapObject.getProperty("description");
-            if (obj != null && obj.getClass().equals(SoapPrimitive.class)){
-                SoapPrimitive j =(SoapPrimitive) obj;
-                description = j.toString();
-            }else if (obj!= null && obj instanceof String){
-                description = (String) obj;
+                alcohol = Integer.parseInt(j.toString());
+            }else if (obj!= null && obj instanceof Number){
+                alcohol = (Integer) obj;
             }
         }
     }
@@ -78,18 +67,16 @@ public class Drink implements KvmSerializable {
             case 0:
                 return id;
             case 1:
-                return naam;
+                return name;
             case 2:
-                return image;
-            case 3:
-                return description;
+                return alcohol;
         }
         return null;
     }
     
     @Override
     public int getPropertyCount() {
-        return 4;
+        return 3;
     }
     
     @Override
@@ -101,15 +88,11 @@ public class Drink implements KvmSerializable {
                 break;
             case 1:
                 info.type = PropertyInfo.STRING_CLASS;
-                info.name = "naam";
+                info.name = "name";
                 break;
             case 2:
-                info.type = PropertyInfo.STRING_CLASS;
-                info.name = "image";
-                break;
-            case 3:
-                info.type = PropertyInfo.STRING_CLASS;
-                info.name = "description";
+                info.type = PropertyInfo.INTEGER_CLASS;
+                info.name = "alcohol";
                 break;
         }
     }

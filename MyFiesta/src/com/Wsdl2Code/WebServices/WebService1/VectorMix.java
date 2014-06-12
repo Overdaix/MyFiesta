@@ -18,14 +18,14 @@ import java.util.Hashtable;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapPrimitive;
 import java.util.Vector;
-import com.Wsdl2Code.WebServices.WebService1.Drink;
+import com.Wsdl2Code.WebServices.WebService1.Mix;
 
-public class VectorDrink extends Vector<Drink> implements KvmSerializable {
+public class VectorMix extends Vector<Mix> implements KvmSerializable {
     
     
-    public VectorDrink(){}
+    public VectorMix(){}
     
-    public VectorDrink(SoapObject soapObject)
+    public VectorMix(SoapObject soapObject)
     {
         if (soapObject == null)
             return;
@@ -35,7 +35,7 @@ public class VectorDrink extends Vector<Drink> implements KvmSerializable {
                 Object obj = soapObject.getProperty(i0);
                 if (obj!=null && obj.getClass().equals(SoapObject.class)){
                     SoapObject j0 =(SoapObject) soapObject.getProperty(i0);
-                    Drink j1= new Drink(j0);
+                    Mix j1= new Mix(j0);
                     add(j1);
                 }
             }
@@ -53,8 +53,8 @@ public class VectorDrink extends Vector<Drink> implements KvmSerializable {
     
     @Override
     public void getPropertyInfo(int index, @SuppressWarnings("rawtypes") Hashtable arg1, PropertyInfo info) {
-        info.name = "drink";
-        info.type = Drink.class;
+        info.name = "mix";
+        info.type = Mix.class;
     }
     
     @Override

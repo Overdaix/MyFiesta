@@ -18,57 +18,57 @@ import java.util.Hashtable;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapPrimitive;
 
-public class Drink implements KvmSerializable {
+public class Mix implements KvmSerializable {
     
-    public int id;
-    public String naam;
-    public String image;
-    public String description;
+    public int mixid;
+    public int ingredientid;
+    public String amount;
+    public int optional;
     
-    public Drink(){}
+    public Mix(){}
     
-    public Drink(SoapObject soapObject)
+    public Mix(SoapObject soapObject)
     {
         if (soapObject == null)
             return;
-        if (soapObject.hasProperty("id"))
+        if (soapObject.hasProperty("mixid"))
         {
-            Object obj = soapObject.getProperty("id");
+            Object obj = soapObject.getProperty("mixid");
             if (obj != null && obj.getClass().equals(SoapPrimitive.class)){
                 SoapPrimitive j =(SoapPrimitive) obj;
-                id = Integer.parseInt(j.toString());
+                mixid = Integer.parseInt(j.toString());
             }else if (obj!= null && obj instanceof Number){
-                id = (Integer) obj;
+                mixid = (Integer) obj;
             }
         }
-        if (soapObject.hasProperty("naam"))
+        if (soapObject.hasProperty("ingredientid"))
         {
-            Object obj = soapObject.getProperty("naam");
+            Object obj = soapObject.getProperty("ingredientid");
             if (obj != null && obj.getClass().equals(SoapPrimitive.class)){
                 SoapPrimitive j =(SoapPrimitive) obj;
-                naam = j.toString();
-            }else if (obj!= null && obj instanceof String){
-                naam = (String) obj;
+                ingredientid = Integer.parseInt(j.toString());
+            }else if (obj!= null && obj instanceof Number){
+                ingredientid = (Integer) obj;
             }
         }
-        if (soapObject.hasProperty("image"))
+        if (soapObject.hasProperty("amount"))
         {
-            Object obj = soapObject.getProperty("image");
+            Object obj = soapObject.getProperty("amount");
             if (obj != null && obj.getClass().equals(SoapPrimitive.class)){
                 SoapPrimitive j =(SoapPrimitive) obj;
-                image = j.toString();
+                amount = j.toString();
             }else if (obj!= null && obj instanceof String){
-                image = (String) obj;
+                amount = (String) obj;
             }
         }
-        if (soapObject.hasProperty("description"))
+        if (soapObject.hasProperty("optional"))
         {
-            Object obj = soapObject.getProperty("description");
+            Object obj = soapObject.getProperty("optional");
             if (obj != null && obj.getClass().equals(SoapPrimitive.class)){
                 SoapPrimitive j =(SoapPrimitive) obj;
-                description = j.toString();
-            }else if (obj!= null && obj instanceof String){
-                description = (String) obj;
+                optional = Integer.parseInt(j.toString());
+            }else if (obj!= null && obj instanceof Number){
+                optional = (Integer) obj;
             }
         }
     }
@@ -76,13 +76,13 @@ public class Drink implements KvmSerializable {
     public Object getProperty(int arg0) {
         switch(arg0){
             case 0:
-                return id;
+                return mixid;
             case 1:
-                return naam;
+                return ingredientid;
             case 2:
-                return image;
+                return amount;
             case 3:
-                return description;
+                return optional;
         }
         return null;
     }
@@ -97,19 +97,19 @@ public class Drink implements KvmSerializable {
         switch(index){
             case 0:
                 info.type = PropertyInfo.INTEGER_CLASS;
-                info.name = "id";
+                info.name = "mixid";
                 break;
             case 1:
-                info.type = PropertyInfo.STRING_CLASS;
-                info.name = "naam";
+                info.type = PropertyInfo.INTEGER_CLASS;
+                info.name = "ingredientid";
                 break;
             case 2:
                 info.type = PropertyInfo.STRING_CLASS;
-                info.name = "image";
+                info.name = "amount";
                 break;
             case 3:
-                info.type = PropertyInfo.STRING_CLASS;
-                info.name = "description";
+                info.type = PropertyInfo.INTEGER_CLASS;
+                info.name = "optional";
                 break;
         }
     }
