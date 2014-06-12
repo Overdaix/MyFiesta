@@ -61,12 +61,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
     </LinearLayout>
-
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
     <Button
         android:id="@+id/btnWis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Wis alles" />
+    <Button 
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Zoek drankjes!"/>
+    </LinearLayout>
 
 </LinearLayout>
