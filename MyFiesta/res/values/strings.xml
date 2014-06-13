@@ -8,5 +8,11 @@
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="drinks_head">Drinks</string>
     <string name="events_head">Events</string>
+    <string name="games_head">Games</string>
+    <string name="your">YOUR</string>
+    <string name="caps_games">GAMES</string>
+    <string name="game1">Game 1</string>
+    <string name="game2">Game 2</string>
+    <string name="title_activity_games">GamesActivity</string>
 
 </resources>

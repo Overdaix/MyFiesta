@@ -11,7 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-public class SettingsActivity extends Activity implements SimpleGestureListener {
+public class GamesActivity extends Activity implements SimpleGestureListener {
 	private SimpleGestureFilter detector;
 
 	@Override
@@ -23,7 +23,7 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-		setContentView(R.layout.activity_settings);
+		setContentView(R.layout.activity_games);
 
 		// Detect touched area
 		detector = new SimpleGestureFilter(this, this);
@@ -44,14 +44,14 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 
 		case SimpleGestureFilter.SWIPE_RIGHT:
 			str = "Swipe Right";
+
+			Intent openDrinksMenu = new Intent(
+					"com.cincosolutions.myfiesta.DRINKSMENU");
+			startActivity(openDrinksMenu);
+
 			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
 			str = "Swipe Left";
-
-			Intent openEvents = new Intent(
-					"com.cincosolutions.myfiesta.DRINKSMENU");
-			startActivity(openEvents);
-
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
 			str = "Swipe Down";
@@ -69,10 +69,10 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 		Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
 	}
 
-	public void GamesAct(View v) {
-		Intent openGamesActivity = new Intent(
-				"com.cincosolutions.myfiesta.GAMESACTIVITY");
-		startActivity(openGamesActivity);
+	public void SettingsAct(View v) {
+		Intent openSettingsActivity = new Intent(
+				"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
+		startActivity(openSettingsActivity);
 	}
 
 	public void DrinksAct(View v) {

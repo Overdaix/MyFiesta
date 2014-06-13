@@ -306,12 +306,18 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		case SimpleGestureFilter.SWIPE_RIGHT:
 			str = "Swipe Right";
 
-			Intent openEvents = new Intent("com.cincosolutions.myfiesta.EVENTS");
-			startActivity(openEvents);
+			Intent openSettingsActivity = new Intent(
+					"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
+			startActivity(openSettingsActivity);
 
 			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
 			str = "Swipe Left";
+			
+			Intent openGamesActivity = new Intent(
+					"com.cincosolutions.myfiesta.GAMESACTIVITY");
+			startActivity(openGamesActivity);
+			
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
 			str = "Swipe Down";
@@ -356,9 +362,10 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 	}
 
-	public void EventsAct(View v) {
-		Intent openEvents = new Intent("com.cincosolutions.myfiesta.EVENTS");
-		startActivity(openEvents);
+	public void GamesAct(View v) {
+		Intent openGamesActivity = new Intent(
+				"com.cincosolutions.myfiesta.GAMESACTIVITY");
+		startActivity(openGamesActivity);
 	}
 
 	public void SettingsAct(View v) {

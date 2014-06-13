@@ -54,8 +54,9 @@ public class MenuActivity extends Activity implements SimpleGestureListener {
 		case SimpleGestureFilter.SWIPE_LEFT:
 			str = "Swipe Left";
 
-			Intent openEvents = new Intent("com.cincosolutions.myfiesta.EVENTS");
-			startActivity(openEvents);
+			Intent openGamesActivity = new Intent(
+					"com.cincosolutions.myfiesta.GAMESACTIVITY");
+			startActivity(openGamesActivity);
 
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
@@ -74,9 +75,10 @@ public class MenuActivity extends Activity implements SimpleGestureListener {
 		Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
 	}
 
-	public void EventsAct(View v) {
-		Intent openEvents = new Intent("com.cincosolutions.myfiesta.EVENTS");
-		startActivity(openEvents);
+	public void GamesAct(View v) {
+		Intent openGamesActivity = new Intent(
+				"com.cincosolutions.myfiesta.GAMESACTIVITY");
+		startActivity(openGamesActivity);
 	}
 
 	public void DrinksAct(View v) {

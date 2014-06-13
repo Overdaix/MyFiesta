@@ -46,11 +46,10 @@
                     android:gravity="center" >
 
                     <ImageView
-                        android:layout_width="22.00dp"
-                        android:layout_height="18.67dp"
-                        android:background="@drawable/eventsnotactive"
-                        android:contentDescription="@null"
-                        android:onClick="EventsAct" />
+                        android:layout_width="19.33dp"
+                        android:layout_height="19.33dp"
+                        android:background="@drawable/drinksactive"
+                        android:contentDescription="@null" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -63,8 +62,9 @@
                     <ImageView
                         android:layout_width="19.33dp"
                         android:layout_height="19.33dp"
-                        android:background="@drawable/drinksactive"
-                        android:contentDescription="@null" />
+                        android:background="@drawable/gamesnotactive"
+                        android:contentDescription="@null"
+                        android:onClick="GamesAct" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
