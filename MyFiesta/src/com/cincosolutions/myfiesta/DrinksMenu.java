@@ -64,9 +64,10 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	private WebService1 webService;
 	private ArrayList<Drink> drinkItems = new ArrayList<Drink>();
 	private ArrayList<Ingredient> ingredientItems = new ArrayList<Ingredient>();
-	
+
 	private String strFavo;
 	String[] arrIDs;
+
 	public void callWebService() {
 		WebService1 webService = new WebService1(this);
 
@@ -90,7 +91,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		webService = new WebService1(this, url);
 
 		LoadDrink();
-		
+
 		btnPrefs = (ImageView) findViewById(R.id.btnPrefs);
 		btnPrefs.setOnClickListener(new View.OnClickListener() {
 
@@ -125,7 +126,8 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 									llIngredient.addView(view);
 
 									final LinearLayout ingredientRow = (LinearLayout) findViewById(R.id.firstLine);
-									final TextView tv = new TextView(DrinksMenu.this);
+									final TextView tv = new TextView(
+											DrinksMenu.this);
 									ImageView remove = new ImageView(
 											DrinksMenu.this);
 
@@ -140,25 +142,25 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 											LayoutParams.WRAP_CONTENT));
 									remove.setId(tvCounter);
 
-							
 									ingredientRow
 											.setOrientation(LinearLayout.VERTICAL);
-									
+
 									tv.setId(tvCounter);
 									tv.setClickable(true);
-									tv.setOnClickListener(new View.OnClickListener(){
-										
+									tv.setOnClickListener(new View.OnClickListener() {
+
 										@Override
 										public void onClick(View v) {
 											// TODO Auto-generated method stub
-										
+
 											ingredientRow.removeView(tv);
 										}
 									});
 									ingredientRow.addView(tv);
-									
-									ingredienten.add(etSearch.getText().toString());
-		
+
+									ingredienten.add(etSearch.getText()
+											.toString());
+
 								}
 							});
 					booPrefClicked = true;
@@ -171,20 +173,25 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			}
 
 		});
-		
-		detector = new SimpleGestureFilter(this, this);
-		
-		//Get preferences
-		SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-	    // Get the value for the run counter
-	    String strFavo = app_preferences.getString("Favo", "");
-	   
-	    //Split up array into ID's.
-	    String[] arrIDs = strFavo.split("\\|",-1); 	
+		detector = new SimpleGestureFilter(this, this);
+
+		SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		final SharedPreferences.Editor editor = app_preferences.edit();
+		if (!app_preferences.contains("Favo")) {
+
+			strFavo = strFavo + "9999999|99999|";// Replace 1 with Drink ID.
+			editor.putString("Favo", strFavo);
+			editor.commit(); // Very important
+		}
+
+		// Get the value for the run counter
+		String strFavo = app_preferences.getString("Favo", "");
+
+		// Split up array into ID's.
+	
 
 	}
-
 
 	@Override
 	public void Wsdl2CodeStartedRequest() {
@@ -203,40 +210,55 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			for (Drink drink : (VectorDrink) Data) {
 				drinkItems.add(drink);
 			}
-			SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+			SharedPreferences app_preferences = PreferenceManager
+					.getDefaultSharedPreferences(this);
 			final SharedPreferences.Editor editor = app_preferences.edit();
-			
+			if (!app_preferences.contains("Favo")) {
+				arrIDs = strFavo.split("\\|", -1);
+			}
+			else{
+			//	arrIDs.add()
+			}
 			for (Drink drink : drinkItems) {
 				final int intDrinkId = drink.id;
-				if(Arrays.asList(arrIDs).contains(intDrinkId)){
-					final ImageView favoImage = (ImageView)findViewById(R.id.btnFavo);
+				if (Arrays.asList(arrIDs).contains(intDrinkId)) {
+					final ImageView favoImage = (ImageView) findViewById(R.id.btnFavo);
 					favoImage.setImageResource(R.drawable.settings2);
 					favoImage.setOnClickListener(new View.OnClickListener() {
-					public void onClick(View v) {
-						favoImage.setImageResource(R.drawable.settings2);
-					    //Add drink ID to favorite stirng, seperated by "|", break string up into array when reading and check if drink ID is in array to see if it is a favorite.
-					    //strFavo = strFavo + "|"+ intDrinkId;//Replace 1 with Drink ID.	
-						strFavo = strFavo.replace("|"+intDrinkId, "");
-					    editor.putString("Favo", strFavo);
-					    editor.commit(); // Very important
-					}
+						public void onClick(View v) {
+							favoImage.setImageResource(R.drawable.settings2);
+							// Add drink ID to favorite stirng, seperated by
+							// "|", break string up into array when reading and
+							// check if drink ID is in array to see if it is a
+							// favorite.
+							// strFavo = strFavo + "|"+ intDrinkId;//Replace 1
+							// with Drink ID.
+							strFavo = strFavo.replace("|" + intDrinkId, "");
+							editor.putString("Favo", strFavo);
+							editor.commit(); // Very important
+						}
 					});
-				}else{
-					final ImageView favoImage = (ImageView)findViewById(R.id.btnFavo);
+				} else {
+					final ImageView favoImage = (ImageView) findViewById(R.id.btnFavo);
 					favoImage.setImageResource(R.drawable.settings1);
 					favoImage.setOnClickListener(new View.OnClickListener() {
 						public void onClick(View v) {
 							favoImage.setImageResource(R.drawable.settings2);
-						    //Add drink ID to favorite stirng, seperated by "|", break string up into array when reading and check if drink ID is in array to see if it is a favorite.
-						    strFavo = strFavo + "|"+ intDrinkId;//Replace 1 with Drink ID.	
-						    editor.putString("Favo", strFavo);
-						    editor.commit(); // Very important
+							// Add drink ID to favorite stirng, seperated by
+							// "|", break string up into array when reading and
+							// check if drink ID is in array to see if it is a
+							// favorite.
+							strFavo = strFavo + "|" + intDrinkId;// Replace 1
+																	// with
+																	// Drink ID.
+							editor.putString("Favo", strFavo);
+							editor.commit(); // Very important
 						}
 					});
-					
+
 				}
 				drinkslijst.add(drink);
-				
+
 			}
 			com.Wsdl2Code.WebServices.WebService1.Drink drink1 = null;
 
@@ -244,34 +266,30 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					R.layout.drinkslistrow, drinkslijst);
 
 			lv.setAdapter(adapter);
-			Button btnFavo = (Button)findViewById(R.id.btnFavo);
-			
-		
-		
-	
-			
-			
-			lv.setOnClickListener(new View.OnClickListener() {
-				
+			Button btnFavo = (Button) findViewById(R.id.btnFavo);
+
+			lv.setOnItemClickListener(new OnItemClickListener() {
+
 				@Override
-				public void onClick(View v) {
-					Intent intent = new Intent("com.cincosolutions.myfiesta.DRINKINFO");
+				public void onItemClick(AdapterView<?> arg0, View arg1,
+						int arg2, long arg3) {
+					Intent intent = new Intent(
+							"com.cincosolutions.myfiesta.DRINKINFO");
 					startActivity(intent);
-					
+
 				}
 			});
 
 		}
-		if(methodName == "GetIngredients"){
+		if (methodName == "GetIngredients") {
 			ArrayList<Ingredient> ingredientslist = new ArrayList<Ingredient>();
 			for (Ingredient ingredient : (VectorIngredient) Data) {
 				ingredientItems.add(ingredient);
 			}
-		
-			for(Ingredient ingredient : ingredientItems){
+
+			for (Ingredient ingredient : ingredientItems) {
 				ingredientslist.add(ingredient);
 			}
-			
 
 		}
 
