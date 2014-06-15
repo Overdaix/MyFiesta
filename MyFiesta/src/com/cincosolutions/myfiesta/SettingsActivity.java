@@ -1,23 +1,31 @@
 package com.cincosolutions.myfiesta;
 
+import com.Wsdl2Code.WebServices.WebService1.WebService1;
 import com.cincosolutions.myfiesta.SimpleGestureFilter.SimpleGestureListener;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 public class SettingsActivity extends Activity implements SimpleGestureListener {
 	private SimpleGestureFilter detector;
-
+	CheckBox cbAudio, cbNotif;
+	Button btReset;
+	
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		
 		// Full Screen
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -27,6 +35,64 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 
 		// Detect touched area
 		detector = new SimpleGestureFilter(this, this);
+		
+		//Get preferences
+		SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+		String boAudio 	= app_preferences.getString("PrefAudio", "false");
+		String boNotifi = app_preferences.getString("PrefNotif", "false");
+
+		//Checkboxes and buttons
+		final CheckBox cbAudio = (CheckBox) findViewById(R.id.checkAudio);
+		final CheckBox cbNotif = (CheckBox) findViewById(R.id.checkNotif);
+		Button btReset = (Button) findViewById(R.id.btReset);
+		
+		if(boAudio == "false"){
+			cbAudio.setChecked(true);
+		}
+		if(boNotifi == "false"){
+			cbNotif.setChecked(true);
+		}
+		
+		final SharedPreferences.Editor editor = app_preferences.edit();
+		
+		cbAudio.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				if(!cbAudio.isChecked()){
+					editor.putString("PrefAudio", "true");
+					editor.commit();
+					cbAudio.setChecked(false);
+				} else {
+					editor.putString("PrefAudio", "false");
+					editor.commit();
+					cbAudio.setChecked(true);
+				}
+			}
+		});	
+		
+		cbNotif.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				if(!cbNotif.isChecked()){
+					editor.putString("PrefNotif", "true");
+					editor.commit();
+					cbNotif.setChecked(false);
+				} else {
+					editor.putString("PrefNotif", "false");
+					editor.commit();
+					cbNotif.setChecked(true);
+				}
+			}
+		});	
+		
+		btReset.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				cbAudio.setChecked(false);
+				cbNotif.setChecked(false);
+				editor.putString("PrefAudio", "false");
+				editor.putString("PrefNotif", "false");
+				editor.commit();
+			}
+		});	
 	}
 
 	@Override
@@ -61,12 +127,12 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 			break;
 
 		}
-		Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
 	public void onDoubleTap() {
-		Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
 	}
 
 	public void GamesAct(View v) {

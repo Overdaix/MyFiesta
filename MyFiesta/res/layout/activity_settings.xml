@@ -65,4 +65,22 @@
         </LinearLayout>
     </LinearLayout>
 
+    <CheckBox
+        android:id="@+id/checkAudio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Audio" />
+
+    <CheckBox
+        android:id="@+id/checkNotif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notifications" />
+
+    <Button
+        android:id="@+id/btReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset preferences " />
+
 </LinearLayout>
