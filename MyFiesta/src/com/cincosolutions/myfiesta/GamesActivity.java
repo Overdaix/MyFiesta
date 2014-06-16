@@ -92,5 +92,11 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 				"com.cincosolutions.myfiesta.POWERHOURACTIVITY");
 		startActivity(powerhour);
 	}
+	
+	public void calculate(View v) {
+		Intent calculate = new Intent(
+				"com.cincosolutions.myfiesta.CALCULATEGAME");
+		startActivity(calculate);
+	}
 
 }

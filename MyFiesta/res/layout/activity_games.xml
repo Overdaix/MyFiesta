@@ -211,6 +211,13 @@
             android:layout_height="wrap_content"
             android:text="Power Hour"
             android:onClick="powerhour" />
+        
+        <Button
+            android:id="@+id/bCalculate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calculate"
+            android:onClick="calculate" />
 
     </LinearLayout>
 
