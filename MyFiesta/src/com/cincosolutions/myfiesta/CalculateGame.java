@@ -10,6 +10,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ public class CalculateGame extends Activity {
 	
 	TextView tvNumber1, tvNumber2, tvSign1, tvEnd;
 	EditText etAnswer;
+	Button bNext;
 	
 	int Score = 0;
 	int Count = 0;
@@ -37,6 +39,7 @@ public class CalculateGame extends Activity {
 		tvSign1 = (TextView) findViewById(R.id.tvSign1);
 		tvEnd = (TextView) findViewById(R.id.tvEnd);
 		etAnswer = (EditText) findViewById(R.id.etAnswer);
+		bNext = (Button) findViewById(R.id.bNext);
 		
 		LoadNumbers();
 		new CountDownTimer(20000, 1000) {
@@ -82,19 +85,25 @@ public class CalculateGame extends Activity {
 			int Answer2 = Num1+Num2;
 			
 			if(Answer1 == Answer2){
+				Count++;
 				Toast.makeText(getApplicationContext(), "Right!",
 						   Toast.LENGTH_SHORT).show();
 				Score++;
-				LoadNumbers();
+				if(Count < 10){
+					LoadNumbers();
+				}
 				etAnswer.setText("");
 			}else{
+				Count++;
 				Toast.makeText(getApplicationContext(), "Wrong!",
 						   Toast.LENGTH_SHORT).show();
-				LoadNumbers();
+				if(Count < 10){
+					LoadNumbers();
+				}
 				etAnswer.setText("");
 			}
 			
-			Count++;
+			
 			if(Count >= 10){
 				end();
 			}
@@ -102,6 +111,8 @@ public class CalculateGame extends Activity {
 	}
 	
 	public void end(){
+		etAnswer.setVisibility(View.GONE);
+		bNext.setVisibility(View.GONE);
 		Pauze = true;
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 		alertDialog.setTitle("Game over!");
