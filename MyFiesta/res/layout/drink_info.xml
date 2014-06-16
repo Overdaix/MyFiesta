@@ -3,138 +3,205 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/drinks_background"
-    android:orientation="vertical"
-    android:padding="5dp" >
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="arial"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="15dp"
-            android:id="@+id/tvdrinkName"
-            android:text="Jaggerbomb"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="342dp"
-        android:background="#FFFFFF"
-        android:orientation="vertical"
-        android:weightSum="100" >
-
-        <TextView
-            android:layout_width="309dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="5dp"
-            android:text="Information"
-            android:textStyle="bold" />
+        android:background="@drawable/topmenu"
+        android:baselineAligned="false"
+        android:paddingLeft="0dp"
+        android:paddingTop="9dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="100" >
+            android:layout_height="19.33dp"
+            android:background="@android:color/transparent"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
 
             <LinearLayout
-                android:layout_width="205dp"
-                android:layout_height="250dp"
-                android:layout_gravity="left"
-                android:layout_weight="70"
-                android:orientation="horizontal" >
+                android:layout_width="wrap_content"
+                android:layout_height="18.67dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center" >
 
-                <TextView
-                    android:id="@+id/tvDesc"
-                    android:layout_width="204dp"
-                    android:layout_height="312dp"
-                    android:layout_weight="70"
-                    android:orientation="vertical"
-                    android:padding="5dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum." />
+                <ImageView
+                    android:layout_width="18.67dp"
+                    android:layout_height="18.67dp"
+                    android:background="@drawable/settingsnotactive"
+                    android:contentDescription="@null"
+                    android:onClick="SettingsAct" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_weight="30"
-                android:orientation="vertical"
-                android:weightSum="100" >
+                android:layout_width="wrap_content"
+                android:layout_height="18.67dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center" >
 
                 <ImageView
-                    android:id="@+id/imgDrink"
-                    android:layout_width="71dp"
-                    android:layout_height="104dp"
-                    android:layout_gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp"
-                    android:src="@drawable/martini" />
+                    android:layout_width="19.33dp"
+                    android:layout_height="19.33dp"
+                    android:background="@drawable/drinksactive"
+                    android:contentDescription="@null" />
+            </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="5dp"
-                    android:text="Ingredients:"
-                    android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="19.33dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center" >
 
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="30"
-                    android:background="@drawable/border"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:text="0.2L Coca Cola"
-                    android:textColor="#045FB4" />
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="30"
-                    android:background="@drawable/border"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:text="0.3L Water"
-                    android:textColor="#045FB4" />
-
-                <TextView
-                    android:id="@+id/uno1"
-                    android:layout_width="100dp"
-                    android:layout_height="30dp"
-                    android:layout_weight="30"
-                    android:background="@drawable/border"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:text="0.5L Jagger"
-                    android:textColor="#045FB4" />
+                <ImageView
+                    android:layout_width="19.33dp"
+                    android:layout_height="19.33dp"
+                    android:background="@drawable/gamesnotactive"
+                    android:contentDescription="@null"
+                    android:onClick="GamesAct" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:background="#FFB03A" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/top_border"
-        android:orientation="vertical" >
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="calibri"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:text="Jaggerbomb"
+            android:textColor="#FFB03A"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:background="@drawable/back_button"
-            android:orientation="vertical" />
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:src="@drawable/favo1" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:background="#FFFFFF"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@null"
+                android:src="@drawable/martini" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="208dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="right"
+            android:background="#FFFFFF"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="calibri"
+                android:padding="3dp"
+                android:text="Ingredients:"
+                android:textColor="#FFB03A"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="calibri"
+                android:paddingLeft="15dp"
+                android:text="-0.1ML Water"
+                android:textColor="#FFB03A"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="calibri"
+                android:paddingLeft="15dp"
+                android:text="-0.1ML Water"
+                android:textColor="#FFB03A"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="calibri"
+                android:paddingLeft="15dp"
+                android:text="-0.1ML Water"
+                android:textColor="#FFB03A"
+                android:textStyle="italic" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#FFFFFF" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut ultricies orci, scelerisque egestas sapien. Pellentesque ut quam pellentesque, sollicitudin ipsum nec, malesuada massa. Praesent."
+            android:textColor="#FFB03A"
+            android:textStyle="calibri" /> 
+            
+        <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/backbtn"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dp" />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#FFB03A" />
 
 </LinearLayout>
