@@ -186,7 +186,7 @@
             android:padding="5dp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut ultricies orci, scelerisque egestas sapien. Pellentesque ut quam pellentesque, sollicitudin ipsum nec, malesuada massa. Praesent."
             android:textColor="#FFB03A"
-            android:textStyle="calibri" /> 
+            android:textStyle="bold" /> 
             
         <ImageView
         android:layout_width="50dp"

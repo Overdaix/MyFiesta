@@ -204,6 +204,13 @@
             android:layout_height="wrap_content"
             android:text="Test button.."
             android:onClick="countgame" />
+        
+        <Button
+            android:id="@+id/bPowerhour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Power Hour"
+            android:onClick="powerhour" />
 
     </LinearLayout>
 
