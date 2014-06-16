@@ -95,7 +95,7 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 	
 	public void calculate(View v) {
 		Intent calculate = new Intent(
-				"com.cincosolutions.myfiesta.CALCULATEGAME");
+				"com.cincosolutions.myfiesta.CALCULATEINSTRUCTION");
 		startActivity(calculate);
 	}
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg"
+    android:fontFamily="arial"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Probeer zoveel mogelijk sommen uit te rekenen binnen de tijd."
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Doe dit 1x voor het drinken en vervolgens nadat je gedronken hebt. Kijk dan wat dit met de score doet!"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/bStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start!"
+        android:onClick="start" />
+
+</LinearLayout>

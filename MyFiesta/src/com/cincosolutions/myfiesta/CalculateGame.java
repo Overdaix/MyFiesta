@@ -5,6 +5,7 @@ import java.util.Random;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -21,12 +22,15 @@ public class CalculateGame extends Activity {
 	int Score = 0;
 	int Count = 0;
 	
+	boolean Pauze = false;
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.calculate_game);
 		
 		final MediaPlayer mpTik = MediaPlayer.create(this, R.raw.tik);
 		final MediaPlayer mpHorn = MediaPlayer.create(this, R.raw.horn);
+		
 		
 		tvNumber1 = (TextView) findViewById(R.id.tvNumber1);
 		tvNumber2 = (TextView) findViewById(R.id.tvNumber2);
@@ -35,14 +39,18 @@ public class CalculateGame extends Activity {
 		etAnswer = (EditText) findViewById(R.id.etAnswer);
 		
 		LoadNumbers();
-		new CountDownTimer(18000, 1000) {//23
+		new CountDownTimer(20000, 1000) {
 			
 			 public void onTick(long millisUntilFinished) {
-				 mpTik.start();
+				 if(Pauze == false){
+					 mpTik.start();
+				 }
 			 }
 			 public void onFinish() {
-			     mpHorn.start();
-			     end();
+				 if(Pauze == false){
+				     mpHorn.start();
+				     end();
+				 }
 			 }
 		}
 		.start();
@@ -94,14 +102,17 @@ public class CalculateGame extends Activity {
 	}
 	
 	public void end(){
-		
+		Pauze = true;
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 		alertDialog.setTitle("Game over!");
 		alertDialog.setMessage("Your score is:" + Score + "/" + Count + ". New game?");
 		alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 		public void onClick(DialogInterface dialog, int which) {
 			Count = 0;
-			LoadNumbers();
+			Score = 0;
+			Intent start = new Intent(
+					"com.cincosolutions.myfiesta.CALCULATEINSTRUCTION");
+			startActivity(start);
 		}
 		});
 		alertDialog.show();
