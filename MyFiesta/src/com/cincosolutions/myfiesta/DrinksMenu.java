@@ -220,7 +220,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			//	arrIDs.add()
 			}
 			for (Drink drink : drinkItems) {
-				final int intDrinkId = drink.id;
+				/*final int intDrinkId = drink.id;
 				if (Arrays.asList(arrIDs).contains(intDrinkId)) {
 					final ImageView favoImage = (ImageView) findViewById(R.id.btnFavo);
 					favoImage.setImageResource(R.drawable.settings2);
@@ -256,7 +256,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 						}
 					});
 
-				}
+				}*/
 				drinkslijst.add(drink);
 
 			}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    android:fontFamily="arial"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/mTextField2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#FF0000"
+        android:textSize="80sp" />
+
+    <TextView
+        android:id="@+id/mTextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/mTextField2"
+        android:gravity="center"
+        android:text="" />
+    
+    <TextView
+        android:id="@+id/mTextField4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/mTextField"
+        android:gravity="center"
+        android:text="Aantal Drinks:" />
+    
+    <TextView
+        android:id="@+id/mTextField3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/mTextField4"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="200sp" />
+
+    
+
+</LinearLayout>

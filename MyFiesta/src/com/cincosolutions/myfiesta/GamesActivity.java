@@ -80,5 +80,11 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 				"com.cincosolutions.myfiesta.DRINKSMENU");
 		startActivity(openDrinksMenu);
 	}
+	
+	public void countgame(View v) {
+		Intent countgame = new Intent(
+				"com.cincosolutions.myfiesta.COUNTDOWNGAME");
+		startActivity(countgame);
+	}
 
 }
