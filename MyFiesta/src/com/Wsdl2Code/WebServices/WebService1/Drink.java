@@ -24,6 +24,7 @@ public class Drink implements KvmSerializable {
     public String naam;
     public String image;
     public String description;
+	public int Favorite;
     
     public Drink(){}
     

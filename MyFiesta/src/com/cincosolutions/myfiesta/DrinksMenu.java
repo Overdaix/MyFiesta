@@ -178,19 +178,20 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 		SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		final SharedPreferences.Editor editor = app_preferences.edit();
-		if (!app_preferences.contains("Favo")) {
-
-			strFavo = strFavo + "9999999|99999|";// Replace 1 with Drink ID.
-			editor.putString("Favo", strFavo);
-			editor.commit(); // Very important
-		}
-
-		// Get the value for the run counter
-		String strFavo = app_preferences.getString("Favo", "");
-
-		// Split up array into ID's.
-	
-
+		
+		
+		//Manual adding Drink1 (baco) to favorites for testing.
+		/*
+		editor.putString("Drink1", "Drink1");
+	    editor.commit(); // Very important
+	   
+	   */
+		
+	    /*
+		//Manual deleting Drink1 from favorites.
+		editor.remove("Drink1");
+		editor.commit();
+		 */
 	}
 
 	@Override
@@ -210,53 +211,17 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			for (Drink drink : (VectorDrink) Data) {
 				drinkItems.add(drink);
 			}
-			SharedPreferences app_preferences = PreferenceManager
-					.getDefaultSharedPreferences(this);
+			final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
 			final SharedPreferences.Editor editor = app_preferences.edit();
-			if (!app_preferences.contains("Favo")) {
-				arrIDs = strFavo.split("\\|", -1);
-			}
-			else{
-			//	arrIDs.add()
-			}
+		
+		
 			for (Drink drink : drinkItems) {
-				/*final int intDrinkId = drink.id;
-				if (Arrays.asList(arrIDs).contains(intDrinkId)) {
-					final ImageView favoImage = (ImageView) findViewById(R.id.btnFavo);
-					favoImage.setImageResource(R.drawable.settings2);
-					favoImage.setOnClickListener(new View.OnClickListener() {
-						public void onClick(View v) {
-							favoImage.setImageResource(R.drawable.settings2);
-							// Add drink ID to favorite stirng, seperated by
-							// "|", break string up into array when reading and
-							// check if drink ID is in array to see if it is a
-							// favorite.
-							// strFavo = strFavo + "|"+ intDrinkId;//Replace 1
-							// with Drink ID.
-							strFavo = strFavo.replace("|" + intDrinkId, "");
-							editor.putString("Favo", strFavo);
-							editor.commit(); // Very important
-						}
-					});
-				} else {
-					final ImageView favoImage = (ImageView) findViewById(R.id.btnFavo);
-					favoImage.setImageResource(R.drawable.settings1);
-					favoImage.setOnClickListener(new View.OnClickListener() {
-						public void onClick(View v) {
-							favoImage.setImageResource(R.drawable.settings2);
-							// Add drink ID to favorite stirng, seperated by
-							// "|", break string up into array when reading and
-							// check if drink ID is in array to see if it is a
-							// favorite.
-							strFavo = strFavo + "|" + intDrinkId;// Replace 1
-																	// with
-																	// Drink ID.
-							editor.putString("Favo", strFavo);
-							editor.commit(); // Very important
-						}
-					});
-
-				}*/
+				int intDrinkId = drink.id;
+				//If current drink is in array list
+				if(app_preferences.contains("Drink" + intDrinkId))	
+				{
+					drink.Favorite = 1;
+				} 
 				drinkslijst.add(drink);
 
 			}
