@@ -1,5 +1,6 @@
 package com.cincosolutions.myfiesta;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -64,7 +65,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	private WebService1 webService;
 	private ArrayList<Drink> drinkItems = new ArrayList<Drink>();
 	private ArrayList<Ingredient> ingredientItems = new ArrayList<Ingredient>();
-
+	ArrayList<String> ingredientnamen = new ArrayList<String>();
 	private String strFavo;
 	String[] arrIDs;
 
@@ -91,6 +92,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		webService = new WebService1(this, url);
 
 		LoadDrink();
+		LoadIngredient();
 
 		btnPrefs = (ImageView) findViewById(R.id.btnPrefs);
 		btnPrefs.setOnClickListener(new View.OnClickListener() {
@@ -103,64 +105,90 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					btnPrefs.setImageResource(R.drawable.settings2);
 					view.setVisibility(View.VISIBLE);
 					etSearch = (AutoCompleteTextView) findViewById(R.id.etIngredient);
-
+					String[] mStringArray = new String[ingredientnamen.size()];
+					mStringArray = ingredientnamen.toArray(mStringArray);
 					ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 							DrinksMenu.this,
-							android.R.layout.simple_list_item_1, drinks);
+							android.R.layout.simple_list_item_1, mStringArray);
 					etSearch.setAdapter(adapter);
-
+					
 					btnAddIngredient = (Button) findViewById(R.id.btnAddIngredient);
 					btnAddIngredient
 							.setOnClickListener(new View.OnClickListener() {
 								public void onClick(View v) {
+									
+									String ingredientinput = etSearch
+											.getText().toString();
+									
+								ingredientinput =	ingredientinput.substring(0, 1).toUpperCase() + ingredientinput.substring(1);
+			
+									if (ingredientnamen.contains(ingredientinput)) {
+										llIngredient = (LinearLayout) findViewById(R.id.lvIngredient);
 
-									llIngredient = (LinearLayout) findViewById(R.id.lvIngredient);
+										final ViewGroup parent = (ViewGroup) llIngredient
+												.getParent();
+										final View view = getLayoutInflater()
+												.inflate(
+														R.layout.ingredientrowview,
+														parent, false);
 
-									final ViewGroup parent = (ViewGroup) llIngredient
-											.getParent();
-									final View view = getLayoutInflater()
-											.inflate(
-													R.layout.ingredientrowview,
-													parent, false);
+										llIngredient.addView(view);
 
-									llIngredient.addView(view);
+										final LinearLayout ingredientRow = (LinearLayout) findViewById(R.id.firstLine);
+										final TextView tv = new TextView(
+												DrinksMenu.this);
+										ImageView remove = new ImageView(
+												DrinksMenu.this);
 
-									final LinearLayout ingredientRow = (LinearLayout) findViewById(R.id.firstLine);
-									final TextView tv = new TextView(
-											DrinksMenu.this);
-									ImageView remove = new ImageView(
-											DrinksMenu.this);
+										remove.setLayoutParams(new ViewGroup.LayoutParams(
+												ViewGroup.LayoutParams.WRAP_CONTENT,
+												ViewGroup.LayoutParams.WRAP_CONTENT));
 
-									remove.setLayoutParams(new ViewGroup.LayoutParams(
-											ViewGroup.LayoutParams.WRAP_CONTENT,
-											ViewGroup.LayoutParams.WRAP_CONTENT));
+										tvCounter++;
+										tv.setText(ingredientinput);
+										tv.setLayoutParams(new LayoutParams(
+												LayoutParams.WRAP_CONTENT,
+												LayoutParams.WRAP_CONTENT));
+										remove.setId(tvCounter);
 
-									tvCounter++;
-									tv.setText(etSearch.getText().toString());
-									tv.setLayoutParams(new LayoutParams(
-											LayoutParams.WRAP_CONTENT,
-											LayoutParams.WRAP_CONTENT));
-									remove.setId(tvCounter);
+										ingredientRow
+												.setOrientation(LinearLayout.VERTICAL);
 
-									ingredientRow
-											.setOrientation(LinearLayout.VERTICAL);
+										tv.setId(tvCounter);
+										tv.setClickable(true);
+										tv.setOnClickListener(new View.OnClickListener() {
 
-									tv.setId(tvCounter);
-									tv.setClickable(true);
-									tv.setOnClickListener(new View.OnClickListener() {
+											@Override
+											public void onClick(View v) {
+												// TODO Auto-generated method
+												// stub
 
-										@Override
-										public void onClick(View v) {
-											// TODO Auto-generated method stub
+												ingredientRow.removeView(tv);
+											}
+										});
+										ingredientRow.addView(tv);
 
-											ingredientRow.removeView(tv);
-										}
-									});
-									ingredientRow.addView(tv);
+										ingredienten.add(ingredientinput);
+										Context context = getApplicationContext();
+										CharSequence text = ingredientinput
+												+ " toegevoegd aan ingredientenlijst";
+										int duration = Toast.LENGTH_SHORT;
 
-									ingredienten.add(etSearch.getText()
-											.toString());
+										Toast toast = Toast.makeText(context,
+												text, duration);
+										toast.show();
 
+									}
+									else{
+										Context context = getApplicationContext();
+										CharSequence text = ingredientinput
+												+ " bestaat niet";
+										int duration = Toast.LENGTH_SHORT;
+
+										Toast toast = Toast.makeText(context,
+												text, duration);
+										toast.show();
+									}
 								}
 							});
 					booPrefClicked = true;
@@ -176,21 +204,19 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 		detector = new SimpleGestureFilter(this, this);
 
-		SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences app_preferences = PreferenceManager
+				.getDefaultSharedPreferences(this);
 		final SharedPreferences.Editor editor = app_preferences.edit();
-		
-		
-		//Manual adding Drink1 (baco) to favorites for testing.
+
+		// Manual adding Drink1 (baco) to favorites for testing.
 		/*
-		editor.putString("Drink1", "Drink1");
-	    editor.commit(); // Very important
-	   
-	   */
-		
-	    /*
-		//Manual deleting Drink1 from favorites.
-		editor.remove("Drink1");
-		editor.commit();
+		 * editor.putString("Drink1", "Drink1"); editor.commit(); // Very
+		 * important
+		 */
+
+		/*
+		 * //Manual deleting Drink1 from favorites. editor.remove("Drink1");
+		 * editor.commit();
 		 */
 	}
 
@@ -211,17 +237,16 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			for (Drink drink : (VectorDrink) Data) {
 				drinkItems.add(drink);
 			}
-			final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+			final SharedPreferences app_preferences = PreferenceManager
+					.getDefaultSharedPreferences(this);
 			final SharedPreferences.Editor editor = app_preferences.edit();
-		
-		
+
 			for (Drink drink : drinkItems) {
 				int intDrinkId = drink.id;
-				//If current drink is in array list
-				if(app_preferences.contains("Drink" + intDrinkId))	
-				{
-					drink.Favorite = 1;
-				} 
+				// If current drink is in array list
+				if (app_preferences.contains("Drink" + intDrinkId)) {
+					drink.favorite = 1;
+				}
 				drinkslijst.add(drink);
 
 			}
@@ -236,11 +261,23 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			lv.setOnItemClickListener(new OnItemClickListener() {
 
 				@Override
-				public void onItemClick(AdapterView<?> arg0, View arg1,
-						int arg2, long arg3) {
-					Intent intent = new Intent(
-							"com.cincosolutions.myfiesta.DRINKINFO");
-					startActivity(intent);
+				public void onItemClick(AdapterView arg0, View view,
+						int position, long id){
+				
+					try {
+						Drink drink = adapter.getItem(position);
+
+						Bundle bundle = new Bundle();
+						bundle.putSerializable("DRINK", drink);
+						Intent intent = new Intent(DrinksMenu.this,
+								com.cincosolutions.myfiesta.DrinkInfo.class);
+						intent.putExtras(bundle);
+
+						startActivity(intent);
+					} catch (Exception ex) {
+						Log.e("MyFiesta", ex.getMessage());
+					}
+				
 
 				}
 			});
@@ -248,12 +285,15 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		}
 		if (methodName == "GetIngredients") {
 			ArrayList<Ingredient> ingredientslist = new ArrayList<Ingredient>();
+
 			for (Ingredient ingredient : (VectorIngredient) Data) {
 				ingredientItems.add(ingredient);
+
 			}
 
 			for (Ingredient ingredient : ingredientItems) {
 				ingredientslist.add(ingredient);
+				ingredientnamen.add(ingredient.name);
 			}
 
 		}
@@ -261,10 +301,28 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	}
 
 	private void LoadDrink() {
+		int id = 0;
+		String naam = "";
+		String description = "";
+		String image = "";
+		int favorite = 0;
+		
+		try {
+			// webService.GetLastReportTimeAsync();
+			webService.GetDrinksAsync(id, naam, image, description, favorite);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// listview.addFooterView(footerlinear);
+	}
+
+	private void LoadIngredient() {
 
 		try {
 			// webService.GetLastReportTimeAsync();
-			webService.GetDrinksAsync();
+			webService.GetIngredientsAsync();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -296,11 +354,11 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
 			str = "Swipe Left";
-			
+
 			Intent openGamesActivity = new Intent(
 					"com.cincosolutions.myfiesta.GAMESACTIVITY");
 			startActivity(openGamesActivity);
-			
+
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
 			str = "Swipe Down";

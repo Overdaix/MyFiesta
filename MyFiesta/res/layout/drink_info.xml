@@ -90,6 +90,7 @@
             android:orientation="horizontal"
             android:padding="15dp"
             android:text="Jaggerbomb"
+            android:id="@+id/tvName"
             android:textColor="#FFB03A"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -146,6 +147,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="calibri"
                 android:paddingLeft="15dp"
+                android:id="@+id/tvIngredient1"
                 android:text="-0.1ML Water"
                 android:textColor="#FFB03A"
                 android:textStyle="italic" />
@@ -183,6 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:id="@+id/tvDesc"
             android:padding="5dp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut ultricies orci, scelerisque egestas sapien. Pellentesque ut quam pellentesque, sollicitudin ipsum nec, malesuada massa. Praesent."
             android:textColor="#FFB03A"
