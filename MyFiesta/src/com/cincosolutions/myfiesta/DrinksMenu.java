@@ -39,9 +39,12 @@ import android.widget.Toast;
 
 import com.Wsdl2Code.WebServices.WebService1.Drink;
 import com.Wsdl2Code.WebServices.WebService1.Ingredient;
+import com.Wsdl2Code.WebServices.WebService1.Mix;
 import com.Wsdl2Code.WebServices.WebService1.VectorDrink;
 import com.Wsdl2Code.WebServices.WebService1.IWsdl2CodeEvents;
 import com.Wsdl2Code.WebServices.WebService1.VectorIngredient;
+import com.Wsdl2Code.WebServices.WebService1.VectorMix;
+import com.Wsdl2Code.WebServices.WebService1.VectorString;
 import com.Wsdl2Code.WebServices.WebService1.WebService1;
 
 import android.os.AsyncTask;
@@ -52,23 +55,26 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		IWsdl2CodeEvents {
 
 	SimpleGestureFilter detector;
-	Button btnAddIngredient, btnDelete;
+	Button btnAddIngredient, btnDelete, btnSearch;
 	ImageView btnPrefs, favoImage;
 	ListView lv;
 	LinearLayout llIngredient, llPrefContainer;
 	String drinks[] = { "Bacardi", "Malibu", "Safari", "SneeuwWitje",
 			"Black Russian", "Drankje2", "Drankje3" };
-	List<String> ingredienten = new ArrayList<String>();
+	VectorString ingredienten = new VectorString();
 	AutoCompleteTextView etSearch;
 	boolean booPrefClicked = false;
 	int tvCounter = 0;
 	private WebService1 webService;
 	private ArrayList<Drink> drinkItems = new ArrayList<Drink>();
 	private ArrayList<Ingredient> ingredientItems = new ArrayList<Ingredient>();
+	private ArrayList<Mix> mixItems = new ArrayList<Mix>();
 	ArrayList<String> ingredientnamen = new ArrayList<String>();
-	private String strFavo;
+	ArrayList<String> mixnamen = new ArrayList<String>();
+	private String strFavo ;
 	String[] arrIDs;
-
+	String name = "";
+	
 	public void callWebService() {
 		WebService1 webService = new WebService1(this);
 
@@ -164,6 +170,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 												// stub
 
 												ingredientRow.removeView(tv);
+												ingredienten.remove(tv);
 											}
 										});
 										ingredientRow.addView(tv);
@@ -195,13 +202,34 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 				} else {
 
 					view.setVisibility(View.GONE);
-					btnPrefs.setImageResource(R.drawable.settingsactive);
+					btnPrefs.setImageResource(R.drawable.settings1);
 					booPrefClicked = false;
 				}
 			}
 
 		});
+		btnSearch = (Button)findViewById(R.id.btnSearch);
+		btnSearch.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+	
+					try {
+	
+						webService.FindMixesAsync(ingredienten);
+						
+						
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 
+				
+				
+				
+			}
+		});
 		detector = new SimpleGestureFilter(this, this);
 
 		SharedPreferences app_preferences = PreferenceManager
@@ -218,6 +246,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		 * //Manual deleting Drink1 from favorites. editor.remove("Drink1");
 		 * editor.commit();
 		 */
+		
 	}
 
 	@Override
@@ -229,8 +258,10 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	public void Wsdl2CodeFinished(String methodName, Object Data) {
 		Log.e("Wsdl2Code", "Wsdl2CodeFinished");
 		Log.i("Wsdl2Code", methodName);
-
-		if (methodName == "GetDrinks") {
+		if (methodName == "FindMixes"){
+			FindMixes(Data);
+		}
+		else if (methodName == "GetDrinks") {
 			lv = (ListView) findViewById(R.id.drinksList);
 			ArrayList<Drink> drinkslijst = new ArrayList<Drink>();
 
@@ -266,7 +297,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 				
 					try {
 						Drink drink = adapter.getItem(position);
-
+							
 						Bundle bundle = new Bundle();
 						bundle.putSerializable("DRINK", drink);
 						Intent intent = new Intent(DrinksMenu.this,
@@ -283,7 +314,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			});
 
 		}
-		if (methodName == "GetIngredients") {
+		else if (methodName == "GetIngredients") {
 			ArrayList<Ingredient> ingredientslist = new ArrayList<Ingredient>();
 
 			for (Ingredient ingredient : (VectorIngredient) Data) {
@@ -294,12 +325,54 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			for (Ingredient ingredient : ingredientItems) {
 				ingredientslist.add(ingredient);
 				ingredientnamen.add(ingredient.name);
+				
 			}
 
 		}
 
 	}
+	public void FindMixes(Object Data){
+		ArrayList<Mix> mixlist = new ArrayList<Mix>();
+		for (Mix mix : (VectorMix) Data) {
+			
+			mixItems.add(mix);
 
+		}
+
+		for (Mix mix : mixItems) {
+			mixlist.add(mix);
+			mixnamen.add(mix.naam);
+			Log.e("Naam:", mix.naam);
+		}
+		final MixAdapter adapter = new MixAdapter(this,
+				R.layout.drinkslistrow, mixlist);
+		int size = mixlist.size() * 65; 
+		lv.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, size ));
+		lv.setAdapter(adapter);
+		lv.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView arg0, View view,
+					int position, long id){
+			
+				try {
+					Mix mix = adapter.getItem(position);
+						
+					Bundle bundle = new Bundle();
+					bundle.putSerializable("MIX", mix);
+					Intent intent = new Intent(DrinksMenu.this,
+							com.cincosolutions.myfiesta.MixInfo.class);
+					intent.putExtras(bundle);
+
+					startActivity(intent);
+				} catch (Exception ex) {
+					Log.e("MyFiesta", ex.getMessage());
+				}
+			}
+		
+		});
+	}
+		
 	private void LoadDrink() {
 		int id = 0;
 		String naam = "";
@@ -319,10 +392,10 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	}
 
 	private void LoadIngredient() {
-
+	
 		try {
 			// webService.GetLastReportTimeAsync();
-			webService.GetIngredientsAsync();
+			webService.GetIngredientsAsync(name);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

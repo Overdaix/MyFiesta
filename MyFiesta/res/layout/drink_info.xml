@@ -178,8 +178,7 @@
         android:minHeight="100dp"
         android:orientation="vertical"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="#FFFFFF" >
+        android:layout_marginRight="10dp" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -199,12 +198,5 @@
         android:layout_marginLeft="10dp" />
         
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="#FFB03A" />
 
 </LinearLayout>

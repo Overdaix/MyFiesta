@@ -18,14 +18,13 @@ import java.util.Hashtable;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapPrimitive;
 import java.util.Vector;
-import com.Wsdl2Code.WebServices.WebService1.Mix;
 
-public class VectorMix extends Vector<Mix> implements KvmSerializable {
+public class VectorString extends Vector<String> implements KvmSerializable {
     
     
-    public VectorMix(){}
+    public VectorString(){}
     
-    public VectorMix(SoapObject soapObject)
+    public VectorString(SoapObject soapObject)
     {
         if (soapObject == null)
             return;
@@ -33,9 +32,9 @@ public class VectorMix extends Vector<Mix> implements KvmSerializable {
             int size = soapObject.getPropertyCount();
             for (int i0=0;i0<size;i0++){
                 Object obj = soapObject.getProperty(i0);
-                if (obj!=null && obj.getClass().equals(SoapObject.class)){
-                    SoapObject j0 =(SoapObject) soapObject.getProperty(i0);
-                    Mix j1= new Mix(j0);
+                if (obj !=null && obj.getClass().equals(SoapPrimitive.class)){
+                    SoapPrimitive j0 =(SoapPrimitive) soapObject.getProperty(i0);
+                    String j1=j0.toString();
                     add(j1);
                 }
             }
@@ -53,8 +52,8 @@ public class VectorMix extends Vector<Mix> implements KvmSerializable {
     
     @Override
     public void getPropertyInfo(int index, @SuppressWarnings("rawtypes") Hashtable arg1, PropertyInfo info) {
-        info.name = "mix";
-        info.type = Mix.class;
+        info.name = "string";
+        info.type = String.class;
     }
     
     @Override
