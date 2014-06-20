@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/topmenu"
+        android:baselineAligned="false"
+        android:paddingLeft="0dp"
+        android:paddingTop="9dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="19.33dp"
+            android:background="@android:color/transparent"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="18.67dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center" >
+
+                <ImageView
+                    android:layout_width="18.67dp"
+                    android:layout_height="18.67dp"
+                    android:background="@drawable/settingsnotactive"
+                    android:contentDescription="@null"
+                    android:onClick="SettingsAct" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="18.67dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center" >
+
+                <ImageView
+                    android:layout_width="19.33dp"
+                    android:layout_height="19.33dp"
+                    android:background="@drawable/drinksnotactive"
+                    android:contentDescription="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="19.33dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center" >
+
+                <ImageView
+                    android:layout_width="19.33dp"
+                    android:layout_height="19.33dp"
+                    android:background="@drawable/gamesnotactive"
+                    android:contentDescription="@null"
+                    android:onClick="GamesAct" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/kingsgame"
+        android:contentDescription="@null" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="#262626" >
+
+        <TextView
+            android:id="@+id/textEvents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="Calibri"
+            android:text="Kings"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:background="#FFB03A" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="right"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="calibri"
+                        android:padding="3dp"
+                        android:text="What you need:"
+                        android:textColor="#FFB03A"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="calibri"
+                        android:paddingLeft="15dp"
+                        android:text="-Shot glass"
+                        android:textColor="#FFB03A" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="calibri"
+                        android:paddingLeft="15dp"
+                        android:text="-Deck of cards"
+                        android:textColor="#FFB03A" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="calibri"
+                        android:paddingLeft="15dp"
+                        android:text="-2+ people \n"
+                        android:textColor="#FFB03A" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:text="Information:"
+                    android:textColor="#FFB03A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="Spread cards face-down around a large cup. Draw in clockwise order. A “drink” is a normal sip.\n - Ace – Social – He/she who draws proposes a toast and everyone drinks.\n- 2-6 – Black (Clubs &amp; Spades) – TAKE the card’s value in drinks.\n- 2-6 – Red (Hearts &amp; Diamonds) – GIVE the card’s value in drinks. The total may be split-up between multiple players.\n- 7 – Waterfall – EVERYBODY begins to CHUG. You can’t stop until the person to your RIGHT has stopped. He/she who draws may stop first. \n- 8 – Thumb Master – He/she who draws puts his/her thumb on the table. The last person to do so drinks.\n- 9 – Rhyme – He/she who draws says a sentence. The person to his/her LEFT must rhyme with the last word in the original sentence. This continues in clockwise order. Rhyming words may not be repeated. If you repeat a word or can’t think of one, you drink. \n- 10 – Category – He/she who draws thinks of a category, like “Simpsons Characters.” Then, he/she says one, like “Homer.” Then, the person to his/her LEFT must think of another one, like “Bart.” This continues in clockwise order. If you repeat an item or can’t think of one, you drink. \n- Jack – Guys drink – A toast is often included. \n- Queen – Ladies drink – A toast is often included. \n- King – We don’t call it “kings” for nothing. He/she who draws the first, second and third king pours some of his/her drink into the “large cup” AND comes up with a rule that must be obeyed for the rest of the game, like “no showing your teeth” or “no saying ‘drink,’ ‘drank’ or ‘drunk’.” Anyone in violation of a rule drinks. He/she who draws the fourth king must POUND the contents of the “large cup.” Drawing the fourth king marks the end of the game. \n Note: Drawing the fourth king is a FATE WORSE THAN DEATH if there are a combination of beverages in the “large cup,” like beer, wine cooler and vodka. In fact, some players insist that only beer be poured into the cup; but they don’t have the love for the game."
+                    android:textColor="#FFB03A" />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/btn"
+                android:orientation="vertical"
+                android:text="Start Game" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFB03A" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/backbtn" />
+
+</LinearLayout>

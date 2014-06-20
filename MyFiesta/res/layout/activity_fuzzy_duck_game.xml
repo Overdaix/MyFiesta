@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/topmenu"
+        android:baselineAligned="false"
+        android:paddingLeft="0dp"
+        android:paddingTop="9dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="19.33dp"
+            android:background="@android:color/transparent"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="18.67dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center" >
+
+                <ImageView
+                    android:layout_width="18.67dp"
+                    android:layout_height="18.67dp"
+                    android:background="@drawable/settingsnotactive"
+                    android:contentDescription="@null"
+                    android:onClick="SettingsAct" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="18.67dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center" >
+
+                <ImageView
+                    android:layout_width="19.33dp"
+                    android:layout_height="19.33dp"
+                    android:background="@drawable/drinksnotactive"
+                    android:contentDescription="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="19.33dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center" >
+
+                <ImageView
+                    android:layout_width="19.33dp"
+                    android:layout_height="19.33dp"
+                    android:background="@drawable/gamesnotactive"
+                    android:contentDescription="@null"
+                    android:onClick="GamesAct" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fuzyduckgame"
+        android:contentDescription="@null" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="#262626" >
+
+        <TextView
+            android:id="@+id/textEvents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="Calibri"
+            android:text="Fuzzy Duck"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:background="#FFB03A" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="right"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="calibri"
+                        android:padding="3dp"
+                        android:text="What you need:"
+                        android:textColor="#FFB03A"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="calibri"
+                        android:paddingLeft="15dp"
+                        android:text="-6 people \n"
+                        android:textColor="#FFB03A" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:text="Information:"
+                    android:textColor="#FFB03A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="Everyone sits in a circle or around a table. One person begins by saying 'Fuzzy Duck'. The person to their left then says 'Fuzzy Duck' again, and it continues around the circle. Alternately, someone can say 'Does he?'. If someone says this, the game direction is reversed and the person to his right has to say 'Ducky Fuzz'. This continues around until someone says 'Does he?' again, at which point the direction reverses again and the phrase changes back to 'Fuzzy Duck', and so on. The point is to go as fast as possible. Any person who pauses must drink, and anyone who gets it wrong or mispronounces it also must drink."
+                    android:textColor="#FFB03A" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFB03A" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/backbtn" />
+    
+     <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/backbtn" />
+    
+
+</LinearLayout>

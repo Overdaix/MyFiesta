@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/topmenu"
+        android:baselineAligned="false"
+        android:paddingLeft="0dp"
+        android:paddingTop="9dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="19.33dp"
+            android:background="@android:color/transparent"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="18.67dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center" >
+
+                <ImageView
+                    android:layout_width="18.67dp"
+                    android:layout_height="18.67dp"
+                    android:background="@drawable/settingsnotactive"
+                    android:contentDescription="@null"
+                    android:onClick="SettingsAct" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="18.67dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center" >
+
+                <ImageView
+                    android:layout_width="19.33dp"
+                    android:layout_height="19.33dp"
+                    android:background="@drawable/drinksnotactive"
+                    android:contentDescription="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="19.33dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:gravity="center" >
+
+                <ImageView
+                    android:layout_width="19.33dp"
+                    android:layout_height="19.33dp"
+                    android:background="@drawable/gamesnotactive"
+                    android:contentDescription="@null"
+                    android:onClick="GamesAct" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/avalanchegame"
+        android:contentDescription="@null" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="#262626" >
+
+        <TextView
+            android:id="@+id/textEvents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="Calibri"
+            android:text="Avalanche"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:background="#FFB03A" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="right"
+                    android:background="#FFFFFF"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="calibri"
+                        android:padding="3dp"
+                        android:text="What you need:"
+                        android:textColor="#FFB03A"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="calibri"
+                        android:paddingLeft="15dp"
+                        android:text="-Shot glass"
+                        android:textColor="#FFB03A" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="calibri"
+                        android:paddingLeft="15dp"
+                        android:text="-A dice"
+                        android:textColor="#FFB03A"/>
+                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="calibri"
+                        android:paddingLeft="15dp"
+                        android:text="-3+ people \n"
+                        android:textColor="#FFB03A"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFFFFF"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:text="Information:"
+                    android:textColor="#FFB03A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="Avalanche is a drinking game of chance which can be played with any number of players. Play passes counterclockwise around a circle. The current player adds some of his/her drink of an amount of his/her choosing to the game glass. Adding only a little drink, especially to a fairly empty glass, is a small bet as this will be easy to drink if necessary. On the other hand, adding a large amount of drink, while risking a challenging downing task, also potentially inflicts that task on someone else.\n\nOnce the drink has been added to the glass, a six-sided die is thrown by the same player who added the drink. The results of each number are as follows:\n1.	No event, play passes to the next person.\n2.	The player doubles the amount of liquid in the glass or fills it, whichever is less. Play passes to the next person.\n3.	Current player must drink the glass.\n4.	Current player yells 'Floor!' and all players must point downward. The last player to do so drinks the glass.\n5.	Roll again. If another 5 is rolled, then the roller has 'Power Fives' and may make anyone drink the glass. Any other roll is treated as indicated.\n 6.	No event, play passes to the next person.(The odds are thus as follows: 7/18 no event, play passes; 7/36 liquid is doubled, play passes; 7/36 player must drink; 7/36 slowest player drinks; 1/36 the player can make anyone drink.)\n\nAfter the event, the glass and die will be passed on to the next player, who thus may or may not inherit a partly full glass. When the game glass is drunk, play continues with another glass and with the next player from the one drinking the glass. If this player has not finished drinking the glass by the time play returns to them, they lose the game and are out. Once a player consumes 3 game glasses, they are out with a loss. The winner is the last person not to lose in these two manners."
+                    android:textColor="#FFB03A" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#FFB03A" />
+        </LinearLayout>
+    </ScrollView>
+    
+     <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/backbtn" />
+    
+
+</LinearLayout>
