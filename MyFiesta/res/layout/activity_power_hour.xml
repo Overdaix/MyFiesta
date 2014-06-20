@@ -192,8 +192,8 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:background="@drawable/btn"
-                    android:orientations="vertical"
-                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp"
                     android:text="Start Timer" />
             </LinearLayout>
 
