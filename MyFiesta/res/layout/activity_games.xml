@@ -200,21 +200,21 @@
 
         <Button
             android:id="@+id/bCountgame"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Power Hour Game!"
             android:onClick="countgame" />
         
         <Button
             android:id="@+id/bPowerhour"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Power Hour Info!"
             android:onClick="powerhour" />
         
         <Button
             android:id="@+id/bCalculate"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Calculate Game!"
             android:onClick="calculate" />
