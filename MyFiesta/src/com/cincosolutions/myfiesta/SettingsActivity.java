@@ -39,18 +39,20 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 		//Get preferences
 		SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-		String boAudio 	= app_preferences.getString("PrefAudio", "false");
-		String boNotifi = app_preferences.getString("PrefNotif", "false");
+		
+
+		boolean boAudio = app_preferences.getBoolean("booAudio", true);
+		boolean boNotifi = app_preferences.getBoolean("booNotif", true);
 
 		//Checkboxes and buttons
 		final CheckBox cbAudio = (CheckBox) findViewById(R.id.checkAudio);
 		final CheckBox cbNotif = (CheckBox) findViewById(R.id.checkNotif);
 		Button btReset = (Button) findViewById(R.id.btReset);
 		
-		if(boAudio == "false"){
+		if(!boAudio){
 			cbAudio.setChecked(true);
 		}
-		if(boNotifi == "false"){
+		if(!boNotifi){
 			cbNotif.setChecked(true);
 		}
 		
@@ -59,11 +61,11 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 		cbAudio.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				if(!cbAudio.isChecked()){
-					editor.putString("PrefAudio", "true");
+					editor.putBoolean("booAudio", true);
 					editor.commit();
 					cbAudio.setChecked(false);
 				} else {
-					editor.putString("PrefAudio", "false");
+					editor.putBoolean("booAudio", false);
 					editor.commit();
 					cbAudio.setChecked(true);
 				}
@@ -73,11 +75,11 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 		cbNotif.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				if(!cbNotif.isChecked()){
-					editor.putString("PrefNotif", "true");
+					editor.putBoolean("booNotif", true);
 					editor.commit();
 					cbNotif.setChecked(false);
 				} else {
-					editor.putString("PrefNotif", "false");
+					editor.putBoolean("booNotif", false);
 					editor.commit();
 					cbNotif.setChecked(true);
 				}
@@ -88,13 +90,13 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 			public void onClick(View v) {
 				cbAudio.setChecked(false);
 				cbNotif.setChecked(false);
-				editor.putString("PrefAudio", "false");
-				editor.putString("PrefNotif", "false");
+				editor.putBoolean("booAudio", false);
+				editor.putBoolean("booNotif", false);
 				editor.commit();
 			}
 		});	
 	}
-
+	
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent me) {
 		// Call onTouchEvent of SimpleGestureFilter class
@@ -117,7 +119,7 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 			Intent openEvents = new Intent(
 					"com.cincosolutions.myfiesta.DRINKSMENU");
 			startActivity(openEvents);
-
+			
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
 			str = "Swipe Down";
