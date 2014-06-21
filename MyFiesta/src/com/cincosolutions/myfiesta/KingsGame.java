@@ -6,10 +6,12 @@ import java.util.Random;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,6 +23,8 @@ public class KingsGame extends Activity{
 	ImageView ivCard;
 	
 	int kings = 0;
+	
+	boolean first = false;
 	
 	ArrayList<String> cards = new ArrayList<String>();
 	
@@ -36,18 +40,31 @@ public class KingsGame extends Activity{
 	}
 	
 	public void nextcard(View v){
-		
 		int min = 1;
 		int max = 48;
 
 		Random r = new Random();
-		int card = r.nextInt(max - min + 1) + min;
+		final int card = r.nextInt(max - min + 1) + min;
+		new CountDownTimer(1250, 1000) {
+			 public void onTick(long millisUntilFinished) {
+			 }
+			
+			 public void onFinish() {
+				 changeimage(card);
+				 changerule(card);
+				 first = true;
+			 }
+			}
+			.start();
 		bNextCard.setText("Next card!");
 		if(!cards.contains("card" + card)){
 			MediaPlayer mpCard = MediaPlayer.create(this, R.raw.card);
+			if(first == true){
+				ivCard.startAnimation(AnimationUtils.loadAnimation(KingsGame.this, android.R.anim.slide_out_right));
+				ivCard.setVisibility(View.INVISIBLE);
+				bNextCard.setVisibility(View.INVISIBLE);
+			}
 			mpCard.start();
-			changeimage(card);
-			changerule(card);
 			cards.add("card" + card);
 			if(card == 45 || card == 46 || card == 47 || card == 48){
 				kings++;
@@ -61,6 +78,8 @@ public class KingsGame extends Activity{
 	}
 	
 	public void changeimage(int card){
+		ivCard.setVisibility(View.VISIBLE);
+		bNextCard.setVisibility(View.VISIBLE);
 		ivCard.setImageResource(getResources().getIdentifier("drawable/card"+card, null, getPackageName()));
 	}
 	

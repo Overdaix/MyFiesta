@@ -6,6 +6,13 @@
     android:fontFamily="arial"
     android:orientation="vertical" >
 
+    <LinearLayout 
+        android:layout_width="226dp"
+        android:layout_height="326dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@drawable/cardbackground" >
+        
     <ImageView
         android:id="@+id/ivCard"
         android:layout_width="226dp"
@@ -13,6 +20,8 @@
         android:orientation="vertical"
         android:layout_gravity="center"
         android:src="@drawable/cardbackground" />
+    
+    </LinearLayout>
     
     <TextView
         android:id="@+id/tvRuleText"
