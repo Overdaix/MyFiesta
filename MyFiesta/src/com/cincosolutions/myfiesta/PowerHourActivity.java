@@ -28,16 +28,15 @@ public class PowerHourActivity extends Activity  {
 	}
 
 
-	public void GamesAct(View v) {
-		Intent openGamesActivity = new Intent(
-				"com.cincosolutions.myfiesta.GAMESACTIVITY");
-		startActivity(openGamesActivity);
+	public void start(View v) {
+		Intent count = new Intent("com.cincosolutions.myfiesta.COUNTDOWNGAME");
+		startActivity(count);
 	}
-
-	public void DrinksAct(View v) {
-		Intent openDrinksMenu = new Intent(
-				"com.cincosolutions.myfiesta.DRINKSMENU");
-		startActivity(openDrinksMenu);
+	
+	public void backbtnGame(View v) {
+		Intent back = new Intent("com.cincosolutions.myfiesta.GAMESACTIVITY");
+		startActivity(back);
 	}
+	
 
 }

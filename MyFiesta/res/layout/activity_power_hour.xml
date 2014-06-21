@@ -169,6 +169,7 @@
                     android:textColor="#FFB03A" />
 
                 <Button
+                    android:onClick="start"
                     android:layout_width="200dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"

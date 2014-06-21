@@ -158,6 +158,12 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 				"com.cincosolutions.myfiesta.QUARTERSGAMEACTIVITY");
 		startActivity(openQuartersGame);
 	}
+	
+	public void kings(View v) {
+		Intent kings = new Intent(
+				"com.cincosolutions.myfiesta.KINGSGAMEACTIVITY");
+		startActivity(kings);
+	}
 
 	public void SpinnersGameAct(View v) {
 		Intent openSpinnersGame = new Intent(
