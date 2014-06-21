@@ -14,5 +14,30 @@
     <string name="game1">Game 1</string>
     <string name="game2">Game 2</string>
     <string name="title_activity_games">GamesActivity</string>
+    
+    <string name="ball_game">BALL</string>
+    <string name="card_game">CARD</string>
+    <string name="coins_game">COINS</string>
+    <string name="dice_game">DICE</string>
+    <string name="hands_game">HANDS</string>
+    <string name="verbal_game">VERBAL</string>
+    <string name="basketball_game">Basketball</string>
+    <string name="BeerPong_game">Beer Pong</string>
+    <string name="Fubar_game">Fubar</string>
+    <string name="Asshole_game">Asshole</string>
+    <string name="Kings_game">Kings</string>
+    <string name="BusDriver_game">Bus Driver</string>
+    <string name="FlipSipStrip_game">Flip, Sip or Strip!</string>
+    <string name="Quarters_game">Quarters</string>
+    <string name="Spinners_game">Spinners</string>
+    <string name="Avalanche_game">Avalanche</string>
+    <string name="ThreeMan_game">Three Man</string>
+    <string name="Boxing_game">Boxing</string>
+    <string name="Thumper_game">Thumper</string>
+    <string name="PowerHour_game">Power Hour</string>
+    <string name="FuzyDuck_game">Fuzy Duck</string>
+    <string name="Animal_game">Animal</string>
+    <string name="game_information">Information:</string>
+    <string name="whatyouneed">What you need:</string>
 
 </resources>

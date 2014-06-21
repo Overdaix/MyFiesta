@@ -78,15 +78,15 @@
         android:background="#262626" >
 
         <TextView
-            android:id="@+id/textEvents"
+            android:id="@+id/textThreeMan"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="2dp"
             android:fontFamily="Calibri"
-            android:text="Three Man"
+            android:text="@string/ThreeMan_game"
             android:textColor="#FFFFFF"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:typeface="serif" />
     </LinearLayout>
@@ -96,74 +96,55 @@
         android:layout_height="wrap_content" >
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
             android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="15dp"
                 android:background="#FFB03A" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="right"
                 android:background="#FFFFFF"
-                android:orientation="horizontal" >
-            </LinearLayout>
+                android:orientation="vertical" >
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:padding="3dp"
+                    android:text="@string/whatyouneed"
+                    android:textColor="#FFB03A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_gravity="right"
-                    android:background="#FFFFFF"
-                    android:orientation="vertical" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- 2x dices"
+                    android:textColor="#FFB03A" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:padding="3dp"
-                        android:text="What you need:"
-                        android:textColor="#FFB03A"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-2x dices"
-                        android:textColor="#FFB03A" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-4+ people \n"
-                        android:textColor="#FFB03A" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- 4+ people \n"
+                    android:textColor="#FFB03A" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:background="#FFFFFF"
                 android:orientation="vertical" >
 
@@ -173,7 +154,7 @@
                     android:fontFamily="calibri"
                     android:paddingLeft="3dp"
                     android:paddingRight="3dp"
-                    android:text="Information:"
+                    android:text="@string/game_information"
                     android:textColor="#FFB03A"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -184,25 +165,24 @@
                     android:fontFamily="calibri"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:text="Everyone takes turns rolling one die until someone rolls a three.\n This person then becomes the three man.\nThe game then proceeds around the circle with people taking turns rolling two dices.\nMeaning of Rolls:\n3: Whoever is the three man must drink. If the three man rolls this then he may pass the title to a person of his choosing.\n 7: Person to the right of 'roller' drinks \n9: Person across from 'roller' drinks \n10: Social...everyone drinks \n11: Person to the left of 'roller' drinks\n\nOther dice combinations:\n4 and 1: Whoever rolls this become the Thumb-Master. They can place their thumb on the table whenever they want. Everyone else must put their thumbs on the table as soon as this happens - the last person to notice and do it must drink. The Thumb-Master can only change when someone else rolls a 4 and 1./nDoubles: When someone rolls double they give the dice to someone of their choosing. This person rolls the dice and if they don't roll doubles, they suffer a penalty. The doubles penalty should be determined at the start of the game. Some suggested penalties are taking off an article of clothing or drinking for a number of seconds equal to the value of the dice."
+                    android:text="Everyone takes turns rolling one die until someone rolls a three.\n This person then becomes the three man.\nThe game then proceeds around the circle with people taking turns rolling two dices.\nMeaning of Rolls:\n3: Whoever is the three man must drink. If the three man rolls this then he may pass the title to a person of his choosing.\n 7: Person to the right of &apos;roller&apos; drinks \n9: Person across from &apos;roller&apos; drinks \n10: Social...everyone drinks \n11: Person to the left of &apos;roller&apos; drinks\n\nOther dice combinations:\n4 and 1: Whoever rolls this become the Thumb-Master. They can place their thumb on the table whenever they want. Everyone else must put their thumbs on the table as soon as this happens - the last person to notice and do it must drink. The Thumb-Master can only change when someone else rolls a 4 and 1./nDoubles: When someone rolls double they give the dice to someone of their choosing. This person rolls the dice and if they don&apos;t roll doubles, they suffer a penalty. The doubles penalty should be determined at the start of the game. Some suggested penalties are taking off an article of clothing or drinking for a number of seconds equal to the value of the dice."
                     android:textColor="#FFB03A" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:background="#FFB03A" />
         </LinearLayout>
     </ScrollView>
-    
-     <ImageView
+
+    <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:background="@drawable/backbtn" />
-    
+        android:background="@drawable/backbtn"
+        android:contentDescription="@null"
+        android:onClick="backbtnGame" />
 
 </LinearLayout>

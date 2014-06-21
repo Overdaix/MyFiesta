@@ -78,15 +78,15 @@
         android:background="#262626" >
 
         <TextView
-            android:id="@+id/textEvents"
+            android:id="@+id/textAsshole"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="2dp"
             android:fontFamily="Calibri"
-            android:text="Asshole"
+            android:text="@string/Asshole_game"
             android:textColor="#FFFFFF"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:typeface="serif" />
     </LinearLayout>
@@ -96,81 +96,63 @@
         android:layout_height="wrap_content" >
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
             android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="15dp"
                 android:background="#FFB03A" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="right"
                 android:background="#FFFFFF"
-                android:orientation="horizontal" >
-            </LinearLayout>
+                android:orientation="vertical" >
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:padding="3dp"
+                    android:text="@string/whatyouneed"
+                    android:textColor="#FFB03A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_gravity="right"
-                    android:background="#FFFFFF"
-                    android:orientation="vertical" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- Shot glass"
+                    android:textColor="#FFB03A" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:padding="3dp"
-                        android:text="What you need:"
-                        android:textColor="#FFB03A"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- Deck of cards"
+                    android:textColor="#FFB03A" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-Shot glass"
-                        android:textColor="#FFB03A" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-Deck of cards"
-                        android:textColor="#FFB03A"/>
-                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-3+ people \n"
-                        android:textColor="#FFB03A"/>
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- 3+ people \n"
+                    android:textColor="#FFB03A" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:background="#FFFFFF"
                 android:orientation="vertical" >
 
@@ -180,7 +162,7 @@
                     android:fontFamily="calibri"
                     android:paddingLeft="3dp"
                     android:paddingRight="3dp"
-                    android:text="Information:"
+                    android:text="@string/game_information"
                     android:textColor="#FFB03A"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -192,24 +174,23 @@
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
                     android:text="The first hand is used to determine everyone’s rank during the following hands. Deal out all the cards. The person to the left of the dealer starts off. The object of the game is to get rid of all your cards. When starting you can lay down any card or cards with the same face value. The person following you must lay down a card of equal or greater value. They must also use the same amount of cards as you did. If you lay down two 9′s then they would have to lay down two of something equal or greater. If the player lays down the same card as the previous player then the next player is skipped and must drink. Also if you can’t play any of your cards than you must skip and drink. Cards are cleared if everyone skips or a two is played.\n\nPlay continues like this until all the cards have been played. After the first hand is when the fun really begins. There is a ranking system which is as follows: President, Vice-President, Secretary, Asshole. Whoever goes out first becomes the new President for the next game, the second person becomes the Vice-President, etc… For the following rounds, anyone who ranks higher then you can tell you to drink whenever they want to.\n\nSpecial Rules:The Asshole must always deal and clear the cards. Also the Asshole must give the two best cards in their hand to the President. The President gives the two worst cards in their hand to the Asshole. If the President remains President for three consecutive rounds they can create special rules, such as the word “drink” cannot be used. If these rules are broken then the offender must drink."
-	 			    android:textColor="#FFB03A" />
+                    android:textColor="#FFB03A" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:background="#FFB03A" />
         </LinearLayout>
     </ScrollView>
-    
-     <ImageView
+
+    <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:background="@drawable/backbtn" />
-    
+        android:background="@drawable/backbtn"
+        android:contentDescription="@null"
+        android:onClick="backbtnGame" />
 
 </LinearLayout>

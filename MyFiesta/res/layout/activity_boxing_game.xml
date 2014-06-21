@@ -78,15 +78,15 @@
         android:background="#262626" >
 
         <TextView
-            android:id="@+id/textEvents"
+            android:id="@+id/textBoxing"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="2dp"
             android:fontFamily="Calibri"
-            android:text="Boxing"
+            android:text="@string/Boxing_game"
             android:textColor="#FFFFFF"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:typeface="serif" />
     </LinearLayout>
@@ -96,90 +96,71 @@
         android:layout_height="wrap_content" >
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
             android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="15dp"
                 android:background="#FFB03A" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="right"
                 android:background="#FFFFFF"
-                android:orientation="horizontal" >
-            </LinearLayout>
+                android:orientation="vertical" >
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:padding="3dp"
+                    android:text="@string/whatyouneed"
+                    android:textColor="#FFB03A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_gravity="right"
-                    android:background="#FFFFFF"
-                    android:orientation="vertical" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- 2x shot glass"
+                    android:textColor="#FFB03A" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:padding="3dp"
-                        android:text="What you need:"
-                        android:textColor="#FFB03A"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- 2x dices"
+                    android:textColor="#FFB03A" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-2x shot glass"
-                        android:textColor="#FFB03A" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- Stopwatch"
+                    android:textColor="#FFB03A" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-2x dices"
-                        android:textColor="#FFB03A" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-Stopwatch"
-                        android:textColor="#FFB03A" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-4 people \n"
-                        android:textColor="#FFB03A" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- 4 people \n"
+                    android:textColor="#FFB03A" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:background="#FFFFFF"
                 android:orientation="vertical" >
 
@@ -189,7 +170,7 @@
                     android:fontFamily="calibri"
                     android:paddingLeft="3dp"
                     android:paddingRight="3dp"
-                    android:text="Information:"
+                    android:text="@string/game_information"
                     android:textColor="#FFB03A"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -203,31 +184,30 @@
                     android:text="Two people play this game head to head just like a boxing match, with the other 2 people helping them out being their “corner men”. Sit at opposite sides of the table and each roll a dice. Whoever scores lowest on the die takes that punch and drinks their shot. The corner man fills the empty shot glass as quickly as they can and you roll again.\n\nIt’s a fast paced game to say the least. You play in 3 minute rounds with a 30 second rest in between rounds. We play until someone quits or pukes. You could play a limited number of rounds to prevent this though."
                     android:textColor="#FFB03A" />
             </LinearLayout>
-            
+
             <Button
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:orientation="vertical"
-                    android:background="@drawable/btn"
-                    android:layout_margin="10dp"
-                    android:text="Start Timer" />
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@drawable/btn"
+                android:orientation="vertical"
+                android:text="Start Timer" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:background="#FFB03A" />
         </LinearLayout>
     </ScrollView>
-    
-     <ImageView
+
+    <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:background="@drawable/backbtn" />
-    
+        android:background="@drawable/backbtn"
+        android:contentDescription="@null"
+        android:onClick="backbtnGame" />
 
 </LinearLayout>

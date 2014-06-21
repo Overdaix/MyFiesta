@@ -78,15 +78,15 @@
         android:background="#262626" >
 
         <TextView
-            android:id="@+id/textEvents"
+            android:id="@+id/textFuzyDuck"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="2dp"
             android:fontFamily="Calibri"
-            android:text="Fuzzy Duck"
+            android:text="@string/FuzyDuck_game"
             android:textColor="#FFFFFF"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:typeface="serif" />
     </LinearLayout>
@@ -96,66 +96,47 @@
         android:layout_height="wrap_content" >
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
             android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="15dp"
                 android:background="#FFB03A" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="right"
                 android:background="#FFFFFF"
-                android:orientation="horizontal" >
-            </LinearLayout>
+                android:orientation="vertical" >
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:padding="3dp"
+                    android:text="@string/whatyouneed"
+                    android:textColor="#FFB03A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_gravity="right"
-                    android:background="#FFFFFF"
-                    android:orientation="vertical" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:padding="3dp"
-                        android:text="What you need:"
-                        android:textColor="#FFB03A"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-6 people \n"
-                        android:textColor="#FFB03A" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- 6 people \n"
+                    android:textColor="#FFB03A" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:background="#FFFFFF"
                 android:orientation="vertical" >
 
@@ -165,7 +146,7 @@
                     android:fontFamily="calibri"
                     android:paddingLeft="3dp"
                     android:paddingRight="3dp"
-                    android:text="Information:"
+                    android:text="@string/game_information"
                     android:textColor="#FFB03A"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -176,16 +157,13 @@
                     android:fontFamily="calibri"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:text="Everyone sits in a circle or around a table. One person begins by saying 'Fuzzy Duck'. The person to their left then says 'Fuzzy Duck' again, and it continues around the circle. Alternately, someone can say 'Does he?'. If someone says this, the game direction is reversed and the person to his right has to say 'Ducky Fuzz'. This continues around until someone says 'Does he?' again, at which point the direction reverses again and the phrase changes back to 'Fuzzy Duck', and so on. The point is to go as fast as possible. Any person who pauses must drink, and anyone who gets it wrong or mispronounces it also must drink."
+                    android:text="Everyone sits in a circle or around a table. One person begins by saying &apos;Fuzzy Duck&apos;. The person to their left then says &apos;Fuzzy Duck&apos; again, and it continues around the circle. Alternately, someone can say &apos;Does he?&apos;. If someone says this, the game direction is reversed and the person to his right has to say &apos;Ducky Fuzz&apos;. This continues around until someone says &apos;Does he?&apos; again, at which point the direction reverses again and the phrase changes back to &apos;Fuzzy Duck&apos;, and so on. The point is to go as fast as possible. Any person who pauses must drink, and anyone who gets it wrong or mispronounces it also must drink."
                     android:textColor="#FFB03A" />
-
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:background="#FFB03A" />
         </LinearLayout>
     </ScrollView>
@@ -195,14 +173,8 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:background="@drawable/backbtn" />
-    
-     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/backbtn" />
-    
+        android:background="@drawable/backbtn"
+        android:contentDescription="@null"
+        android:onClick="backbtnGame" />
 
 </LinearLayout>

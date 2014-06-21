@@ -78,15 +78,15 @@
         android:background="#262626" >
 
         <TextView
-            android:id="@+id/textEvents"
+            android:id="@+id/textAvalanche"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="2dp"
             android:fontFamily="Calibri"
-            android:text="Avalanche"
+            android:text="@string/Avalanche_game"
             android:textColor="#FFFFFF"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:typeface="serif" />
     </LinearLayout>
@@ -96,81 +96,63 @@
         android:layout_height="wrap_content" >
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
             android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="15dp"
                 android:background="#FFB03A" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="right"
                 android:background="#FFFFFF"
-                android:orientation="horizontal" >
-            </LinearLayout>
+                android:orientation="vertical" >
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="horizontal" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:padding="3dp"
+                    android:text="@string/whatyouneed"
+                    android:textColor="#FFB03A"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_gravity="right"
-                    android:background="#FFFFFF"
-                    android:orientation="vertical" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- Shot glass"
+                    android:textColor="#FFB03A" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:padding="3dp"
-                        android:text="What you need:"
-                        android:textColor="#FFB03A"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- A dice"
+                    android:textColor="#FFB03A" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-Shot glass"
-                        android:textColor="#FFB03A" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-A dice"
-                        android:textColor="#FFB03A"/>
-                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="calibri"
-                        android:paddingLeft="15dp"
-                        android:text="-3+ people \n"
-                        android:textColor="#FFB03A"/>
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="calibri"
+                    android:paddingLeft="15dp"
+                    android:text="- 3+ people \n"
+                    android:textColor="#FFB03A" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:background="#FFFFFF"
                 android:orientation="vertical" >
 
@@ -180,7 +162,7 @@
                     android:fontFamily="calibri"
                     android:paddingLeft="3dp"
                     android:paddingRight="3dp"
-                    android:text="Information:"
+                    android:text="@string/game_information"
                     android:textColor="#FFB03A"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -191,25 +173,24 @@
                     android:fontFamily="calibri"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:text="Avalanche is a drinking game of chance which can be played with any number of players. Play passes counterclockwise around a circle. The current player adds some of his/her drink of an amount of his/her choosing to the game glass. Adding only a little drink, especially to a fairly empty glass, is a small bet as this will be easy to drink if necessary. On the other hand, adding a large amount of drink, while risking a challenging downing task, also potentially inflicts that task on someone else.\n\nOnce the drink has been added to the glass, a six-sided die is thrown by the same player who added the drink. The results of each number are as follows:\n1.	No event, play passes to the next person.\n2.	The player doubles the amount of liquid in the glass or fills it, whichever is less. Play passes to the next person.\n3.	Current player must drink the glass.\n4.	Current player yells 'Floor!' and all players must point downward. The last player to do so drinks the glass.\n5.	Roll again. If another 5 is rolled, then the roller has 'Power Fives' and may make anyone drink the glass. Any other roll is treated as indicated.\n 6.	No event, play passes to the next person.(The odds are thus as follows: 7/18 no event, play passes; 7/36 liquid is doubled, play passes; 7/36 player must drink; 7/36 slowest player drinks; 1/36 the player can make anyone drink.)\n\nAfter the event, the glass and die will be passed on to the next player, who thus may or may not inherit a partly full glass. When the game glass is drunk, play continues with another glass and with the next player from the one drinking the glass. If this player has not finished drinking the glass by the time play returns to them, they lose the game and are out. Once a player consumes 3 game glasses, they are out with a loss. The winner is the last person not to lose in these two manners."
+                    android:text="Avalanche is a drinking game of chance which can be played with any number of players. Play passes counterclockwise around a circle. The current player adds some of his/her drink of an amount of his/her choosing to the game glass. Adding only a little drink, especially to a fairly empty glass, is a small bet as this will be easy to drink if necessary. On the other hand, adding a large amount of drink, while risking a challenging downing task, also potentially inflicts that task on someone else.\n\nOnce the drink has been added to the glass, a six-sided die is thrown by the same player who added the drink. The results of each number are as follows:\n1.	No event, play passes to the next person.\n2.	The player doubles the amount of liquid in the glass or fills it, whichever is less. Play passes to the next person.\n3.	Current player must drink the glass.\n4.	Current player yells &apos;Floor!&apos; and all players must point downward. The last player to do so drinks the glass.\n5.	Roll again. If another 5 is rolled, then the roller has &apos;Power Fives&apos; and may make anyone drink the glass. Any other roll is treated as indicated.\n 6.	No event, play passes to the next person.(The odds are thus as follows: 7/18 no event, play passes; 7/36 liquid is doubled, play passes; 7/36 player must drink; 7/36 slowest player drinks; 1/36 the player can make anyone drink.)\n\nAfter the event, the glass and die will be passed on to the next player, who thus may or may not inherit a partly full glass. When the game glass is drunk, play continues with another glass and with the next player from the one drinking the glass. If this player has not finished drinking the glass by the time play returns to them, they lose the game and are out. Once a player consumes 3 game glasses, they are out with a loss. The winner is the last person not to lose in these two manners."
                     android:textColor="#FFB03A" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:background="#FFB03A" />
         </LinearLayout>
     </ScrollView>
-    
-     <ImageView
+
+    <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:background="@drawable/backbtn" />
-    
+        android:background="@drawable/backbtn"
+        android:contentDescription="@null"
+        android:onClick="backbtnGame" />
 
 </LinearLayout>
