@@ -80,23 +80,115 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 				"com.cincosolutions.myfiesta.DRINKSMENU");
 		startActivity(openDrinksMenu);
 	}
-	
-	public void countgame(View v) {
-		Intent countgame = new Intent(
-				"com.cincosolutions.myfiesta.COUNTDOWNGAME");
-		startActivity(countgame);
+
+	public void AnimalGameAct(View v) {
+		Intent openAnimalGame = new Intent(
+				"com.cincosolutions.myfiesta.ANIMALGAMEACTIVITY");
+		startActivity(openAnimalGame);
 	}
-	
-	public void powerhour(View v) {
-		Intent powerhour = new Intent(
+
+	public void AssholeGameAct(View v) {
+		Intent openAssholeGame = new Intent(
+				"com.cincosolutions.myfiesta.ASSHOLEGAMEACTIVITY");
+		startActivity(openAssholeGame);
+	}
+
+	public void AvalancheGameAct(View v) {
+		Intent openAvalancheGame = new Intent(
+				"com.cincosolutions.myfiesta.AVALANCHEGAMEACTIVITY");
+		startActivity(openAvalancheGame);
+	}
+
+	public void BasketballGameAct(View v) {
+		Intent openBasketballGame = new Intent(
+				"com.cincosolutions.myfiesta.BASEKETBALLGAMEACTIVITY");
+		startActivity(openBasketballGame);
+	}
+
+	public void BeerpongGameAct(View v) {
+		Intent openBeerpongGame = new Intent(
+				"com.cincosolutions.myfiesta.BEERPONGGAMEACTIVITY");
+		startActivity(openBeerpongGame);
+	}
+
+	public void BoxingGameAct(View v) {
+		Intent openBoxingGame = new Intent(
+				"com.cincosolutions.myfiesta.BOXINGGAMEACTIVITY");
+		startActivity(openBoxingGame);
+	}
+
+	public void BusdriverGameAct(View v) {
+		Intent openBusdriverGame = new Intent(
+				"com.cincosolutions.myfiesta.BUSDRIVERGAMEACTIVITY");
+		startActivity(openBusdriverGame);
+	}
+
+	public void FlipsipstripGameAct(View v) {
+		Intent openFlipsipstripGame = new Intent(
+				"com.cincosolutions.myfiesta.FLIPSIPSTRIPGAMEACTIVITY");
+		startActivity(openFlipsipstripGame);
+	}
+
+	public void FubarGameAct(View v) {
+		Intent openFubarGame = new Intent(
+				"com.cincosolutions.myfiesta.FUBARGAMEACTIVITY");
+		startActivity(openFubarGame);
+	}
+
+	public void FuzyduckGameAct(View v) {
+		Intent openFuzyduckGame = new Intent(
+				"com.cincosolutions.myfiesta.FUZYDUCKGAMEACTIVITY");
+		startActivity(openFuzyduckGame);
+	}
+
+	public void KingsGameAct(View v) {
+		Intent openKingsGame = new Intent(
+				"com.cincosolutions.myfiesta.KINGSGAMEACTIVITY");
+		startActivity(openKingsGame);
+	}
+
+	public void PowerhourGameAct(View v) {
+		Intent openPowerhourGame = new Intent(
 				"com.cincosolutions.myfiesta.POWERHOURACTIVITY");
-		startActivity(powerhour);
+		startActivity(openPowerhourGame);
 	}
-	
-	public void calculate(View v) {
-		Intent calculate = new Intent(
-				"com.cincosolutions.myfiesta.CALCULATEINSTRUCTION");
-		startActivity(calculate);
+
+	public void QuartersGameAct(View v) {
+		Intent openQuartersGame = new Intent(
+				"com.cincosolutions.myfiesta.QUARTERSGAMEACTIVITY");
+		startActivity(openQuartersGame);
 	}
+
+	public void SpinnersGameAct(View v) {
+		Intent openSpinnersGame = new Intent(
+				"com.cincosolutions.myfiesta.SPINNERSGAMEACTIVITY");
+		startActivity(openSpinnersGame);
+	}
+
+	public void ThreemanGameAct(View v) {
+		Intent openThreemanGame = new Intent(
+				"com.cincosolutions.myfiesta.THREEMANGAMEACTIVITY");
+		startActivity(openThreemanGame);
+	}
+
+	public void ThumperGameAct(View v) {
+		Intent openThumperGame = new Intent(
+				"com.cincosolutions.myfiesta.THUMPERGAMEACTIVITY");
+		startActivity(openThumperGame);
+	}
+
+	/*
+	 * 
+	 * public void countgame(View v) { Intent countgame = new Intent(
+	 * "com.cincosolutions.myfiesta.COUNTDOWNGAME"); startActivity(countgame); }
+	 * 
+	 * public void powerhour(View v) { Intent powerhour = new Intent(
+	 * "com.cincosolutions.myfiesta.POWERHOURACTIVITY");
+	 * startActivity(powerhour); }
+	 * 
+	 * public void calculate(View v) { Intent calculate = new Intent(
+	 * "com.cincosolutions.myfiesta.CALCULATEINSTRUCTION");
+	 * startActivity(calculate); }
+	 */
 
 }

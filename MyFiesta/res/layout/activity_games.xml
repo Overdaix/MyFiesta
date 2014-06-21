@@ -100,90 +100,86 @@
             android:layout_marginLeft="18dp"
             android:layout_marginRight="18dp"
             android:orientation="vertical"
-            android:paddingTop="20dp" >
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp" >
 
             <!-- BEGIN BALL LIST -->
 
             <LinearLayout
-                android:id="@+id/BallList"
+                android:layout_width="match_parent"
+                android:layout_height="23dp" >
+
+                <TextView
+                    android:id="@+id/textBall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="Calibri"
+                    android:text="@string/ball_game"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="23dp" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="BasketballGameAct"
+                    android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textBall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/basketball_game"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="13dp"
                         android:layout_marginTop="2dp"
                         android:fontFamily="Calibri"
-                        android:text="@string/ball_game"
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:gravity="center_vertical"
+                        android:text="@string/basketball_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="BeerpongGameAct"
+                    android:orientation="vertical" >
 
-                    <LinearLayout
-                        android:layout_width="0dip"
+                    <TextView
+                        android:id="@+id/BeerPong_game"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
                         android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/basketball_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/basketball_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
-
-                    <LinearLayout
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/BeerPong_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/BeerPong_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
+                        android:text="@string/BeerPong_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
             </LinearLayout>
             <!-- END BALL LIST -->
@@ -196,145 +192,142 @@
             <!-- BEGIN CARD LIST -->
 
             <LinearLayout
-                android:id="@+id/CardList"
+                android:layout_width="match_parent"
+                android:layout_height="23dp" >
+
+                <TextView
+                    android:id="@+id/textCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="Calibri"
+                    android:text="@string/card_game"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="23dp" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="FubarGameAct"
+                    android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textCard"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/Fubar_game"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="13dp"
                         android:layout_marginTop="2dp"
                         android:fontFamily="Calibri"
-                        android:text="@string/card_game"
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:gravity="center_vertical"
+                        android:text="@string/Fubar_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="AssholeGameAct"
+                    android:orientation="vertical" >
 
-                    <LinearLayout
-                        android:layout_width="0dip"
+                    <TextView
+                        android:id="@+id/Asshole_game"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
                         android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/Fubar_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/Fubar_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
+                        android:text="@string/Asshole_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="KingsGameAct"
+                    android:orientation="vertical" >
 
-                    <LinearLayout
-                        android:layout_width="0dip"
+                    <TextView
+                        android:id="@+id/Kings_game"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
                         android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/Asshole_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/Asshole_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
+                        android:text="@string/Kings_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="BusdriverGameAct"
+                    android:orientation="vertical" >
 
-                    <LinearLayout
-                        android:layout_width="0dip"
+                    <TextView
+                        android:id="@+id/BusDriver_game"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
                         android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/Kings_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/Kings_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
-
-                    <LinearLayout
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/BusDriver_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/BusDriver_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
+                        android:text="@string/BusDriver_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
             </LinearLayout>
             <!-- END CARD LIST -->
@@ -347,115 +340,111 @@
             <!-- BEGIN COINS LIST -->
 
             <LinearLayout
-                android:id="@+id/CoinsList"
+                android:layout_width="match_parent"
+                android:layout_height="23dp" >
+
+                <TextView
+                    android:id="@+id/textCoins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="Calibri"
+                    android:text="@string/coins_game"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="23dp" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="FlipsipstripGameAct"
+                    android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textCoins"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/FlipSipStrip_game"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="13dp"
                         android:layout_marginTop="2dp"
                         android:fontFamily="Calibri"
-                        android:text="@string/coins_game"
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:gravity="center_vertical"
+                        android:text="@string/FlipSipStrip_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="QuartersGameAct"
+                    android:orientation="vertical" >
 
-                    <LinearLayout
-                        android:layout_width="0dip"
+                    <TextView
+                        android:id="@+id/Quarters_game"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
                         android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/FlipSipStrip_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/FlipSipStrip_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
+                        android:text="@string/Quarters_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="SpinnersGameAct"
+                    android:orientation="vertical" >
 
-                    <LinearLayout
-                        android:layout_width="0dip"
+                    <TextView
+                        android:id="@+id/Spinners_game"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
                         android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/Quarters_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/Quarters_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
-
-                    <LinearLayout
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/Spinners_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/Spinners_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
+                        android:text="@string/Spinners_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
             </LinearLayout>
             <!-- END COINS LIST -->
@@ -468,115 +457,111 @@
             <!-- BEGIN DICE LIST -->
 
             <LinearLayout
-                android:id="@+id/DiceList"
+                android:layout_width="match_parent"
+                android:layout_height="23dp" >
+
+                <TextView
+                    android:id="@+id/textDice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="Calibri"
+                    android:text="@string/dice_game"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="23dp" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="AvalancheGameAct"
+                    android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textDice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/Avalanche_game"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="13dp"
                         android:layout_marginTop="2dp"
                         android:fontFamily="Calibri"
-                        android:text="@string/dice_game"
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:gravity="center_vertical"
+                        android:text="@string/Avalanche_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="ThreemanGameAct"
+                    android:orientation="vertical" >
 
-                    <LinearLayout
-                        android:layout_width="0dip"
+                    <TextView
+                        android:id="@+id/ThreeMan_game"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
                         android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/Avalanche_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/Avalanche_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
+                        android:text="@string/ThreeMan_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="BoxingGameAct"
+                    android:orientation="vertical" >
 
-                    <LinearLayout
-                        android:layout_width="0dip"
+                    <TextView
+                        android:id="@+id/Boxing_game"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
                         android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/ThreeMan_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/ThreeMan_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
-
-                    <LinearLayout
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/Boxing_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/Boxing_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
+                        android:text="@string/Boxing_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
             </LinearLayout>
             <!-- END DICE LIST -->
@@ -589,85 +574,80 @@
             <!-- BEGIN HAND LIST -->
 
             <LinearLayout
-                android:id="@+id/HandList"
+                android:layout_width="match_parent"
+                android:layout_height="23dp" >
+
+                <TextView
+                    android:id="@+id/textHand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="Calibri"
+                    android:text="@string/hands_game"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="23dp" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="ThumperGameAct"
+                    android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textHand"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/Thumper_game"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="13dp"
                         android:layout_marginTop="2dp"
                         android:fontFamily="Calibri"
-                        android:text="@string/hands_game"
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:gravity="center_vertical"
+                        android:text="@string/Thumper_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="PowerhourGameAct"
+                    android:orientation="vertical" >
 
-                    <LinearLayout
-                        android:layout_width="0dip"
+                    <TextView
+                        android:id="@+id/PowerHour_game"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
                         android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/Thumper_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/Thumper_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
-
-                    <LinearLayout
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/PowerHour_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/PowerHour_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
+                        android:text="@string/PowerHour_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
             </LinearLayout>
             <!-- END HAND LIST -->
@@ -680,85 +660,80 @@
             <!-- BEGIN VERBAL LIST -->
 
             <LinearLayout
-                android:id="@+id/VerbalList"
+                android:layout_width="match_parent"
+                android:layout_height="23dp" >
+
+                <TextView
+                    android:id="@+id/textVerbal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="Calibri"
+                    android:text="@string/verbal_game"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="23dp" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="FuzyduckGameAct"
+                    android:orientation="vertical" >
 
                     <TextView
-                        android:id="@+id/textVerbal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/FuzyDuck_game"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="13dp"
                         android:layout_marginTop="2dp"
                         android:fontFamily="Calibri"
-                        android:text="@string/verbal_game"
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:gravity="center_vertical"
+                        android:text="@string/FuzyDuck_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="AnimalGameAct"
+                    android:orientation="vertical" >
 
-                    <LinearLayout
-                        android:layout_width="0dip"
+                    <TextView
+                        android:id="@+id/Animal_game"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
                         android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/FuzyDuck_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/FuzyDuck_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/listbg"
-                    android:baselineAligned="false" >
-
-                    <LinearLayout
-                        android:layout_width="0dip"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical" >
-
-                        <TextView
-                            android:id="@+id/Animal_game"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="13dp"
-                            android:layout_marginTop="2dp"
-                            android:fontFamily="Calibri"
-                            android:gravity="center_vertical"
-                            android:text="@string/Animal_game"
-                            android:textColor="#FFB03A"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:typeface="serif" />
-                    </LinearLayout>
+                        android:text="@string/Animal_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
                 </LinearLayout>
             </LinearLayout>
             <!-- END VERBAL LIST -->
