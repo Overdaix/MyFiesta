@@ -42,11 +42,11 @@ public class KingsGame extends Activity{
 	
 	public void nextcard(View v){
 		int min = 1;
-		int max = 48;
+		int max = 52;
 
 		Random r = new Random();
 		final int card = r.nextInt(max - min + 1) + min;
-		new CountDownTimer(1250, 1000) {
+		new CountDownTimer(1350, 1000) {
 			 public void onTick(long millisUntilFinished) {
 			 }
 			
