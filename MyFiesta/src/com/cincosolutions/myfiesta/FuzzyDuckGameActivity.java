@@ -1,7 +1,9 @@
 package com.cincosolutions.myfiesta;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -18,7 +20,29 @@ public class FuzzyDuckGameActivity extends Activity {
 
 		setContentView(R.layout.activity_fuzzy_duck_game);
 
-		
+	}
+	
+	public void GamesAct(View v) {
+		Intent openGamesActivity = new Intent(
+				"com.cincosolutions.myfiesta.GAMESACTIVITY");
+		startActivity(openGamesActivity);
+	}
+
+	public void DrinksAct(View v) {
+		Intent openDrinksMenu = new Intent(
+				"com.cincosolutions.myfiesta.DRINKSMENU");
+		startActivity(openDrinksMenu);
+	}
+
+	public void SettingsAct(View v) {
+		Intent openSettingsActivity = new Intent(
+				"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
+		startActivity(openSettingsActivity);
+	}
+
+	public void backbtnGame(View v) {
+		Intent back = new Intent("com.cincosolutions.myfiesta.GAMESACTIVITY");
+		startActivity(back);
 	}
 
 }

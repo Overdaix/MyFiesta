@@ -5,14 +5,11 @@ import com.cincosolutions.myfiesta.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
-public class PowerHourActivity extends Activity  {
-	
+public class PowerHourActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -27,16 +24,32 @@ public class PowerHourActivity extends Activity  {
 
 	}
 
+	public void GamesAct(View v) {
+		Intent openGamesActivity = new Intent(
+				"com.cincosolutions.myfiesta.GAMESACTIVITY");
+		startActivity(openGamesActivity);
+	}
+
+	public void DrinksAct(View v) {
+		Intent openDrinksMenu = new Intent(
+				"com.cincosolutions.myfiesta.DRINKSMENU");
+		startActivity(openDrinksMenu);
+	}
+
+	public void SettingsAct(View v) {
+		Intent openSettingsActivity = new Intent(
+				"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
+		startActivity(openSettingsActivity);
+	}
 
 	public void start(View v) {
 		Intent count = new Intent("com.cincosolutions.myfiesta.COUNTDOWNGAME");
 		startActivity(count);
 	}
-	
+
 	public void backbtnGame(View v) {
 		Intent back = new Intent("com.cincosolutions.myfiesta.GAMESACTIVITY");
 		startActivity(back);
 	}
-	
 
 }

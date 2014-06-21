@@ -183,31 +183,31 @@
                     android:paddingRight="5dp"
                     android:text="Two people play this game head to head just like a boxing match, with the other 2 people helping them out being their “corner men”. Sit at opposite sides of the table and each roll a dice. Whoever scores lowest on the die takes that punch and drinks their shot. The corner man fills the empty shot glass as quickly as they can and you roll again.\n\nIt’s a fast paced game to say the least. You play in 3 minute rounds with a 30 second rest in between rounds. We play until someone quits or pukes. You could play a limited number of rounds to prevent this though."
                     android:textColor="#FFB03A" />
-            </LinearLayout>
 
-            <Button
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:background="@drawable/btn"
-                android:orientation="vertical"
-                android:text="Start Timer" />
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/btn"
+                    android:orientation="vertical"
+                    android:text="Start Timer" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
                 android:background="#FFB03A" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/backbtn"
+                android:contentDescription="@null"
+                android:onClick="backbtnGame" />
         </LinearLayout>
     </ScrollView>
-
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/backbtn"
-        android:contentDescription="@null"
-        android:onClick="backbtnGame" />
 
 </LinearLayout>

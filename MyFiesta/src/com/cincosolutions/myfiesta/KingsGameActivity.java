@@ -21,6 +21,24 @@ public class KingsGameActivity extends Activity {
 		setContentView(R.layout.activity_kings_game);
 	}
 	
+	public void GamesAct(View v) {
+		Intent openGamesActivity = new Intent(
+				"com.cincosolutions.myfiesta.GAMESACTIVITY");
+		startActivity(openGamesActivity);
+	}
+
+	public void DrinksAct(View v) {
+		Intent openDrinksMenu = new Intent(
+				"com.cincosolutions.myfiesta.DRINKSMENU");
+		startActivity(openDrinksMenu);
+	}
+
+	public void SettingsAct(View v) {
+		Intent openSettingsActivity = new Intent(
+				"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
+		startActivity(openSettingsActivity);
+	}
+	
 	public void start(View v) {
 		Intent king = new Intent(
 				"com.cincosolutions.myfiesta.KINGSGAME");
