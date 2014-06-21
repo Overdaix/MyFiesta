@@ -39,6 +39,12 @@ public class CalculatorGameActivity extends Activity {
 				"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
 		startActivity(openSettingsActivity);
 	}
+	
+	public void start(View v) {
+		Intent calculatorStart = new Intent(
+				"com.cincosolutions.myfiesta.CALCULATEGAME");
+		startActivity(calculatorStart);
+	}
 
 	public void backbtnGame(View v) {
 		Intent back = new Intent("com.cincosolutions.myfiesta.GAMESACTIVITY");
