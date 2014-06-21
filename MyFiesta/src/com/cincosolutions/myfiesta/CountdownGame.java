@@ -1,5 +1,7 @@
 package com.cincosolutions.myfiesta;
 
+import java.util.Random;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,7 +15,7 @@ import android.widget.TextView;
 
 public class CountdownGame extends Activity {
 	
-TextView mTextField, mTextField2, mTextField3;
+TextView mTextField, mTextField2, mTextField3, mTextField5;
 	
 int drinkCounter = 0;
 long sec = 0;
@@ -26,6 +28,7 @@ long sec = 0;
 		mTextField = (TextView) findViewById(R.id.mTextField);
 		mTextField2 = (TextView) findViewById(R.id.mTextField2);
 		mTextField3 = (TextView) findViewById(R.id.mTextField3);
+		mTextField5 = (TextView) findViewById(R.id.mTextField5);
 		final MediaPlayer mpTik = MediaPlayer.create(this, R.raw.tik);
 		final MediaPlayer mpHorn = MediaPlayer.create(this, R.raw.horn);
 		
@@ -43,8 +46,24 @@ long sec = 0;
 			    		 || sec == 500 || sec == 400 || sec == 300 || sec == 200 || sec == 100
 			    		 || sec == 2){
 			    	 mpHorn.start();
+			    	 mTextField5.setVisibility(View.INVISIBLE);
 			    	 mTextField2.setVisibility(View.VISIBLE);
-			    	 mTextField2.setText("Shot!");
+			    	 int min = 1;
+			 		 int max = 5;
+
+			 		 Random r = new Random();
+			 		 final int word = r.nextInt(max - min + 1) + min;
+			 		 if(word == 1){
+			 			 mTextField2.setText("Shot!");
+			 		 }else if(word == 2){
+			 			mTextField2.setText("Cheers!");
+			 		 }else if(word == 3){
+			 			mTextField2.setText("Drink!");
+			 		 }else if(word == 4){
+			 			mTextField2.setText("Enjoy!");
+			 		 }else if(word == 5){
+			 			mTextField2.setText("Congratz!");
+			 		 }
 			    	 mTextField2.startAnimation(AnimationUtils.loadAnimation(CountdownGame.this, android.R.anim.slide_in_left));
 			    	 drinkCounter++;
 			    	 mTextField3.setText("" + drinkCounter);
@@ -59,6 +78,8 @@ long sec = 0;
 			    		 || sec == 1){
 			    	 mTextField2.startAnimation(AnimationUtils.loadAnimation(CountdownGame.this, android.R.anim.fade_out));
 					 mTextField2.setVisibility(View.INVISIBLE);
+					 mTextField5.setText("Refill the shots..");
+					 mTextField5.setVisibility(View.VISIBLE);
 			     }
 			 }
 			
