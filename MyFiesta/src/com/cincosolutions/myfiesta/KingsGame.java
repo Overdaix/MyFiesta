@@ -6,6 +6,7 @@ import java.util.Random;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -92,9 +93,9 @@ public class KingsGame extends Activity{
 		alertDialog.setButton("Ok", new DialogInterface.OnClickListener() {
 		public void onClick(DialogInterface dialog, int which) {
 			kings = 0;
-			//Intent start = new Intent(
-			//		"com.cincosolutions.myfiesta.CALCULATEINSTRUCTION");
-			//startActivity(start);
+			Intent start = new Intent(
+					"com.cincosolutions.myfiesta.KINGSGAMEACTIVITY");
+			startActivity(start);
 		}
 		});
 		alertDialog.show();
