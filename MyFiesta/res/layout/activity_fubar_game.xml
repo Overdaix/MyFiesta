@@ -176,14 +176,6 @@
                     android:text="Shuffle a full deck of cards and scatter them in a pile in the middle of your table. One player goes at a time picking one card. They flip over their card, displaying it to everyone. Each card has a different rule as follows:\n\nAce: Take one drink\n2: Take Two\n3: Take Three\n4: Questions – You look at the person of your choice and ask them a question, they must answer your question with a question and it keeps going until someone screws up. Ex. What is going on? Why do you touch yourself? You don’t have to question the person who questioned you either. Make sure to make eye contact.\n5: Give five drinks\n6: I never. This is where the person who flipped the card says something they have never done and anyone who has must drink.\n7: Thumbmaster – This person puts their thumb down on the table whenever they want and the last one to put theirs down drinks. The thumbmaster can do this as many times as he wants until the next seven is picked.\n8: Categories – The first person gives a topic/category and in rotation, everyone else must give a kind. Ex: Toothpaste, Crest, Colgate, Mentadent, etc.\n9: Rhyme – Everyone must give a word that rhymes with yours. Ex: Shoe…glue…you…etc…\n10: Social – Everyone drinks\nJack: Assholes drink…guys drink\nQueen: Bitches drink….girls drink\nKing: Waterfall – This can be extremely hard, depending on your group of drinkers. It goes in order first being the one who picked the card and so on. The first person drinks as much beer as they can continuously and the 2nd person can’t stop until they stop, the 3rd person can’t stop until the 2nd person and so on. If you have big drinkers at the beginning, it is really difficult."
                     android:textColor="#FFB03A" />
 
-                <Button
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/btn"
-                    android:orientation="vertical"
-                    android:text="Start Game" />
             </LinearLayout>
 
             <LinearLayout

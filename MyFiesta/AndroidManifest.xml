@@ -305,6 +305,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.cincosolutions.myfiesta.CalculatorGameActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.cincosolutions.myfiesta.CALCULATORGAMEACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

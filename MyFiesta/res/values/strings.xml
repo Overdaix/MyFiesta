@@ -14,7 +14,8 @@
     <string name="game1">Game 1</string>
     <string name="game2">Game 2</string>
     <string name="title_activity_games">GamesActivity</string>
-    
+    <string name="title_activity_calculator_game">CalculatorGameActivity</string>
+    <string name="app_game">APP</string>
     <string name="ball_game">BALL</string>
     <string name="card_game">CARD</string>
     <string name="coins_game">COINS</string>
@@ -37,6 +38,7 @@
     <string name="PowerHour_game">Power Hour</string>
     <string name="FuzyDuck_game">Fuzy Duck</string>
     <string name="Animal_game">Animal</string>
+    <string name="Calculator_game">Calculator</string>
     <string name="game_information">Information:</string>
     <string name="whatyouneed">What you need:</string>
 

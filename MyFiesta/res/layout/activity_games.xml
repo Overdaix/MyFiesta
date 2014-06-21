@@ -100,8 +100,126 @@
             android:layout_marginLeft="18dp"
             android:layout_marginRight="18dp"
             android:orientation="vertical"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp" >
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp" >
+
+            <!-- BEGIN APP LIST -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="23dp" >
+
+                <TextView
+                    android:id="@+id/textApp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="Calibri"
+                    android:text="@string/app_game"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="CalculatorGameAct"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/calculator_game"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
+                        android:gravity="center_vertical"
+                        android:text="@string/Calculator_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="KingsGameAct"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/Kings_game"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
+                        android:gravity="center_vertical"
+                        android:text="@string/Kings_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/listbg"
+                android:baselineAligned="false" >
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:onClick="PowerhourGameAct"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/PowerHour_game"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="13dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="Calibri"
+                        android:gravity="center_vertical"
+                        android:text="@string/PowerHour_game"
+                        android:textColor="#FFB03A"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- END APP LIST -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@null" />
 
             <!-- BEGIN BALL LIST -->
 
@@ -262,37 +380,6 @@
                         android:fontFamily="Calibri"
                         android:gravity="center_vertical"
                         android:text="@string/Asshole_game"
-                        android:textColor="#FFB03A"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:typeface="serif" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/listbg"
-                android:baselineAligned="false" >
-
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:gravity="center_vertical"
-                    android:onClick="KingsGameAct"
-                    android:orientation="vertical" >
-
-                    <TextView
-                        android:id="@+id/Kings_game"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="13dp"
-                        android:layout_marginTop="2dp"
-                        android:fontFamily="Calibri"
-                        android:gravity="center_vertical"
-                        android:text="@string/Kings_game"
                         android:textColor="#FFB03A"
                         android:textSize="12sp"
                         android:textStyle="bold"
@@ -620,37 +707,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/listbg"
-                android:baselineAligned="false" >
-
-                <LinearLayout
-                    android:layout_width="0dip"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:gravity="center_vertical"
-                    android:onClick="PowerhourGameAct"
-                    android:orientation="vertical" >
-        
-
-                    <TextView
-                        android:id="@+id/PowerHour_game"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="13dp"
-                        android:layout_marginTop="2dp"
-                        android:fontFamily="Calibri"
-                        android:gravity="center_vertical"
-                        android:text="@string/PowerHour_game"
-                        android:textColor="#FFB03A"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:typeface="serif" />
-                </LinearLayout>
-            </LinearLayout>
             <!-- END HAND LIST -->
 
             <LinearLayout

@@ -182,6 +182,12 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 				"com.cincosolutions.myfiesta.THUMPERGAMEACTIVITY");
 		startActivity(openThumperGame);
 	}
+	
+	public void CalculatorGameAct(View v) {
+		Intent openCalculatorGame = new Intent(
+				"com.cincosolutions.myfiesta.CALCULATORGAMEACTIVITY");
+		startActivity(openCalculatorGame);
+	}
 
 	/*
 	 * 
