@@ -188,6 +188,12 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 				"com.cincosolutions.myfiesta.CALCULATORGAMEACTIVITY");
 		startActivity(openCalculatorGame);
 	}
+	
+	public void ArroganceGameAct(View v) {
+		Intent openArroganceGame = new Intent(
+				"com.cincosolutions.myfiesta.ARROGANCEGAMEACTIVITY");
+		startActivity(openArroganceGame);
+	}
 
 	/*
 	 * 
