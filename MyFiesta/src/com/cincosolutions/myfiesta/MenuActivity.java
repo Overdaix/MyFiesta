@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 public class MenuActivity extends Activity implements SimpleGestureListener {
 	private SimpleGestureFilter detector;
+	private static final int ACTIVITY_EDIT = 0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,8 @@ public class MenuActivity extends Activity implements SimpleGestureListener {
 
 			Intent openDrinksMenu = new Intent(
 					"com.cincosolutions.myfiesta.DRINKSMENU");
-			startActivity(openDrinksMenu);
+			startActivityForResult(openDrinksMenu, ACTIVITY_EDIT);
+			overridePendingTransition(R.anim.right_in, R.anim.right_out);
 
 			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
@@ -56,7 +58,8 @@ public class MenuActivity extends Activity implements SimpleGestureListener {
 
 			Intent openGamesActivity = new Intent(
 					"com.cincosolutions.myfiesta.GAMESACTIVITY");
-			startActivity(openGamesActivity);
+			startActivityForResult(openGamesActivity, ACTIVITY_EDIT);
+			overridePendingTransition(R.anim.left_in, R.anim.left_out);
 
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
@@ -78,13 +81,15 @@ public class MenuActivity extends Activity implements SimpleGestureListener {
 	public void GamesAct(View v) {
 		Intent openGamesActivity = new Intent(
 				"com.cincosolutions.myfiesta.GAMESACTIVITY");
-		startActivity(openGamesActivity);
+		startActivityForResult(openGamesActivity, ACTIVITY_EDIT);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 	}
 
 	public void DrinksAct(View v) {
 		Intent openDrinksMenu = new Intent(
 				"com.cincosolutions.myfiesta.DRINKSMENU");
-		startActivity(openDrinksMenu);
+		startActivityForResult(openDrinksMenu, ACTIVITY_EDIT);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 	}
 
 }

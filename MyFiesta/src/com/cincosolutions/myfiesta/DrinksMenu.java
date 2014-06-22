@@ -55,6 +55,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		IWsdl2CodeEvents {
 
 	SimpleGestureFilter detector;
+	private static final int ACTIVITY_EDIT = 0;
 	Button btnAddIngredient, btnDelete, btnSearch;
 	ImageView btnPrefs, favoImage;
 	ListView lv;
@@ -71,10 +72,10 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	private ArrayList<Mix> mixItems = new ArrayList<Mix>();
 	ArrayList<String> ingredientnamen = new ArrayList<String>();
 	ArrayList<String> mixnamen = new ArrayList<String>();
-	private String strFavo ;
+	private String strFavo;
 	String[] arrIDs;
 	String name = "";
-	
+
 	public void callWebService() {
 		WebService1 webService = new WebService1(this);
 
@@ -117,18 +118,21 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 							DrinksMenu.this,
 							android.R.layout.simple_list_item_1, mStringArray);
 					etSearch.setAdapter(adapter);
-					
+
 					btnAddIngredient = (Button) findViewById(R.id.btnAddIngredient);
 					btnAddIngredient
 							.setOnClickListener(new View.OnClickListener() {
 								public void onClick(View v) {
-									
-									String ingredientinput = etSearch
-											.getText().toString();
-									
-								ingredientinput =	ingredientinput.substring(0, 1).toUpperCase() + ingredientinput.substring(1);
-			
-									if (ingredientnamen.contains(ingredientinput)) {
+
+									String ingredientinput = etSearch.getText()
+											.toString();
+
+									ingredientinput = ingredientinput
+											.substring(0, 1).toUpperCase()
+											+ ingredientinput.substring(1);
+
+									if (ingredientnamen
+											.contains(ingredientinput)) {
 										llIngredient = (LinearLayout) findViewById(R.id.lvIngredient);
 
 										final ViewGroup parent = (ViewGroup) llIngredient
@@ -185,8 +189,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 												text, duration);
 										toast.show();
 
-									}
-									else{
+									} else {
 										Context context = getApplicationContext();
 										CharSequence text = ingredientinput
 												+ " bestaat niet";
@@ -208,26 +211,22 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			}
 
 		});
-		btnSearch = (Button)findViewById(R.id.btnSearch);
+		btnSearch = (Button) findViewById(R.id.btnSearch);
 		btnSearch.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-	
-					try {
-	
-						webService.FindMixesAsync(ingredienten);
-						
-						
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
 
-				
-				
-				
+				try {
+
+					webService.FindMixesAsync(ingredienten);
+
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
 			}
 		});
 		detector = new SimpleGestureFilter(this, this);
@@ -246,7 +245,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		 * //Manual deleting Drink1 from favorites. editor.remove("Drink1");
 		 * editor.commit();
 		 */
-		
+
 	}
 
 	@Override
@@ -258,10 +257,9 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	public void Wsdl2CodeFinished(String methodName, Object Data) {
 		Log.e("Wsdl2Code", "Wsdl2CodeFinished");
 		Log.i("Wsdl2Code", methodName);
-		if (methodName == "FindMixes"){
+		if (methodName == "FindMixes") {
 			FindMixes(Data);
-		}
-		else if (methodName == "GetDrinks") {
+		} else if (methodName == "GetDrinks") {
 			lv = (ListView) findViewById(R.id.drinksList);
 			ArrayList<Drink> drinkslijst = new ArrayList<Drink>();
 
@@ -293,11 +291,11 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 				@Override
 				public void onItemClick(AdapterView arg0, View view,
-						int position, long id){
-				
+						int position, long id) {
+
 					try {
 						Drink drink = adapter.getItem(position);
-							
+
 						Bundle bundle = new Bundle();
 						bundle.putSerializable("DRINK", drink);
 						Intent intent = new Intent(DrinksMenu.this,
@@ -308,13 +306,11 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					} catch (Exception ex) {
 						Log.e("MyFiesta", ex.getMessage());
 					}
-				
 
 				}
 			});
 
-		}
-		else if (methodName == "GetIngredients") {
+		} else if (methodName == "GetIngredients") {
 			ArrayList<Ingredient> ingredientslist = new ArrayList<Ingredient>();
 
 			for (Ingredient ingredient : (VectorIngredient) Data) {
@@ -325,16 +321,17 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			for (Ingredient ingredient : ingredientItems) {
 				ingredientslist.add(ingredient);
 				ingredientnamen.add(ingredient.name);
-				
+
 			}
 
 		}
 
 	}
-	public void FindMixes(Object Data){
+
+	public void FindMixes(Object Data) {
 		ArrayList<Mix> mixlist = new ArrayList<Mix>();
 		for (Mix mix : (VectorMix) Data) {
-			
+
 			mixItems.add(mix);
 
 		}
@@ -344,20 +341,21 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			mixnamen.add(mix.naam);
 			Log.e("Naam:", mix.naam);
 		}
-		final MixAdapter adapter = new MixAdapter(this,
-				R.layout.drinkslistrow, mixlist);
-		int size = mixlist.size() * 65; 
-		lv.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, size ));
+		final MixAdapter adapter = new MixAdapter(this, R.layout.drinkslistrow,
+				mixlist);
+		int size = mixlist.size() * 65;
+		lv.setLayoutParams(new LinearLayout.LayoutParams(
+				LayoutParams.FILL_PARENT, size));
 		lv.setAdapter(adapter);
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView arg0, View view,
-					int position, long id){
-			
+			public void onItemClick(AdapterView arg0, View view, int position,
+					long id) {
+
 				try {
 					Mix mix = adapter.getItem(position);
-						
+
 					Bundle bundle = new Bundle();
 					bundle.putSerializable("MIX", mix);
 					Intent intent = new Intent(DrinksMenu.this,
@@ -369,17 +367,17 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					Log.e("MyFiesta", ex.getMessage());
 				}
 			}
-		
+
 		});
 	}
-		
+
 	private void LoadDrink() {
 		int id = 0;
 		String naam = "";
 		String description = "";
 		String image = "";
 		int favorite = 0;
-		
+
 		try {
 			// webService.GetLastReportTimeAsync();
 			webService.GetDrinksAsync(id, naam, image, description, favorite);
@@ -392,7 +390,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	}
 
 	private void LoadIngredient() {
-	
+
 		try {
 			// webService.GetLastReportTimeAsync();
 			webService.GetIngredientsAsync(name);
@@ -422,7 +420,8 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 			Intent openSettingsActivity = new Intent(
 					"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
-			startActivity(openSettingsActivity);
+			startActivityForResult(openSettingsActivity, ACTIVITY_EDIT);
+			overridePendingTransition(R.anim.right_in, R.anim.right_out);
 
 			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
@@ -430,7 +429,8 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 			Intent openGamesActivity = new Intent(
 					"com.cincosolutions.myfiesta.GAMESACTIVITY");
-			startActivity(openGamesActivity);
+			startActivityForResult(openGamesActivity, ACTIVITY_EDIT);
+			overridePendingTransition(R.anim.left_in, R.anim.left_out);
 
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
@@ -479,12 +479,14 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	public void GamesAct(View v) {
 		Intent openGamesActivity = new Intent(
 				"com.cincosolutions.myfiesta.GAMESACTIVITY");
-		startActivity(openGamesActivity);
+		startActivityForResult(openGamesActivity, ACTIVITY_EDIT);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 	}
 
 	public void SettingsAct(View v) {
 		Intent openSettingsActivity = new Intent(
 				"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
-		startActivity(openSettingsActivity);
+		startActivityForResult(openSettingsActivity, ACTIVITY_EDIT);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 	}
 }

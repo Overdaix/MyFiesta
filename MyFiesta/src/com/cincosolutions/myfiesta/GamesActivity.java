@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class GamesActivity extends Activity implements SimpleGestureListener {
 	private SimpleGestureFilter detector;
+	private static final int ACTIVITY_EDIT = 0;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,8 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 
 			Intent openDrinksMenu = new Intent(
 					"com.cincosolutions.myfiesta.DRINKSMENU");
-			startActivity(openDrinksMenu);
+			startActivityForResult(openDrinksMenu, ACTIVITY_EDIT);
+			overridePendingTransition(R.anim.right_in, R.anim.right_out);
 
 			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
@@ -72,13 +74,15 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 	public void SettingsAct(View v) {
 		Intent openSettingsActivity = new Intent(
 				"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
-		startActivity(openSettingsActivity);
+		startActivityForResult(openSettingsActivity, ACTIVITY_EDIT);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 	}
 
 	public void DrinksAct(View v) {
 		Intent openDrinksMenu = new Intent(
 				"com.cincosolutions.myfiesta.DRINKSMENU");
-		startActivity(openDrinksMenu);
+		startActivityForResult(openDrinksMenu, ACTIVITY_EDIT);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 	}
 
 	public void AnimalGameAct(View v) {
@@ -158,7 +162,7 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 				"com.cincosolutions.myfiesta.QUARTERSGAMEACTIVITY");
 		startActivity(openQuartersGame);
 	}
-	
+
 	public void kings(View v) {
 		Intent kings = new Intent(
 				"com.cincosolutions.myfiesta.KINGSGAMEACTIVITY");
@@ -182,13 +186,13 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 				"com.cincosolutions.myfiesta.THUMPERGAMEACTIVITY");
 		startActivity(openThumperGame);
 	}
-	
+
 	public void CalculatorGameAct(View v) {
 		Intent openCalculatorGame = new Intent(
 				"com.cincosolutions.myfiesta.CALCULATORGAMEACTIVITY");
 		startActivity(openCalculatorGame);
 	}
-	
+
 	public void ArroganceGameAct(View v) {
 		Intent openArroganceGame = new Intent(
 				"com.cincosolutions.myfiesta.ARROGANCEGAMEACTIVITY");

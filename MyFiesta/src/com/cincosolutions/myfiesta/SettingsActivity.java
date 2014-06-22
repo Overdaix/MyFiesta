@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 public class SettingsActivity extends Activity implements SimpleGestureListener {
 	private SimpleGestureFilter detector;
+	private static final int ACTIVITY_EDIT = 0;
 	CheckBox cbAudio, cbNotif;
 	Button btReset;
 	
@@ -116,10 +117,11 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 		case SimpleGestureFilter.SWIPE_LEFT:
 			str = "Swipe Left";
 
-			Intent openEvents = new Intent(
+			Intent openDrinksMenu = new Intent(
 					"com.cincosolutions.myfiesta.DRINKSMENU");
-			startActivity(openEvents);
-			
+			startActivityForResult(openDrinksMenu, ACTIVITY_EDIT);
+			overridePendingTransition(R.anim.left_in, R.anim.left_out);
+
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
 			str = "Swipe Down";
@@ -132,6 +134,7 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 		//Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
 	}
 
+
 	@Override
 	public void onDoubleTap() {
 		//Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
@@ -140,13 +143,15 @@ public class SettingsActivity extends Activity implements SimpleGestureListener 
 	public void GamesAct(View v) {
 		Intent openGamesActivity = new Intent(
 				"com.cincosolutions.myfiesta.GAMESACTIVITY");
-		startActivity(openGamesActivity);
+		startActivityForResult(openGamesActivity, ACTIVITY_EDIT);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 	}
 
 	public void DrinksAct(View v) {
 		Intent openDrinksMenu = new Intent(
 				"com.cincosolutions.myfiesta.DRINKSMENU");
-		startActivity(openDrinksMenu);
+		startActivityForResult(openDrinksMenu, ACTIVITY_EDIT);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 	}
 
 }
