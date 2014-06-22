@@ -23,7 +23,29 @@
         android:background="@drawable/btn"
         android:orientation="vertical"
         android:layout_margin="10dp"
-        android:onClick="throw"
+        android:onClick="checkDice"
         android:text="Throw!" />
+    
+    <Button
+        android:id="@+id/bNext"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@drawable/btn"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:onClick="nextPlayer"
+        android:text="Next Player" />
+    
+    <TextView
+        android:id="@+id/tvText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="calibri"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:textSize="24sp"
+        android:text=""
+        android:textColor="#FFB03A" />
 
 </LinearLayout>
