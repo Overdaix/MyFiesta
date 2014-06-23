@@ -44,7 +44,7 @@ public class KingsGame extends Activity{
 
 		Random r = new Random();
 		final int card = r.nextInt(max - min + 1) + min;
-		new CountDownTimer(1350, 1000) {
+		new CountDownTimer(1450, 1000) {
 			 public void onTick(long millisUntilFinished) {
 			 }
 			
