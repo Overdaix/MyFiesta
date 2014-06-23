@@ -10,9 +10,9 @@
         android:id="@+id/mTextField2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
         android:gravity="center"
-        android:textColor="#FF0000"
+        android:text=""
+        android:textColor="#FFB03A"
         android:textSize="80sp" />
 
     <TextView
@@ -22,8 +22,9 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/mTextField2"
         android:gravity="center"
+        android:textColor="#FFFFFF" 
         android:text="" />
-    
+
     <TextView
         android:id="@+id/mTextField4"
         android:layout_width="match_parent"
@@ -31,8 +32,9 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/mTextField"
         android:gravity="center"
-        android:text="Aantal Drinks:" />
-    
+        android:text="Aantal Drinks:"
+        android:textColor="#FFFFFF" />
+
     <TextView
         android:id="@+id/mTextField3"
         android:layout_width="match_parent"
@@ -41,6 +43,7 @@
         android:layout_below="@+id/mTextField4"
         android:gravity="center"
         android:text="0"
+        android:textColor="#FFFFFF"
         android:textSize="200sp" />
     
     <TextView
@@ -51,8 +54,6 @@
         android:layout_below="@+id/mTextField"
         android:gravity="center"
         android:text="Fill the shots." />
-    
-
     
 
 </LinearLayout>
