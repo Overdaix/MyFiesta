@@ -84,9 +84,27 @@ public class DrinkAdapter extends BaseAdapter {
 					textView1
 							.setText(drink.naam + " ");
 				}
+				TextView textView2 = (TextView) rowView.findViewById(R.id.secondline);
+				if (drink.description != null){
+					textView2.setText(drink.description);
+				}
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
+			
+			   try {
+				    ImageView btnFavo = (ImageView) rowView.findViewById(R.id.btnFavo);
+				    if (drink.favorite == 1) {
+				     btnFavo.setImageResource(R.drawable.favo1);
+				    } else {
+				     btnFavo.setImageResource(R.drawable.favo2);
+				    }
+				    
+
+				   } catch (Exception e) {
+				    // TODO Auto-generated catch block
+				    e.printStackTrace();
+				   }
 			
 
 		} catch (Exception ex) {
