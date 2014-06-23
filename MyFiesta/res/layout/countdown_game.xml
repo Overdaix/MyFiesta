@@ -32,7 +32,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/mTextField"
         android:gravity="center"
-        android:text="Aantal Drinks:"
+        android:text="Amount Drinks:"
         android:textColor="#FFFFFF" />
 
     <TextView
@@ -53,7 +53,8 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/mTextField"
         android:gravity="center"
-        android:text="Fill the shots." />
+        android:text="Fill the shots."
+        android:textColor="#FFFFFF" />
     
 
 </LinearLayout>
