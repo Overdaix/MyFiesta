@@ -7,9 +7,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -63,7 +65,11 @@ public class KingsGame extends Activity{
 				ivCard.setVisibility(View.INVISIBLE);
 				bNextCard.setVisibility(View.INVISIBLE);
 			}
-			mpCard.start();
+			SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+			boolean boAudio = app_preferences.getBoolean("booAudio", true);
+			if(!boAudio){
+				mpCard.start();
+			}
 			cards.add("card" + card);
 			if(card == 45 || card == 46 || card == 47 || card == 48){
 				kings++;

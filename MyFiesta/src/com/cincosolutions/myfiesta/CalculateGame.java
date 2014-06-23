@@ -6,9 +6,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +28,8 @@ public class CalculateGame extends Activity {
 	
 	boolean Pauze = false;
 	
+	SharedPreferences app_preferences;
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.calculate_game);
@@ -33,6 +37,7 @@ public class CalculateGame extends Activity {
 		final MediaPlayer mpTik = MediaPlayer.create(this, R.raw.tik);
 		final MediaPlayer mpHorn = MediaPlayer.create(this, R.raw.horn);
 		
+		final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		
 		tvNumber1 = (TextView) findViewById(R.id.tvNumber1);
 		tvNumber2 = (TextView) findViewById(R.id.tvNumber2);
@@ -46,12 +51,18 @@ public class CalculateGame extends Activity {
 			
 			 public void onTick(long millisUntilFinished) {
 				 if(Pauze == false){
-					 mpTik.start();
+					boolean boAudio = app_preferences.getBoolean("booAudio", true);
+					if(!boAudio){
+						mpTik.start();
+					}
 				 }
 			 }
 			 public void onFinish() {
 				 if(Pauze == false){
-				     mpHorn.start();
+					 boolean boAudio = app_preferences.getBoolean("booAudio", true);
+					 if(!boAudio){
+						mpHorn.start();
+					 }
 				     end();
 				 }
 			 }

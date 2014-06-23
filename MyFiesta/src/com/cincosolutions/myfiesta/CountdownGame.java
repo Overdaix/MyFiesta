@@ -6,9 +6,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -20,10 +22,14 @@ TextView mTextField, mTextField2, mTextField3, mTextField5;
 int drinkCounter = 0;
 long sec = 0;
 
+SharedPreferences app_preferences;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.countdown_game);
+		
+		final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		
 		mTextField = (TextView) findViewById(R.id.mTextField);
 		mTextField2 = (TextView) findViewById(R.id.mTextField2);
@@ -35,7 +41,10 @@ long sec = 0;
 		new CountDownTimer(3600000, 1000) {
 			
 			 public void onTick(long millisUntilFinished) {
-				 mpTik.start();
+				 boolean boAudio = app_preferences.getBoolean("booAudio", true);
+				if(!boAudio){
+					mpTik.start();
+				}
 				 sec = millisUntilFinished / 1000;
 			     if(sec == 3500 || sec == 3400 || sec == 3300 || sec == 3200 || sec == 3100
 			    		 || sec == 3000 || sec == 2900 || sec == 2800 || sec == 2700 || sec == 2600
@@ -45,7 +54,10 @@ long sec = 0;
 			    		 || sec == 1000 || sec == 900 || sec == 800 || sec == 700 || sec == 600
 			    		 || sec == 500 || sec == 400 || sec == 300 || sec == 200 || sec == 100
 			    		 || sec == 2){
-			    	 mpHorn.start();
+			    	
+					 if(!boAudio){
+			    	 	mpHorn.start();
+					 }
 			    	 mTextField5.setVisibility(View.INVISIBLE);
 			    	 mTextField2.setVisibility(View.VISIBLE);
 			    	 int min = 1;

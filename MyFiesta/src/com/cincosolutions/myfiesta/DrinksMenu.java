@@ -277,7 +277,6 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					drink.favorite = 1;
 				}
 				drinkslijst.add(drink);
-
 			}
 			com.Wsdl2Code.WebServices.WebService1.Drink drink1 = null;
 
@@ -411,12 +410,12 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 	@Override
 	public void onSwipe(int direction) {
-		String str = "";
+		//String str = "";
 
 		switch (direction) {
 
 		case SimpleGestureFilter.SWIPE_RIGHT:
-			str = "Swipe Right";
+			//str = "Swipe Right";
 
 			Intent openSettingsActivity = new Intent(
 					"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
@@ -425,7 +424,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
-			str = "Swipe Left";
+			//str = "Swipe Left";
 
 			Intent openGamesActivity = new Intent(
 					"com.cincosolutions.myfiesta.GAMESACTIVITY");
@@ -434,14 +433,14 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
-			str = "Swipe Down";
+			//str = "Swipe Down";
 			break;
 		case SimpleGestureFilter.SWIPE_UP:
-			str = "Swipe Up";
+			//str = "Swipe Up";
 			break;
 
 		}
-		Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override

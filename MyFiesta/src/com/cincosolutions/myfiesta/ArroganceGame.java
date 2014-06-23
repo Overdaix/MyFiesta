@@ -5,8 +5,10 @@ import java.util.Random;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.InputType;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -66,8 +68,14 @@ public class ArroganceGame extends Activity{
 		int max = 6;
 		Random r = new Random();
 		final int dice = r.nextInt(max - min + 1) + min;
-		MediaPlayer mpDice = MediaPlayer.create(this, R.raw.dice);
-		mpDice.start();
+		
+		//Get preferences
+		SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		boolean boAudio = app_preferences.getBoolean("booAudio", true);
+		if(!boAudio){
+			MediaPlayer mpDice = MediaPlayer.create(this, R.raw.dice);
+			mpDice.start();
+		}
 		changeImage(dice);
 		if(number == dice){
 			tvText.startAnimation(AnimationUtils.loadAnimation(ArroganceGame.this, android.R.anim.slide_in_left));
