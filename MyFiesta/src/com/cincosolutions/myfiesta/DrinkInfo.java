@@ -114,8 +114,28 @@ public class DrinkInfo extends Activity implements IWsdl2CodeEvents {
 	}
 
 		// listview.addFooterView(footerlinear);
+	public void GamesAct(View v) {
+		Intent openGamesActivity = new Intent(
+				"com.cincosolutions.myfiesta.GAMESACTIVITY");
+		startActivity(openGamesActivity);
+	}
+
+	public void DrinksAct(View v) {
+		Intent openDrinksMenu = new Intent(
+				"com.cincosolutions.myfiesta.DRINKSMENU");
+		startActivity(openDrinksMenu);
+	}
+
+	public void SettingsAct(View v) {
+		Intent openSettingsActivity = new Intent(
+				"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
+		startActivity(openSettingsActivity);
+	}
+
 	public void backbtnGame(View v) {
 		Intent back = new Intent("com.cincosolutions.myfiesta.DRINKSMENU");
 		startActivity(back);
 	}
+
 }
+
