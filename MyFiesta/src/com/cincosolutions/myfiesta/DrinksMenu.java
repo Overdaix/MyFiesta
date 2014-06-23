@@ -13,9 +13,11 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.R.anim;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -25,6 +27,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -34,6 +38,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,11 +61,10 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		IWsdl2CodeEvents {
 
 	SimpleGestureFilter detector;
-	private static final int ACTIVITY_EDIT = 0;
-	Button btnAddIngredient, btnDelete, btnSearch;
+	Button btnAddIngredient, btnWis, btnSearch;
 	ImageView btnPrefs, favoImage;
 	ListView lv;
-	LinearLayout llIngredient, llPrefContainer;
+	LinearLayout llIngredient, llPrefContainer, llPrefContainerContents;
 	String drinks[] = { "Bacardi", "Malibu", "Safari", "SneeuwWitje",
 			"Black Russian", "Drankje2", "Drankje3" };
 	VectorString ingredienten = new VectorString();
@@ -68,6 +73,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	int tvCounter = 0;
 	private WebService1 webService;
 	private ArrayList<Drink> drinkItems = new ArrayList<Drink>();
+	RadioButton rad1, rad2;
 	private ArrayList<Ingredient> ingredientItems = new ArrayList<Ingredient>();
 	private ArrayList<Mix> mixItems = new ArrayList<Mix>();
 	ArrayList<String> ingredientnamen = new ArrayList<String>();
@@ -75,32 +81,69 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	private String strFavo;
 	String[] arrIDs;
 	String name = "";
+	TextView tving1, tving2;
+	RadioGroup group;
+	ProgressDialog pd;
 
-	public void callWebService() {
-		WebService1 webService = new WebService1(this);
-
-	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		this.getWindow().setSoftInputMode(
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		setContentView(R.layout.drinksmenu);
-
 		llPrefContainer = (LinearLayout) findViewById(R.id.llPrefContainer);
+
 		final ViewGroup parent = (ViewGroup) llPrefContainer.getParent();
 		final View view = getLayoutInflater().inflate(R.layout.drinksprefs,
 				parent, false);
 		llPrefContainer.addView(view);
-
 		view.setVisibility(View.GONE);
 
+		llPrefContainerContents = (LinearLayout) findViewById(R.id.llPrefContents);
 		String url = "http://myfiesta.jeroendboer.nl/webservice1.asmx";
 		webService = new WebService1(this, url);
+		rad1 = (RadioButton) findViewById(R.id.radDrinks1);
+		rad2 = (RadioButton) findViewById(R.id.radDrinks2);
+
+		group = (RadioGroup) findViewById(R.id.radioGroup);
+		tving1 = (TextView) findViewById(R.id.tving1);
+		tving2 = (TextView) findViewById(R.id.tvIng2);
+		group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(RadioGroup arg0, int arg1) {
+				// TODO Auto-generated method stub
+				RadioButton selectRadio = (RadioButton) findViewById(group
+						.getCheckedRadioButtonId());
+				if (rad1.isChecked()) {
+					View root = llPrefContainerContents.getRootView();
+
+					root.setBackgroundColor(getResources().getColor(
+							android.R.color.darker_gray));
+					tving1.setTextColor(Color.parseColor("#7f7f7f"));
+					tving2.setTextColor(Color.parseColor("#7f7f7f"));
+					etSearch.setEnabled(false);
+					btnAddIngredient.setEnabled(false);
+					btnSearch.setEnabled(false);
+					btnWis.setEnabled(false);
+				} else if (rad2.isChecked()) {
+					View root = llPrefContainerContents.getRootView();
+
+					root.setBackgroundResource(R.drawable.bg);
+					tving1.setTextColor(Color.WHITE);
+					tving2.setTextColor(Color.WHITE);
+					etSearch.setEnabled(true);
+					btnAddIngredient.setEnabled(true);
+					btnSearch.setEnabled(true);
+					btnWis.setEnabled(true);
+				}
+			}
+		});
 
 		LoadDrink();
 		LoadIngredient();
-
 		btnPrefs = (ImageView) findViewById(R.id.btnPrefs);
 		btnPrefs.setOnClickListener(new View.OnClickListener() {
 
@@ -109,7 +152,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 				// TODO Auto-generated method stub
 				if (booPrefClicked == false) {
 
-					btnPrefs.setImageResource(R.drawable.settings2);
+					btnPrefs.setImageResource(R.drawable.filter1);
 					view.setVisibility(View.VISIBLE);
 					etSearch = (AutoCompleteTextView) findViewById(R.id.etIngredient);
 					String[] mStringArray = new String[ingredientnamen.size()];
@@ -123,94 +166,102 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					btnAddIngredient
 							.setOnClickListener(new View.OnClickListener() {
 								public void onClick(View v) {
-
-									String ingredientinput = etSearch.getText()
-											.toString();
-
-									ingredientinput = ingredientinput
-											.substring(0, 1).toUpperCase()
-											+ ingredientinput.substring(1);
-
-									if (ingredientnamen
-											.contains(ingredientinput)) {
-										llIngredient = (LinearLayout) findViewById(R.id.lvIngredient);
-
-										final ViewGroup parent = (ViewGroup) llIngredient
-												.getParent();
-										final View view = getLayoutInflater()
-												.inflate(
-														R.layout.ingredientrowview,
-														parent, false);
-
-										llIngredient.addView(view);
-
-										final LinearLayout ingredientRow = (LinearLayout) findViewById(R.id.firstLine);
-										final TextView tv = new TextView(
-												DrinksMenu.this);
-										ImageView remove = new ImageView(
-												DrinksMenu.this);
-
-										remove.setLayoutParams(new ViewGroup.LayoutParams(
-												ViewGroup.LayoutParams.WRAP_CONTENT,
-												ViewGroup.LayoutParams.WRAP_CONTENT));
-
-										tvCounter++;
-										tv.setText(ingredientinput);
-										tv.setLayoutParams(new LayoutParams(
-												LayoutParams.WRAP_CONTENT,
-												LayoutParams.WRAP_CONTENT));
-										remove.setId(tvCounter);
-
-										ingredientRow
-												.setOrientation(LinearLayout.VERTICAL);
-
-										tv.setId(tvCounter);
-										tv.setClickable(true);
-										tv.setOnClickListener(new View.OnClickListener() {
-
-											@Override
-											public void onClick(View v) {
-												// TODO Auto-generated method
-												// stub
-
-												ingredientRow.removeView(tv);
-												ingredienten.remove(tv);
-											}
-										});
-										ingredientRow.addView(tv);
-
-										ingredienten.add(ingredientinput);
+									if (etSearch.getText().toString().length() < 1) {
 										Context context = getApplicationContext();
-										CharSequence text = ingredientinput
-												+ " toegevoegd aan ingredientenlijst";
+										CharSequence text =  "Enter an ingrediënt";
 										int duration = Toast.LENGTH_SHORT;
 
-										Toast toast = Toast.makeText(context,
-												text, duration);
-										toast.show();
-
-									} else {
-										Context context = getApplicationContext();
-										CharSequence text = ingredientinput
-												+ " bestaat niet";
-										int duration = Toast.LENGTH_SHORT;
-
-										Toast toast = Toast.makeText(context,
-												text, duration);
+										Toast toast = Toast.makeText(
+												context, text, duration);
 										toast.show();
 									}
+									else{
+										
+										String ingredientinput = etSearch
+												.getText().toString();
+
+										ingredientinput = ingredientinput
+												.substring(0, 1).toUpperCase()
+												+ ingredientinput.substring(1);
+
+										if (ingredientnamen
+												.contains(ingredientinput)) {
+											llIngredient = (LinearLayout) findViewById(R.id.lvIngredient);
+
+											final TextView tv = new TextView(
+													DrinksMenu.this);
+											ImageView remove = new ImageView(
+													DrinksMenu.this);
+
+											remove.setLayoutParams(new ViewGroup.LayoutParams(
+													ViewGroup.LayoutParams.WRAP_CONTENT,
+													ViewGroup.LayoutParams.WRAP_CONTENT));
+
+											tvCounter++;
+											tv.setText(ingredientinput);
+											tv.setLayoutParams(new LayoutParams(
+													LayoutParams.WRAP_CONTENT,
+													LayoutParams.WRAP_CONTENT));
+											remove.setId(tvCounter);
+
+											tv.setTextColor(Color.WHITE);
+
+											tv.setId(tvCounter);
+											tv.setClickable(true);
+											tv.setOnClickListener(new View.OnClickListener() {
+
+												@Override
+												public void onClick(View v) {
+													// TODO Auto-generated
+													// method
+													// stub
+
+													llIngredient.removeView(tv);
+													ingredienten.remove(tv);
+												}
+											});
+											llIngredient.addView(tv);
+											etSearch.setText("");
+											ingredienten.add(ingredientinput);
+											Context context = getApplicationContext();
+											CharSequence text = ingredientinput
+													+ " added to ingrediënts list";
+											int duration = Toast.LENGTH_SHORT;
+
+											Toast toast = Toast.makeText(
+													context, text, duration);
+											toast.show();
+											
+
+										} else {
+											Context context = getApplicationContext();
+											CharSequence text = ingredientinput
+													+ " doesn't exist";
+											int duration = Toast.LENGTH_SHORT;
+
+											Toast toast = Toast.makeText(
+													context, text, duration);
+											toast.show();
+										}
+									}
+								
 								}
 							});
 					booPrefClicked = true;
 				} else {
 
 					view.setVisibility(View.GONE);
-					btnPrefs.setImageResource(R.drawable.settings1);
+					btnPrefs.setImageResource(R.drawable.filter);
 					booPrefClicked = false;
+					InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+					imm.hideSoftInputFromWindow(etSearch.getWindowToken(), 0);
+
 				}
+				
 			}
 
 		});
+		
 		btnSearch = (Button) findViewById(R.id.btnSearch);
 		btnSearch.setOnClickListener(new View.OnClickListener() {
 
@@ -226,9 +277,29 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				view.setVisibility(View.GONE);
+				btnPrefs.setImageResource(R.drawable.filter);
+				booPrefClicked = false;
+		
+			}
+		});
+		btnWis = (Button) findViewById(R.id.btnWis);
+		btnWis.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				/*
+				 * // TODO Auto-generated method stub ingredienten.clear(); for
+				 * (int i = 0; i < tvCounter; i++) { String id =
+				 * Integer.toString(tvCounter); int resID =
+				 * getResources().getIdentifier(id, "id",
+				 * "com.cincosolutions.myfiesta"); TextView tv = (TextView)
+				 * findViewById(resID); llIngredient.removeView(tv); }
+				 */
 
 			}
 		});
+
 		detector = new SimpleGestureFilter(this, this);
 
 		SharedPreferences app_preferences = PreferenceManager
@@ -251,6 +322,13 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	@Override
 	public void Wsdl2CodeStartedRequest() {
 		Log.e("Wsdl2Code", "Wsdl2CodeStartedRequest");
+		pd = new ProgressDialog(this);
+		pd.setMessage("Loading drinks... ");
+        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pd.setIndeterminate(true);
+        pd.setProgress(0);
+        pd.setMax(50);
+        pd.show();
 
 	}
 
@@ -324,6 +402,10 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			}
 
 		}
+	
+		setProgressBarIndeterminateVisibility(false);
+        pd.dismiss();
+      
 
 	}
 
@@ -342,9 +424,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		}
 		final MixAdapter adapter = new MixAdapter(this, R.layout.drinkslistrow,
 				mixlist);
-		int size = mixlist.size() * 65;
-		lv.setLayoutParams(new LinearLayout.LayoutParams(
-				LayoutParams.FILL_PARENT, size));
+
 		lv.setAdapter(adapter);
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
@@ -385,6 +465,8 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			e.printStackTrace();
 		}
 
+			
+
 		// listview.addFooterView(footerlinear);
 	}
 
@@ -419,8 +501,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 			Intent openSettingsActivity = new Intent(
 					"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
-			startActivityForResult(openSettingsActivity, ACTIVITY_EDIT);
-			overridePendingTransition(R.anim.right_in, R.anim.right_out);
+			startActivity(openSettingsActivity);
 
 			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
@@ -428,8 +509,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 			Intent openGamesActivity = new Intent(
 					"com.cincosolutions.myfiesta.GAMESACTIVITY");
-			startActivityForResult(openGamesActivity, ACTIVITY_EDIT);
-			overridePendingTransition(R.anim.left_in, R.anim.left_out);
+			startActivity(openGamesActivity);
 
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
@@ -478,14 +558,12 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	public void GamesAct(View v) {
 		Intent openGamesActivity = new Intent(
 				"com.cincosolutions.myfiesta.GAMESACTIVITY");
-		startActivityForResult(openGamesActivity, ACTIVITY_EDIT);
-		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+		startActivity(openGamesActivity);
 	}
 
 	public void SettingsAct(View v) {
 		Intent openSettingsActivity = new Intent(
 				"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
-		startActivityForResult(openSettingsActivity, ACTIVITY_EDIT);
-		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+		startActivity(openSettingsActivity);
 	}
 }
