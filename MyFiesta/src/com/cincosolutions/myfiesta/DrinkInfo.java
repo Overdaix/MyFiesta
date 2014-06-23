@@ -15,6 +15,7 @@ import com.Wsdl2Code.WebServices.WebService1.WebService1;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -113,5 +114,8 @@ public class DrinkInfo extends Activity implements IWsdl2CodeEvents {
 	}
 
 		// listview.addFooterView(footerlinear);
-	
+	public void backbtnGame(View v) {
+		Intent back = new Intent("com.cincosolutions.myfiesta.DRINKSMENU");
+		startActivity(back);
+	}
 }
