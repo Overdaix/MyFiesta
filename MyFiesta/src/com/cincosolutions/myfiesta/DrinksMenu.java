@@ -497,20 +497,16 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		switch (direction) {
 
 		case SimpleGestureFilter.SWIPE_RIGHT:
-			//str = "Swipe Right";
-
 			Intent openSettingsActivity = new Intent(
 					"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
 			startActivity(openSettingsActivity);
-
+			finish();
 			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
-			//str = "Swipe Left";
-
 			Intent openGamesActivity = new Intent(
 					"com.cincosolutions.myfiesta.GAMESACTIVITY");
 			startActivity(openGamesActivity);
-
+			finish();
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
 			//str = "Swipe Down";
@@ -525,7 +521,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 	@Override
 	public void onDoubleTap() {
-		Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
@@ -559,11 +555,13 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		Intent openGamesActivity = new Intent(
 				"com.cincosolutions.myfiesta.GAMESACTIVITY");
 		startActivity(openGamesActivity);
+		finish();
 	}
 
 	public void SettingsAct(View v) {
 		Intent openSettingsActivity = new Intent(
 				"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
 		startActivity(openSettingsActivity);
+		finish();
 	}
 }
