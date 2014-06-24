@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.Wsdl2Code.WebServices.WebService1.Drink;
@@ -14,8 +15,10 @@ import com.Wsdl2Code.WebServices.WebService1.VectorIngredient;
 import com.Wsdl2Code.WebServices.WebService1.WebService1;
 
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,6 +27,7 @@ public class DrinkInfo extends Activity implements IWsdl2CodeEvents {
 	private ArrayList<Drink> drinkItems = new ArrayList<Drink>();
 	private ArrayList<Ingredient> ingredientItems = new ArrayList<Ingredient>();
 	private com.Wsdl2Code.WebServices.WebService1.Drink drink;
+	private ImageView ivFavo;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,7 @@ public class DrinkInfo extends Activity implements IWsdl2CodeEvents {
 		setContentView(R.layout.drink_info);
 		String url = "http://myfiesta.jeroendboer.nl/webservice1.asmx";
 		webService = new WebService1(this, url);
-		
+		ivFavo = (ImageView) findViewById(R.id.ivFavo);
 		drink = new com.Wsdl2Code.WebServices.WebService1.Drink();
 		Intent iin = getIntent();
 		Bundle b = iin.getExtras();
@@ -60,9 +64,32 @@ public class DrinkInfo extends Activity implements IWsdl2CodeEvents {
 		}
 		SetText(R.id.tvName, drink.naam);
 		SetText(R.id.tvDesc, drink.description);
-
+		
+		final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		final SharedPreferences.Editor editor = app_preferences.edit();
+		if (app_preferences.contains("Drink" + drink.id)) {
+			ivFavo.setImageResource(R.drawable.favo1);
+		} else {
+			ivFavo.setImageResource(R.drawable.favo2);
+		}
+		ivFavo.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				if (app_preferences.contains("Drink" + drink.id)) {
+					ivFavo.setImageResource(R.drawable.favo2);
+					editor.remove("Drink"+drink.id);
+					editor.commit();
+				} else {
+					ivFavo.setImageResource(R.drawable.favo1);
+					editor.putString("Drink"+drink.id, "Drink"+drink.id); 
+					editor.commit();
+				}
+			}
+		});
 	}
 
+	
+	
+	
 	@Override
 	public void Wsdl2CodeStartedRequest() {
 		// TODO Auto-generated method stub
