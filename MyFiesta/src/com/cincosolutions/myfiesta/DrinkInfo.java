@@ -18,6 +18,7 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -27,6 +28,9 @@ public class DrinkInfo extends Activity implements IWsdl2CodeEvents {
 	private ArrayList<Drink> drinkItems = new ArrayList<Drink>();
 	private ArrayList<Ingredient> ingredientItems = new ArrayList<Ingredient>();
 	private com.Wsdl2Code.WebServices.WebService1.Drink drink;
+	private com.Wsdl2Code.WebServices.WebService1.Ingredient ingredient;
+	private ArrayList<String> ingredientnamen = new ArrayList();
+	private String mStringArray[];
 	private ImageView ivFavo;
 	
 	@Override
@@ -36,12 +40,15 @@ public class DrinkInfo extends Activity implements IWsdl2CodeEvents {
 		setContentView(R.layout.drink_info);
 		String url = "http://myfiesta.jeroendboer.nl/webservice1.asmx";
 		webService = new WebService1(this, url);
+
 		ivFavo = (ImageView) findViewById(R.id.ivFavo);
+
 		drink = new com.Wsdl2Code.WebServices.WebService1.Drink();
 		Intent iin = getIntent();
 		Bundle b = iin.getExtras();
 		if (b != null) {
 			try {
+				
 				drink = (com.Wsdl2Code.WebServices.WebService1.Drink) b
 						.getSerializable("DRINK");
 			} catch (Exception ex) {
@@ -56,14 +63,20 @@ public class DrinkInfo extends Activity implements IWsdl2CodeEvents {
 			// VectorAssignment v = webservice.FindOpdrachtenAndroid(melding.id,
 			// persoonGUID);
 			webService.GetDrinksAsync(drink.id, drink.naam, drink.image, drink.description, drink.favorite);
+			webService.GetMixIngredientsAsync(drink.naam);
 		
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
+		SetText(R.id.tvIngredient3, "");
 		SetText(R.id.tvName, drink.naam);
 		SetText(R.id.tvDesc, drink.description);
+
 		
 		final SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		final SharedPreferences.Editor editor = app_preferences.edit();
@@ -85,6 +98,7 @@ public class DrinkInfo extends Activity implements IWsdl2CodeEvents {
 				}
 			}
 		});
+
 	}
 
 	
@@ -110,6 +124,34 @@ public class DrinkInfo extends Activity implements IWsdl2CodeEvents {
 			for (Drink drink : drinkItems) {
 				drinkslijst.add(drink);
 			}
+		}
+		if (methodName == "GetMixIngredients") {
+			ArrayList<Ingredient> ingredientslist = new ArrayList<Ingredient>();
+
+			for (Ingredient ingredient : (VectorIngredient) Data) {
+				ingredientItems.add(ingredient);
+
+			}
+
+			for (Ingredient ingredient : ingredientItems) {
+				ingredientslist.add(ingredient);
+				ingredientnamen.add(ingredient.name);
+
+			}
+			 mStringArray = new String[ingredientnamen.size()];
+
+				mStringArray = ingredientnamen.toArray(mStringArray);
+				if(mStringArray.length >= 1){
+					SetText(R.id.tvIngredient1, mStringArray[0].toString());
+				}
+				if(mStringArray.length >= 2){
+					SetText(R.id.tvIngredient2, mStringArray[1].toString());
+				}
+				if(mStringArray.length >= 3){
+					SetText(R.id.tvIngredient3, mStringArray[2].toString());
+				}
+				
+
 		}
 	}
 

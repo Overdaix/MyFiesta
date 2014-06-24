@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     android:layout_width="fill_parent"
+    android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:padding="6dip" > 
-   
+    android:padding="6dip" >
 
     <TextView
         android:id="@+id/firstLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold" />
-    <TextView 
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="Calibri"
+        android:gravity="center_vertical"
+        android:textColor="#FFB03A"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    <TextView
         android:id="@+id/secondline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="20dp" />
 
     <ImageView
+        android:id="@+id/btnFavo"
         android:layout_width="20dp"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/firstLine"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/firstLine" 
-        android:id="@+id/btnFavo"
-        android:src="@drawable/favo2"
-        android:clickable="true"/>
+        android:layout_alignRight="@+id/firstLine"
+        android:clickable="true"
+        android:src="@drawable/favo2" />
 
 </RelativeLayout>

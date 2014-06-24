@@ -217,7 +217,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 													// stub
 
 													llIngredient.removeView(tv);
-													ingredienten.remove(tv);
+													ingredienten.remove(tv.getText().toString());
 												}
 											});
 											llIngredient.addView(tv);
@@ -277,6 +277,13 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				pd = new ProgressDialog(DrinksMenu.this);
+				pd.setTitle("Loading Drinks...");
+				pd.setMessage("Please wait.");
+				pd.setCancelable(false);
+				pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+				pd.setIndeterminate(true);
+				pd.show();
 				view.setVisibility(View.GONE);
 				btnPrefs.setImageResource(R.drawable.filter);
 				booPrefClicked = false;
@@ -322,13 +329,13 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	@Override
 	public void Wsdl2CodeStartedRequest() {
 		Log.e("Wsdl2Code", "Wsdl2CodeStartedRequest");
-		pd = new ProgressDialog(this);
+		/*pd = new ProgressDialog(this);
 		pd.setMessage("Loading drinks... ");
         pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         pd.setIndeterminate(true);
         pd.setProgress(0);
         pd.setMax(50);
-        pd.show();
+        pd.show();*/
 
 	}
 
@@ -403,8 +410,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 		}
 	
-		setProgressBarIndeterminateVisibility(false);
-        pd.dismiss();
+	
       
 
 	}
@@ -424,8 +430,16 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		}
 		final MixAdapter adapter = new MixAdapter(this, R.layout.drinkslistrow,
 				mixlist);
+		Context context = getApplicationContext();
+		CharSequence text = mixlist.size() + " mixes found";
+		int duration = Toast.LENGTH_SHORT;
 
+		Toast toast = Toast.makeText(
+				context, text, duration);
+		
+		toast.show();
 		lv.setAdapter(adapter);
+	
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -448,6 +462,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			}
 
 		});
+		adapter.notifyDataSetChanged();
 	}
 
 	private void LoadDrink() {
@@ -464,6 +479,14 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		pd = new ProgressDialog(this);
+		pd.setTitle("Loading Drinks...");
+		pd.setMessage("Please wait.");
+		pd.setCancelable(false);
+		pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+		pd.setIndeterminate(true);
+		pd.show();
+
 
 			
 
@@ -534,6 +557,8 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	@Override
 	public void Wsdl2CodeEndedRequest() {
 		// TODO Auto-generated method stub
+		setProgressBarIndeterminateVisibility(false);
+        pd.dismiss();
 
 	}
 
