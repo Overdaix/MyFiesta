@@ -61,6 +61,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		IWsdl2CodeEvents {
 
 	SimpleGestureFilter detector;
+	private static final int ACTIVITY_EDIT = 0;
 	Button btnAddIngredient, btnWis, btnSearch;
 	ImageView btnPrefs, favoImage;
 	ListView lv;
@@ -90,6 +91,10 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
 		this.getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		setContentView(R.layout.drinksmenu);
@@ -168,7 +173,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 								public void onClick(View v) {
 									if (etSearch.getText().toString().length() < 1) {
 										Context context = getApplicationContext();
-										CharSequence text =  "Enter an ingrediënt";
+										CharSequence text =  "Enter an ingrediï¿½nt";
 										int duration = Toast.LENGTH_SHORT;
 
 										Toast toast = Toast.makeText(
@@ -225,7 +230,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 											ingredienten.add(ingredientinput);
 											Context context = getApplicationContext();
 											CharSequence text = ingredientinput
-													+ " added to ingrediënts list";
+													+ " added to ingrediï¿½nts list";
 											int duration = Toast.LENGTH_SHORT;
 
 											Toast toast = Toast.makeText(
@@ -522,13 +527,15 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 		case SimpleGestureFilter.SWIPE_RIGHT:
 			Intent openSettingsActivity = new Intent(
 					"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
-			startActivity(openSettingsActivity);
+			startActivityForResult(openSettingsActivity, ACTIVITY_EDIT);
+			overridePendingTransition(R.anim.right_in, R.anim.right_out);
 			finish();
 			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
 			Intent openGamesActivity = new Intent(
 					"com.cincosolutions.myfiesta.GAMESACTIVITY");
-			startActivity(openGamesActivity);
+			startActivityForResult(openGamesActivity, ACTIVITY_EDIT);
+			overridePendingTransition(R.anim.left_in, R.anim.left_out);
 			finish();
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
@@ -579,14 +586,17 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 	public void GamesAct(View v) {
 		Intent openGamesActivity = new Intent(
 				"com.cincosolutions.myfiesta.GAMESACTIVITY");
-		startActivity(openGamesActivity);
+		startActivityForResult(openGamesActivity, ACTIVITY_EDIT);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 		finish();
 	}
 
 	public void SettingsAct(View v) {
 		Intent openSettingsActivity = new Intent(
 				"com.cincosolutions.myfiesta.SETTINGSACTIVITY");
-		startActivity(openSettingsActivity);
+		startActivityForResult(openSettingsActivity, ACTIVITY_EDIT);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 		finish();
 	}
+	
 }
