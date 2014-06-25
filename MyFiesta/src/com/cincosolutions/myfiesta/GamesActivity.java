@@ -38,12 +38,12 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 
 	@Override
 	public void onSwipe(int direction) {
-		//String str = "";
+		// String str = "";
 
 		switch (direction) {
 
 		case SimpleGestureFilter.SWIPE_RIGHT:
-			//str = "Swipe Right";
+			// str = "Swipe Right";
 
 			Intent openDrinksMenu = new Intent(
 					"com.cincosolutions.myfiesta.DRINKSMENU");
@@ -52,22 +52,22 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 
 			break;
 		case SimpleGestureFilter.SWIPE_LEFT:
-			//str = "Swipe Left";
+			// str = "Swipe Left";
 			break;
 		case SimpleGestureFilter.SWIPE_DOWN:
-			//str = "Swipe Down";
+			// str = "Swipe Down";
 			break;
 		case SimpleGestureFilter.SWIPE_UP:
-			//str = "Swipe Up";
+			// str = "Swipe Up";
 			break;
 
 		}
-		//Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+		// Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
 	public void onDoubleTap() {
-		//Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
+		// Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
 	}
 
 	public void SettingsAct(View v) {
@@ -196,6 +196,18 @@ public class GamesActivity extends Activity implements SimpleGestureListener {
 		Intent openArroganceGame = new Intent(
 				"com.cincosolutions.myfiesta.ARROGANCEGAMEACTIVITY");
 		startActivity(openArroganceGame);
+	}
+
+	public void CardGameAct(View v) {
+		Intent openCardGame = new Intent(
+				"com.cincosolutions.myfiesta.CARDGAMEACTIVITY");
+		startActivity(openCardGame);
+	}
+
+	public void RedOrBlackGameAct(View v) {
+		Intent openRedOrBlackGame = new Intent(
+				"com.cincosolutions.myfiesta.REDORBLACKGAMEACTIVITY");
+		startActivity(openRedOrBlackGame);
 	}
 
 	/*

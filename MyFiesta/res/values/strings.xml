@@ -38,9 +38,13 @@
     <string name="PowerHour_game">Power Hour</string>
     <string name="FuzyDuck_game">Fuzy Duck</string>
     <string name="Animal_game">Animal</string>
+    <string name="CardGame1">Card game</string>
+    <string name="RedOrBlackGame">Red Or Black</string>
     <string name="Calculator_game">Calculator</string>
     <string name="game_information">Information:</string>
     <string name="whatyouneed">What you need:</string>
     <string name="Arrogance_game">Arrogance</string>
+    <string name="title_activity_redor_black_game">RedorBlackGameActivity</string>
+    <string name="title_activity_card_game">CardGameActivity</string>
 
 </resources>

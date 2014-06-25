@@ -3,7 +3,7 @@
     package="com.cincosolutions.myfiesta"
     android:versionCode="1"
     android:versionName="1.0" >
-	
+
     <uses-permission android:name="android.permission.INTERNET" >
     </uses-permission>
 
@@ -332,6 +332,26 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.cincosolutions.myfiesta.ARROGANCEGAME" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cincosolutions.myfiesta.RedorBlackGameActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.cincosolutions.myfiesta.REDORBLACKGAMEACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cincosolutions.myfiesta.CardGameActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.cincosolutions.myfiesta.CARDGAMEACTIVITY" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

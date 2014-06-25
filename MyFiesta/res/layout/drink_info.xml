@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/drinks_background"
+    android:background="@drawable/bg"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -67,23 +67,32 @@
         </LinearLayout>
     </LinearLayout>
 
+    
+        <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:orientation="vertical" >
+    
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="15dp"
         android:background="#FFB03A" />
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:background="#FFFFFF"
         android:orientation="horizontal" >
 
         <TextView
+            android:id="@+id/tvName"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:fontFamily="calibri"
@@ -91,25 +100,22 @@
             android:orientation="horizontal"
             android:padding="15dp"
             android:text="Jaggerbomb"
-            android:id="@+id/tvName"
             android:textColor="#FFB03A"
             android:textSize="22sp"
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/ivFavo"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal"
-            android:src="@drawable/favo1" 
-            android:id="@+id/ivFavo"/>
+            android:src="@drawable/favo1" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:orientation="horizontal" >
 
         <LinearLayout
@@ -145,30 +151,30 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="calibri"
-                android:paddingLeft="15dp"
                 android:id="@+id/tvIngredient1"
-                android:text="-0.1ML Water"
-                android:textColor="#FFB03A"
-                android:textStyle="italic" />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="calibri"
-                android:id="@+id/tvIngredient2"
                 android:paddingLeft="15dp"
                 android:text="-0.1ML Water"
                 android:textColor="#FFB03A"
                 android:textStyle="italic" />
 
             <TextView
+                android:id="@+id/tvIngredient2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="calibri"
+                android:paddingLeft="15dp"
+                android:text="-0.1ML Water"
+                android:textColor="#FFB03A"
+                android:textStyle="italic" />
+
+            <TextView
                 android:id="@+id/tvIngredient3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="calibri"
                 android:paddingLeft="15dp"
                 android:text="-0.1ML Water"
                 android:textColor="#FFB03A"
@@ -179,38 +185,35 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         android:minHeight="100dp"
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="#FFFFFF" >
+        android:orientation="vertical" >
 
         <TextView
+            android:id="@+id/tvDesc"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:id="@+id/tvDesc"
             android:padding="5dp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut ultricies orci, scelerisque egestas sapien. Pellentesque ut quam pellentesque, sollicitudin ipsum nec, malesuada massa. Praesent."
-            android:textColor="#FFB03A" /> 
-            
+            android:textColor="#FFB03A" />
+
         <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/backbtn"
-                android:contentDescription="@null"
-                android:onClick="backbtnGame" />
-        
-        
-        
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/backbtn"
+            android:contentDescription="@null"
+            android:onClick="backbtnGame" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:background="#FFB03A" />
+    
+    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
