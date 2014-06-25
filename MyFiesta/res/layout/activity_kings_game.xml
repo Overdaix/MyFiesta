@@ -185,7 +185,7 @@
 \n
 6: If the player need to take a shot you can pass it to someone else. (You can keep the car till you need to drink)\n
 \n
-7: As group everyone needs to count. Every one takes a turn and needs to count up: 1,2,3 etc. the numbers that are in a multiplication table of 7 can't be used!(1X7=,3X7=) apse the numbers containing a 7 can't be used(7, 37,107) the player who doesn't follow these rules/make a mistake needs to take a shot.\n
+7: As group everyone needs to count. Every one takes a turn and needs to count up: 1,2,3 etc. the numbers that are in a multiplication table of 7 can&apos;t be used!(1X7=,3X7=) apse the numbers containing a 7 can&apos;t be used(7, 37,107) the player who doesn&apos;t follow these rules/make a mistake needs to take a shot.\n
 \n
 8: Make a new rule. Every player that doesn’t follow this rule will get punish by taking 1 shot.\n
 \n
@@ -210,7 +210,8 @@ A: Change the rotation of drawing cards. The rotation changes to opposite direct
                     android:background="@drawable/btn"
                     android:onClick="start"
                     android:orientation="vertical"
-                    android:text="Start Game!" />
+                    android:text="Start Game!"
+                    android:textColor="#FFFFFF" />
             </LinearLayout>
 
             <LinearLayout

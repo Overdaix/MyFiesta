@@ -176,7 +176,8 @@
                     android:background="@drawable/btn"
                     android:onClick="start"
                     android:orientation="vertical"
-                    android:text="Start Game!" />
+                    android:text="Start Game!"
+                    android:textColor="#FFFFFF" />
                 
             </LinearLayout>
 
