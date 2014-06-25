@@ -38,8 +38,8 @@
     <string name="PowerHour_game">Power Hour</string>
     <string name="FuzyDuck_game">Fuzy Duck</string>
     <string name="Animal_game">Animal</string>
-    <string name="CardGame1">Card game</string>
-    <string name="RedOrBlackGame">Red Or Black</string>
+    <string name="CardGame1">Higher or Lower</string>
+    <string name="RedOrBlackGame">Blue or Orange</string>
     <string name="Calculator_game">Calculate</string>
     <string name="game_information">Information:</string>
     <string name="whatyouneed">What you need:</string>
