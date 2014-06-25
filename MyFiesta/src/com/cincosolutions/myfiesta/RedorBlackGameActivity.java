@@ -44,5 +44,10 @@ public class RedorBlackGameActivity extends Activity {
 		Intent back = new Intent("com.cincosolutions.myfiesta.GAMESACTIVITY");
 		startActivity(back);
 	}
+	
+	public void start(View v) {
+		Intent start = new Intent("com.cincosolutions.myfiesta.BOGAME");
+		startActivity(start);
+	}
 
 }
