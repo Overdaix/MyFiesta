@@ -10,7 +10,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 public class MenuActivity extends Activity implements SimpleGestureListener {
 	private SimpleGestureFilter detector;
@@ -70,12 +69,12 @@ public class MenuActivity extends Activity implements SimpleGestureListener {
 			break;
 
 		}
-		Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
 	public void onDoubleTap() {
-		Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
 	}
 
 	public void GamesAct(View v) {
