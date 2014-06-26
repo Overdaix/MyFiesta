@@ -105,10 +105,12 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 				parent, false);
 		llPrefContainer.addView(view);
 		view.setVisibility(View.GONE);
-
+		//Add the preference layout to the activity and set the visibility to gone
+		
 		llPrefContainerContents = (LinearLayout) findViewById(R.id.llPrefContents);
 		String url = "http://myfiesta.jeroendboer.nl/webservice1.asmx";
-		webService = new WebService1(this, url);
+		webService = new WebService1(this, url);	//Initialize webservice
+		
 		rad1 = (RadioButton) findViewById(R.id.radDrinks1);
 		rad2 = (RadioButton) findViewById(R.id.radDrinks2);
 
@@ -133,6 +135,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					btnAddIngredient.setEnabled(false);
 					btnSearch.setEnabled(false);
 					btnWis.setEnabled(false);
+					//If radiobutton is pressed, disable all buttons and set the colors to gray.
 				} else if (rad2.isChecked()) {
 					View root = llPrefContainerContents.getRootView();
 
@@ -143,6 +146,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					btnAddIngredient.setEnabled(true);
 					btnSearch.setEnabled(true);
 					btnWis.setEnabled(true);
+					//if radiobutton 2 is pressed, enable all buttons and set the text to white
 				}
 			}
 		});
@@ -160,12 +164,12 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					btnPrefs.setImageResource(R.drawable.filter1);
 					view.setVisibility(View.VISIBLE);
 					etSearch = (AutoCompleteTextView) findViewById(R.id.etIngredient);
-					String[] mStringArray = new String[ingredientnamen.size()];
-					mStringArray = ingredientnamen.toArray(mStringArray);
+					String[] mStringArray = new String[ingredientnamen.size()];	
+					mStringArray = ingredientnamen.toArray(mStringArray);	//Convert arraylist of ingredientnames to string array
 					ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-							DrinksMenu.this,
-							android.R.layout.simple_list_item_1, mStringArray);
-					etSearch.setAdapter(adapter);
+							DrinksMenu.this,									
+							android.R.layout.simple_list_item_1, mStringArray);		
+					etSearch.setAdapter(adapter);							//Set the autocompleteadapter to the adapter included with ingredientnames
 
 					btnAddIngredient = (Button) findViewById(R.id.btnAddIngredient);
 					btnAddIngredient
@@ -173,21 +177,22 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 								public void onClick(View v) {
 									if (etSearch.getText().toString().length() < 1) {
 										Context context = getApplicationContext();
-										CharSequence text =  "Enter an ingredi�nt";
+										CharSequence text =  "Enter an ingredient";
 										int duration = Toast.LENGTH_SHORT;
 
 										Toast toast = Toast.makeText(
 												context, text, duration);
 										toast.show();
+										//Show a toast when no ingredient is entered
 									}
-									else{
-										
+									else
+									{										
 										String ingredientinput = etSearch
 												.getText().toString();
 
 										ingredientinput = ingredientinput
 												.substring(0, 1).toUpperCase()
-												+ ingredientinput.substring(1);
+												+ ingredientinput.substring(1);		//Set the first letter of the input to an upper case
 
 										if (ingredientnamen
 												.contains(ingredientinput)) {
@@ -195,24 +200,19 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 											final TextView tv = new TextView(
 													DrinksMenu.this);
-											ImageView remove = new ImageView(
-													DrinksMenu.this);
-
-											remove.setLayoutParams(new ViewGroup.LayoutParams(
-													ViewGroup.LayoutParams.WRAP_CONTENT,
-													ViewGroup.LayoutParams.WRAP_CONTENT));
-
+											
 											tvCounter++;
 											tv.setText(ingredientinput);
 											tv.setLayoutParams(new LayoutParams(
 													LayoutParams.WRAP_CONTENT,
 													LayoutParams.WRAP_CONTENT));
-											remove.setId(tvCounter);
 
 											tv.setTextColor(Color.WHITE);
 
 											tv.setId(tvCounter);
 											tv.setClickable(true);
+											
+											//Add a textview from the input of ingredientinput. 
 											tv.setOnClickListener(new View.OnClickListener() {
 
 												@Override
@@ -223,6 +223,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 													llIngredient.removeView(tv);
 													ingredienten.remove(tv.getText().toString());
+													//If the textview is clicked remove it from the array and view
 												}
 											});
 											llIngredient.addView(tv);
@@ -230,12 +231,13 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 											ingredienten.add(ingredientinput);
 											Context context = getApplicationContext();
 											CharSequence text = ingredientinput
-													+ " added to ingredi�nts list";
+													+ " added to ingredients list";
 											int duration = Toast.LENGTH_SHORT;
 
 											Toast toast = Toast.makeText(
 													context, text, duration);
 											toast.show();
+											//add the textview to the view and add it to the array of ingredients
 											
 
 										} else {
@@ -247,6 +249,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 											Toast toast = Toast.makeText(
 													context, text, duration);
 											toast.show();
+											//If the input doesn't exist in the array of ingredients, it doesn't exist. Show Toast.
 										}
 									}
 								
@@ -260,7 +263,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 					booPrefClicked = false;
 					InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 					imm.hideSoftInputFromWindow(etSearch.getWindowToken(), 0);
-
+					//If the preference button is clicked while te preferences view is inflated, hide.
 				}
 				
 			}
@@ -318,16 +321,16 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 				.getDefaultSharedPreferences(this);
 		final SharedPreferences.Editor editor = app_preferences.edit();
 
-		// Manual adding Drink1 (baco) to favorites for testing.
-		/*
-		 * editor.putString("Drink1", "Drink1"); editor.commit(); // Very
-		 * important
-		 */
+		//Manual adding Drink1 (baco) to favorites for testing.
+		
+		  editor.putString("Drink1", "Drink1"); editor.commit();
+		  // Veryimportant
+		 
 
-		/*
-		 * //Manual deleting Drink1 from favorites. editor.remove("Drink1");
-		 * editor.commit();
-		 */
+		
+		 //Manual deleting Drink1 from favorites. editor.remove("Drink1");
+		  editor.commit();
+		 
 
 	}
 
@@ -398,6 +401,7 @@ public class DrinksMenu extends Activity implements SimpleGestureListener,
 
 				}
 			});
+		
 
 		} else if (methodName == "GetIngredients") {
 			ArrayList<Ingredient> ingredientslist = new ArrayList<Ingredient>();

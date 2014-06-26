@@ -37,6 +37,7 @@ public class DrinkInfo extends Activity implements IWsdl2CodeEvents {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.drink_info);
 		String url = "http://myfiesta.jeroendboer.nl/webservice1.asmx";
 		webService = new WebService1(this, url);

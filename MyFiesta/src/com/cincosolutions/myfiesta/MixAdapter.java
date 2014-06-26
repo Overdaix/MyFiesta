@@ -17,15 +17,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.Wsdl2Code.WebServices.WebService1.Mix;
+import com.Wsdl2Code.WebServices.WebService1.WebService1;
 
 
 
 public class MixAdapter extends BaseAdapter {
 
+	private com.Wsdl2Code.WebServices.WebService1.Mix mix;
 	private int[] colors = new int[] { 0x30fffae7, 0x30f3d75c };
 	private final Context context;
+	private WebService1 webService;
 	private final ArrayList<Mix> mixes;
 	private final int rowResourceId;
+	private com.Wsdl2Code.WebServices.WebService1.Ingredient ingredient;
+	 ArrayList<String> ingredientnamen = new ArrayList<String>();
+		private String mStringArray[];
 
 	public MixAdapter(Context context, int textViewResourceId,
 			ArrayList<Mix> objects) {
@@ -53,7 +59,19 @@ public class MixAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		
+		try {
+			// VectorAssignment v = webservice.FindOpdrachtenAndroid(melding.id,
+			// persoonGUID);
+			webService.GetMixIngredientsAsync(mix.naam);
+			
+		
+		
 
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 	
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(rowResourceId, parent, false);
@@ -71,6 +89,7 @@ public class MixAdapter extends BaseAdapter {
 
 					}
 				
+				
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -83,6 +102,11 @@ public class MixAdapter extends BaseAdapter {
 				if (mix.naam != null) {
 					textView1
 							.setText(mix.naam + " ");
+				}
+				if(ingredient.name != null){
+				TextView textView2 = (TextView) rowView
+						.findViewById(R.id.secondline);
+					textView2.setText(ingredient.name + "");
 				}
 			} catch (Exception ex) {
 				ex.printStackTrace();

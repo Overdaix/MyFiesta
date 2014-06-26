@@ -11,8 +11,10 @@ import android.renderscript.RenderScript.Priority;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -99,7 +101,7 @@ public class DrinkAdapter extends BaseAdapter {
 				    } else {
 				     btnFavo.setImageResource(R.drawable.favo2);
 				    }
-				    
+				   				    
 
 				   } catch (Exception e) {
 				    // TODO Auto-generated catch block
@@ -111,8 +113,8 @@ public class DrinkAdapter extends BaseAdapter {
 			ex.printStackTrace();
 		}
 		return rowView;
-
+		 
 	}
-	
+
 
 }
