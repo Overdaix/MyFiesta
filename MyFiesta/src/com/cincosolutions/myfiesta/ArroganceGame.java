@@ -43,9 +43,13 @@ public class ArroganceGame extends Activity{
 		final EditText et_input = new EditText(this);
 		et_input.setInputType(InputType.TYPE_CLASS_NUMBER);
 		alert.setView(et_input);
-
 		alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 		public void onClick(DialogInterface dialog, int whichButton) {
+			if(et_input.getText().toString().length() < 1){
+				Toast.makeText(getApplicationContext(), "Number can't be empty..",
+						   Toast.LENGTH_SHORT).show();
+				checkNumber();
+			}
 			bNext.setVisibility(View.INVISIBLE);
 			bThrow.setVisibility(View.VISIBLE);
 			number = Integer.parseInt(et_input.getText().toString());

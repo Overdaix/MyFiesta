@@ -88,13 +88,16 @@ public class BOgame extends Activity{
 			}
 			.start();
 		if(!cards.contains("card" + card)){
+			//Play sound
 			MediaPlayer mpCard = MediaPlayer.create(this, R.raw.card);
+			//If its not the first card (first = true)
 			if(first == true){
 				ivCard.startAnimation(AnimationUtils.loadAnimation(BOgame.this, android.R.anim.slide_out_right));
 				ivCard.setVisibility(View.INVISIBLE);
 				bBlue.setVisibility(View.INVISIBLE);
 				bOrange.setVisibility(View.INVISIBLE);
 			}
+			//If sound is not off (Options)
 			SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
 			boolean boAudio = app_preferences.getBoolean("booAudio", true);
 			if(!boAudio){
